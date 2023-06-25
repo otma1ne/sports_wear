@@ -1,1 +1,187 @@
-/* You can add global styles to this file, and also import other style files */
+@use "./styles/variables";
+@use "./styles/mixins";
+
+@import "~swiper/swiper-bundle.css";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+/* scroll bar style */
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: white;
+}
+
+::-webkit-scrollbar-thumb {
+    background: variables.$black-color2;
+    border-radius: 8px;
+}
+
+.max__width {
+    padding: 0 140px;
+    width: 100%;
+    max-width: 2000px;
+    margin: auto;
+    height: 100%;
+}
+
+body {
+    @include mixins.body1;
+    font-family: variables.$font-stack;
+}
+
+.form__control {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    label {
+        @include mixins.body3;
+        color: variables.$black-color1;
+        font-weight: 500;
+    }
+
+    .error {
+        display: none;
+        @include mixins.body3;
+        color: variables.$error-color;
+    }
+}
+
+.form__control.error {
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    textarea {
+        border: 1px solid variables.$error-color;
+    }
+
+    .error {
+        display: block;
+        @include mixins.body3;
+        color: variables.$error-color;
+    }
+}
+
+.form__control.checkbox {
+    flex-direction: row;
+    align-items: center;
+
+    label {
+        @include mixins.body3;
+        color: variables.$black-color3;
+
+        span {
+            color: variables.$black-color1;
+            font-weight: 600;
+            cursor: pointer;
+        }
+    }
+}
+
+/* Inputs style */
+
+.text__input {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+    svg {
+        position: absolute;
+        left: 10px;
+        width: 20px;
+        stroke: variables.$gray-color1;
+    }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+textarea {
+    font-family: variables.$font-stack;
+    @include mixins.body3;
+    width: 100%;
+    padding: 10px 16px 10px 36px;
+    border: 1px solid variables.$gray-color2;
+    border-radius: variables.$border-radius;
+    transition: 0.3s ease-in-out;
+}
+
+input[type="text"].noicon,
+input[type="email"].noicon,
+input[type="password"].noicon,
+textarea {
+    padding: 10px 16px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+textarea:focus {
+    border: 1px solid variables.$primary-color1;
+}
+
+input[type="checkbox"] {
+    width: max-content;
+    accent-color: variables.$black-color1;
+}
+
+select {
+    width: 100%;
+}
+
+/* ant design customization */
+
+.ant-select {
+    min-width: 200px !important;
+
+    .ant-select-selector {
+        font-family: variables.$font-stack !important;
+        font-size: 13px !important;
+        border-radius: variables.$border-radius !important;
+    }
+
+    .ant-select-arrow {
+        svg {
+            stroke: variables.$primary-color1 !important;
+            width: 16px;
+        }
+    }
+}
+
+/* Responsive style */
+
+@media screen and (max-width: variables.$medium-size) {
+    .max__width {
+        padding: 0 80px;
+    }
+}
+
+@media screen and (max-width: variables.$small-size) {
+    .max__width {
+        padding: 0 40px;
+    }
+}
+
+@media screen and (max-width: variables.$smaller-size) {
+    .max__width {
+        padding: 0 20px;
+    }
+}

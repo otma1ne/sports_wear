@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+/* Global */
+$font-stack: Bebas Neue, sans-serif;
+$box-shadow: rgba(17, 17, 26, 0.05) 0px 0px 16px;
+$border-radius: 4px;
+$default-gradient: linear-gradient(160deg, #7981ff, #f2a3ff);
+$padding: 32px;
+$max-width: 1400px;
+
+/* Primary colors */
+$primary-color1: #6971f9;
+$primary-color2: #7981ff;
+$primary-color3: #8e95ff;
+
+/* Black colors */
+$black-color1: #222629;
+$black-color2: #343a40;
+$black-color3: #495057;
+
+/* Gray colors */
+$gray-color1: #89939e;
+$gray-color2: #d2d6db;
+$gray-color3: #f5f7fa;
+
+/* White color */
+$white-color: #ffffff;
+
+/* System colors */
+$succes-color: #2f9e44;
+$warning-color: #ffd43b;
+$error-color: #e03131;
+
+/* Screen sizes */
+
+$larger-size: 1400px;
+$large-size: 1200px;
+$medium-size: 992px;
+$small-size: 768px;
+$smaller-size: 600px;

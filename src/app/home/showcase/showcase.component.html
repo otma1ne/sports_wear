@@ -1,0 +1,88 @@
+<section class="showcase">
+    <div class="max__width">
+        <div class="container">
+            <div class="navigation">
+                <div class="text__divider">
+                    <div class="divider">
+                        <div class="nav__overlay"></div>
+                    </div>
+                    <div class="text">
+                        FREE SHIPPNG OVER ORDER $120
+                        <div class="nav__txt__overlay"></div>
+                    </div>
+                </div>
+                <div class="steps__container">
+                    <div class="number">
+                        {{ currentPage < 10 ? '0' + currentPage : currentPage }} </div>
+                            <div class="steps">
+                                <div *ngFor="let step of [1, 2, 3]; let index = index" class="step"
+                                    [ngClass]="{active : currentPage  === step}" (click)="slideToIndex(index)">
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <swiper #swiper [config]="config" (swiper)="onSwiper($event)" (slideChange)="onSlideChange()">
+                    <ng-template swiperSlide>
+                        <div class="slide">
+                            <div class="discount__img">
+                                <div class="text__showcase">
+                                    <div class="bigger">
+                                        <span class="text__anim__1">Exclusive</span>
+                                        <div class="text__overlay"></div>
+                                    </div>
+                                    <div class="smaller text__anim__2">Racerback sport</div>
+                                </div>
+                                <img src="../../../assets/images/slider3-5.webp" alt="text discount"
+                                    class="img__discount">
+                            </div>
+                            <div class="showcase__img">
+                                <div class="overlay"></div>
+                                <img src="../../../assets/images/slider3-1.webp" alt="showcase img"
+                                    class="img__showcase">
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template swiperSlide>
+                        <div class="slide">
+                            <div class="discount__img">
+                                <div class="text__showcase">
+                                    <div class="bigger">
+                                        <span class="text__anim__1">Project</span>
+                                        <div class="text__overlay"></div>
+                                    </div>
+                                    <div class="smaller text__anim__2">Rockcollection</div>
+                                </div>
+                                <img src="../../../assets/images/slider3-5.webp" alt="text discount"
+                                    class="img__discount">
+                            </div>
+                            <div class="showcase__img">
+                                <div class="overlay"></div>
+                                <img src="../../../assets/images/slider3-2.webp" alt="showcase img"
+                                    class="img__showcase">
+                            </div>
+                        </div>
+                    </ng-template>
+                    <ng-template swiperSlide>
+                        <div class="slide">
+                            <div class="discount__img">
+                                <div class="text__showcase">
+                                    <div class="bigger">
+                                        <div class="text__anim__1">Support</div>
+                                        <div class="text__overlay"></div>
+                                    </div>
+                                    <div class="smaller text__anim__2">For every sport</div>
+                                </div>
+                                <img src="../../../assets/images/slider3-5.webp" alt="text discount"
+                                    class="img__discount">
+                            </div>
+                            <div class="showcase__img">
+                                <div class="overlay"></div>
+                                <img src="../../../assets/images/slider3-3.webp" alt="showcase img"
+                                    class="img__showcase">
+                            </div>
+                        </div>
+                    </ng-template>
+                </swiper>
+            </div>
+        </div>
+</section>
