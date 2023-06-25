@@ -1,0 +1,22 @@
+<section class="categories">
+    <div class="max__width">
+        <div class="header">
+            <ul class="categories__list">
+                <li class="active">Top Rating</li>
+                <li>Best selling</li>
+                <li>Featured</li>
+            </ul>
+            <div class="navigations">
+                <button>
+                    <div class="svg__icon__container" svgIcon="arrow-left" size="16"></div>
+                </button>
+                <button>
+                    <div class="svg__icon__container" svgIcon="arrow-right" size="16"></div>
+                </button>
+            </div>
+        </div>
+        <div class="container">
+            <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+        </div>
+    </div>
+</section>

@@ -39,7 +39,8 @@ nav {
             gap: 15px;
             align-items: center;
 
-            svg {
+            .icon__container {
+                stroke: black;
                 cursor: pointer;
             }
         }

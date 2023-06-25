@@ -29,7 +29,9 @@ export class ShowcaseComponent {
     slidesPerView: 1,
     spaceBetween: 50,
     effect: 'fade',
-    autoplay: true,
+    autoplay: {
+      delay: 5000,
+    },
     allowTouchMove: false,
   };
 

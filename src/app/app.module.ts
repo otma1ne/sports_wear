@@ -10,8 +10,12 @@ import { SvgIconDirective } from './shared/svg-icon/svg-icon.directive';
 import { ShowcaseComponent } from './home/showcase/showcase.component';
 import { CollectionsComponent } from './home/collections/collections.component';
 
-import { SwiperModule } from 'swiper/angular';
 import { PrimaryBtnComponent } from './shared/primary-btn/primary-btn.component';
+import { CategoriesComponent } from './home/categories/categories.component';
+import { ProductCardComponent } from './shared/product-card/product-card.component';
+
+import { SwiperModule } from 'swiper/angular';
+import { StarRatingModule } from 'angular-star-rating';
 
 @NgModule({
   declarations: [
@@ -23,8 +27,10 @@ import { PrimaryBtnComponent } from './shared/primary-btn/primary-btn.component'
     ShowcaseComponent,
     CollectionsComponent,
     PrimaryBtnComponent,
+    CategoriesComponent,
+    ProductCardComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, SwiperModule],
+  imports: [BrowserModule, AppRoutingModule, SwiperModule, StarRatingModule.forRoot()],
   providers: [],
   bootstrap: [AppComponent],
 })

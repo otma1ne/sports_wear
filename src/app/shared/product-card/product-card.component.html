@@ -1,0 +1,23 @@
+<div class="card">
+    <div class="img__container" (mouseenter)="onHoverStart()" (mouseleave)="onHoverEnd()">
+        <img [src]="'../../../assets/images/products/' + product!.images[currentImg]" alt="product">
+
+    </div>
+    <div class="content">
+        <div class="info__header">
+            <div class="category">
+                Mens
+            </div>
+            <div class="ratings">
+                <star-rating [starType]="'svg'" [rating]="product?.rating ?? 0" size="small"
+                    staticColor="ok"></star-rating>
+            </div>
+        </div>
+        <div class="name">{{product?.name}}</div>
+        <div class="price">${{product?.price?.toFixed(2)}}</div>
+        <button class="add__tocart">
+            <div class="icon__container" svgIcon="Bag" size="18"></div>
+            add to cart
+        </button>
+    </div>
+</div>

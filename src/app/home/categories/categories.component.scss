@@ -1,0 +1,77 @@
+@use "../../../styles/variables";
+@use "../../../styles/mixins";
+
+.categories {
+    margin: 100px 0;
+
+    .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .categories__list {
+            display: flex;
+            gap: 20px;
+
+            li {
+                position: relative;
+                @include mixins.body1;
+                cursor: pointer;
+
+                &::after {
+                    content: "";
+                    width: 0;
+                    height: 1px;
+                    background: #ff3535;
+                    bottom: -4px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    position: absolute;
+                    transition: all .3s ease;
+                }
+
+                &:hover::after,
+                &.active::after {
+                    width: 100%;
+                }
+
+            }
+        }
+
+        .navigations {
+            display: flex;
+            gap: 10px;
+
+            button {
+                background-color: transparent;
+                border: 1px solid black;
+                padding: 2px 8px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: all .3s ease;
+
+                div {
+                    height: 16px;
+                }
+
+                &:hover {
+                    background-color: black;
+                    border: 1px solid black;
+
+                    .svg__icon__container {
+                        fill: white;
+                    }
+                }
+            }
+        }
+    }
+
+    .container {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+}

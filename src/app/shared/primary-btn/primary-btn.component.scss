@@ -1,13 +1,36 @@
 @use "../../../styles/variables";
 
 .primary__btn {
-    padding: 10px 16px;
+    position: relative;
+    padding: 8px 24px;
     background-color: transparent;
+    border: 1px solid white;
     border: 1px solid white;
     text-transform: uppercase;
     font-family: variables.$font-stack;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     font-size: 10px;
     color: white;
     cursor: pointer;
+    transition: .3s ease-in-out;
+
+    &::after {
+        content: "";
+        width: 0;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: variables.$primary-color1;
+        z-index: -1;
+        transition: .3s ease-in-out;
+    }
+
+    &:hover{
+        border: 1px solid variables.$primary-color1;
+    }
+
+    &:hover:after {
+        width: 100%;
+    }
 }
