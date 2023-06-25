@@ -1,0 +1,61 @@
+@use "../../../styles/variables";
+@use "../../../styles/mixins";
+
+.collections {
+    margin: 100px 0;
+
+    .main__title {
+        text-align: center;
+
+        .title {
+            @include mixins.headline3;
+        }
+
+        .subtitle {
+            margin-top: 4px;
+            font-family: variables.$font-stack2;
+            @include mixins.body2;
+            color: variables.$gray-color1;
+            font-weight: 300;
+        }
+    }
+
+    .container {
+        margin-top: 40px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+
+        .card {
+            position: relative;
+            aspect-ratio: 5/3;
+            overflow: hidden;
+
+            img {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                z-index: -1;
+            }
+
+            .content {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-end;
+                align-items: center;
+                gap: 24px;
+                padding: 40px;
+
+                .title {
+                    color: white;
+                    font-size: 40px;
+                }
+            }
+        }
+    }
+}

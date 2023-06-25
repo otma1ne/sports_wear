@@ -19,11 +19,11 @@
 }
 
 ::-webkit-scrollbar-track {
-    background: white;
+    background: variables.$white-color;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: variables.$black-color2;
+    background: black;
     border-radius: 8px;
 }
 
@@ -48,7 +48,7 @@ body {
 
     label {
         @include mixins.body3;
-        color: variables.$black-color1;
+        color: black;
         font-weight: 500;
     }
 
@@ -81,10 +81,10 @@ body {
 
     label {
         @include mixins.body3;
-        color: variables.$black-color3;
+        color: black;
 
         span {
-            color: variables.$black-color1;
+            color: black;
             font-weight: 600;
             cursor: pointer;
         }
@@ -140,7 +140,7 @@ textarea:focus {
 
 input[type="checkbox"] {
     width: max-content;
-    accent-color: variables.$black-color1;
+    accent-color: black;
 }
 
 select {

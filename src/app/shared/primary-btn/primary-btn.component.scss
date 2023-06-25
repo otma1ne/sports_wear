@@ -1,0 +1,13 @@
+@use "../../../styles/variables";
+
+.primary__btn {
+    padding: 10px 16px;
+    background-color: transparent;
+    border: 1px solid white;
+    text-transform: uppercase;
+    font-family: variables.$font-stack;
+    letter-spacing: 2px;
+    font-size: 10px;
+    color: white;
+    cursor: pointer;
+}

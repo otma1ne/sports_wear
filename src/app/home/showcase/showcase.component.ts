@@ -69,8 +69,8 @@ export class ShowcaseComponent {
 
     gsap.from(this.document.getElementsByClassName('text__anim__2'), {
       duration: 0.3,
-      delay: 0.7,
-      y: '100%',
+      delay: 0.8,
+      y: '200%',
       opacity: 0.5,
     });
 
