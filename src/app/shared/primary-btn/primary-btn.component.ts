@@ -7,4 +7,5 @@ import { Component, Input } from '@angular/core';
 })
 export class PrimaryBtnComponent {
   @Input() textBtn: String = '';
+  @Input() theme: String = '';
 }

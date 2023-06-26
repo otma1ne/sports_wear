@@ -34,6 +34,10 @@
     max-width: 2000px;
     margin: auto;
     height: 100%;
+
+    &.no__padding {
+        padding: 0
+    }
 }
 
 body {
