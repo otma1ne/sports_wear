@@ -17,6 +17,8 @@ export class CategoriesComponent {
       ],
       rating: 5,
       price: 265,
+      isHot: true,
+      isSale: false,
     },
     {
       id: 'product2',
@@ -27,6 +29,8 @@ export class CategoriesComponent {
       ],
       rating: 3,
       price: 265,
+      isHot: true,
+      isSale: false,
     },
     {
       id: 'product3',
@@ -37,6 +41,9 @@ export class CategoriesComponent {
       ],
       rating: 4,
       price: 265,
+      isHot: true,
+      isSale: true,
+      salePercentage: 10,
     },
     {
       id: 'product4',
@@ -47,6 +54,8 @@ export class CategoriesComponent {
       ],
       rating: 4,
       price: 265,
+      isHot: true,
+      isSale: false,
     },
   ];
 }

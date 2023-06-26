@@ -16,6 +16,7 @@ import { ProductCardComponent } from './shared/product-card/product-card.compone
 
 import { SwiperModule } from 'swiper/angular';
 import { StarRatingModule } from 'angular-star-rating';
+import { Collections2Component } from './home/collections2/collections2.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { StarRatingModule } from 'angular-star-rating';
     PrimaryBtnComponent,
     CategoriesComponent,
     ProductCardComponent,
+    Collections2Component,
   ],
   imports: [BrowserModule, AppRoutingModule, SwiperModule, StarRatingModule.forRoot()],
   providers: [],

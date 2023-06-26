@@ -1,7 +1,14 @@
 <div class="card">
     <div class="img__container" (mouseenter)="onHoverStart()" (mouseleave)="onHoverEnd()">
         <img [src]="'../../../assets/images/products/' + product!.images[currentImg]" alt="product">
-
+        <div class="info__container">
+            <div class="sale" *ngIf="product?.isHot && product?.isSale ?? false">-{{product!.salePercentage}}%</div>
+            <div class="hot" *ngIf="product?.isHot ?? false">Hot</div>
+        </div>
+        <div class="icons__container">
+            <div class="icon__container" svgIcon="Bag" size="16"></div>
+            <div class="icon__container" svgIcon="User" size="16"></div>
+        </div>
     </div>
     <div class="content">
         <div class="info__header">
