@@ -119,9 +119,8 @@ textarea {
     font-family: variables.$font-stack;
     @include mixins.body3;
     width: 100%;
-    padding: 10px 16px 10px 36px;
+    padding: 6px 16px;
     border: 1px solid variables.$gray-color2;
-    border-radius: variables.$border-radius;
     transition: 0.3s ease-in-out;
 }
 
