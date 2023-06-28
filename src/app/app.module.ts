@@ -18,6 +18,7 @@ import { SwiperModule } from 'swiper/angular';
 import { StarRatingModule } from 'angular-star-rating';
 import { Collections2Component } from './home/collections2/collections2.component';
 import { BrandsComponent } from './home/brands/brands.component';
+import { NewsletterComponent } from './home/newsletter/newsletter.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { BrandsComponent } from './home/brands/brands.component';
     ProductCardComponent,
     Collections2Component,
     BrandsComponent,
+    NewsletterComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, SwiperModule, StarRatingModule.forRoot()],
   providers: [],
