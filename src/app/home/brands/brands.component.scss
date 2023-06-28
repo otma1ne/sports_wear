@@ -1,0 +1,24 @@
+@use "../../../styles/variables";
+@use "../../../styles/mixins";
+
+.brands {
+    margin-top: 100px;
+
+    swiper {
+
+        border: 1px solid #ccc;
+
+        .brand {
+            border-right: 1px solid #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            img {
+                width: 50%;
+            }
+        }
+
+    }
+
+}
