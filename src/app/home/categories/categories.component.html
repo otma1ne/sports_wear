@@ -16,7 +16,11 @@
             </div>
         </div>
         <div class="container">
-            <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+            <swiper #swiper [config]="config">
+                <ng-template swiperSlide *ngFor="let product of products">
+                    <app-product-card [product]="product"></app-product-card>
+                </ng-template>
+            </swiper>
         </div>
     </div>
 </section>
