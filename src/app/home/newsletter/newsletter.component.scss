@@ -35,3 +35,15 @@
         }
     }
 }
+
+/* Responsive style */
+
+@media screen and (max-width: 998px) {
+
+    .newsletter {
+
+        .container {
+            grid-template-columns: 1fr;
+        }
+    }
+}

@@ -54,3 +54,32 @@ footer {
         }
     }
 }
+
+/* Responsive style */
+
+@media screen and (max-width: 1300px) {
+    footer {
+
+        .list {
+            grid-template-columns: repeat(3, minmax(280px, 400px));
+        }
+    }
+}
+
+@media screen and (max-width: 998px) {
+    footer {
+
+        .list {
+            grid-template-columns: repeat(2, minmax(280px, 400px));
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    footer {
+
+        .list {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}

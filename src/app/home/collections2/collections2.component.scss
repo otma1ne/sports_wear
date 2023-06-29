@@ -71,3 +71,57 @@
         }
     }
 }
+
+/* Responsive style */
+
+@media screen and (max-width: 1350px) {
+    .collections2 {
+        .container {
+
+            .card__container {
+
+                .card__title {
+                    font-size: 50px;
+                    line-height: 54px;
+                    margin: 30px;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 1200px) {
+    .collections2 {
+        .container {
+            grid-template-columns: 2fr 1.3fr;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .collections2 {
+        .container {
+            grid-template-columns: 1fr;
+
+            .card__container {
+
+                .card__title {
+                    display: none;
+                }
+            }
+
+            .card {
+                aspect-ratio: 4/2;
+
+                img {
+                    object-position: top;
+                }
+
+
+                &.square {
+                    aspect-ratio: 4/2;
+                }
+            }
+        }
+    }
+}
