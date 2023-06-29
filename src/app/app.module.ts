@@ -19,6 +19,8 @@ import { StarRatingModule } from 'angular-star-rating';
 import { Collections2Component } from './home/collections2/collections2.component';
 import { BrandsComponent } from './home/brands/brands.component';
 import { NewsletterComponent } from './home/newsletter/newsletter.component';
+import { LoaderComponent } from './shared/loader/loader.component';
+import { ShopComponent } from './shop/shop.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,8 @@ import { NewsletterComponent } from './home/newsletter/newsletter.component';
     Collections2Component,
     BrandsComponent,
     NewsletterComponent,
+    LoaderComponent,
+    ShopComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, SwiperModule, StarRatingModule.forRoot()],
   providers: [],
