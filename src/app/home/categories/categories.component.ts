@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { Product } from 'src/app/shared/models/product';
+import { SwiperOptions } from 'swiper';
+import { SwiperComponent } from 'swiper/angular';
 
 @Component({
   selector: 'app-categories',
@@ -7,6 +9,7 @@ import { Product } from 'src/app/shared/models/product';
   styleUrls: ['./categories.component.scss'],
 })
 export class CategoriesComponent {
+  @ViewChild('swiper', { static: false }) swiper?: SwiperComponent;
   products: Product[] = [
     {
       id: 'product1',
@@ -58,4 +61,26 @@ export class CategoriesComponent {
       isSale: false,
     },
   ];
+
+  config: SwiperOptions = {
+    slidesPerView: 4,
+    spaceBetween: 20,
+    autoplay: {
+      delay: 5000,
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+      },
+      500: {
+        slidesPerView: 2,
+      },
+      768: {
+        slidesPerView: 3,
+      },
+      998: {
+        slidesPerView: 4,
+      },
+    },
+  };
 }

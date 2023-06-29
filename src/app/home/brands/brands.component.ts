@@ -10,6 +10,20 @@ export class BrandsComponent {
   config: SwiperOptions = {
     slidesPerView: 5,
     spaceBetween: 0,
-    loop : true,
+    loop: true,
+    breakpoints: {
+      0: {
+        slidesPerView: 2,
+      },
+      600: {
+        slidesPerView: 3,
+      },
+      998: {
+        slidesPerView: 4,
+      },
+      1200: {
+        slidesPerView: 5,
+      },
+    },
   };
 }

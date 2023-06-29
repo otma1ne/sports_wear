@@ -64,3 +64,25 @@
         }
     }
 }
+
+/* Responsive style */
+
+@media screen and (max-width: 998px) {
+    .collections {
+
+        .container {
+            grid-template-columns: 1fr;
+
+            .card {
+                .content {
+                    padding: 20px;
+                    gap: 12px;
+
+                    .title {
+                        font-size: 30px;
+                    }
+                }
+            }
+        }
+    }
+}

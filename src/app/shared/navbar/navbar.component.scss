@@ -46,3 +46,25 @@ nav {
         }
     }
 }
+
+/* responsive style */
+
+@media screen and (max-width: 996px) {
+
+    nav {
+        .container {
+            .menu {
+                display: none;
+            }
+
+            .icons {
+
+                .icon__container {
+                    &:not(.menu__icon) {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}
