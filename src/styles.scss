@@ -151,6 +151,11 @@ select {
     width: 100%;
 }
 
+a {
+    text-decoration: none;
+    color: unset;
+}
+
 /* ant design customization */
 
 .ant-select {
