@@ -3,3 +3,14 @@
     width: 100%;
     min-height: calc(100vh - 124px);
 }
+
+/* responsive style */
+
+@media screen and (max-width: 996px) {
+
+    .shop {
+        margin-top: 95px;
+        min-height: calc(100vh - 95px);
+    }
+
+}
