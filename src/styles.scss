@@ -40,6 +40,15 @@
     }
 }
 
+.transition__overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50vw;
+    height: 100vh;
+    background: red;
+}
+
 body {
     @include mixins.body1;
     font-family: variables.$font-stack;
