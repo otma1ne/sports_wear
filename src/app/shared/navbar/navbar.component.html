@@ -1,21 +1,41 @@
-<nav>
+<nav [ngClass]="{ 'scrolled': isScrolled }">
+    <div class="header">
+        <div class="container__header max__width">
+            <div class="pub">
+                <div class="icon__container" svgIcon="Refund_back" size="14"></div>
+                <p>We’ve extended our returns period to 60 days.</p>
+            </div>
+            <div class="info">
+                <div class="email">
+                    <div class="icon__container" svgIcon="Message_light" size="14" color="white"></div>
+                    contact@azura.com
+                </div>
+                <div class="divider"></div>
+                <select (change)="switchLanguage($event)">
+                    <option value="en" translate>En</option>
+                    <option value="fr" translate>Fr</option>
+                </select>
+            </div>
+        </div>
+    </div>
     <div class="max__width">
         <div class="container">
             <div class="logo__container">
                 <img src="../../../assets/images/Logo-dark-1.webp" alt="logo">
             </div>
             <ul class="menu">
-                <li><a routerLink="/">Home</a></li>
-                <li><a routerLink="/shop">Sneakers</a></li>
-                <li><a routerLink="/shop">Underware</a></li>
-                <li><a routerLink="/shop">Boxs</a></li>
-                <li><a routerLink="/shop">Contact</a></li>
+                <li><a routerLink="/">{{ 'NAVBAR.home' | translate }}</a></li>
+                <li><a routerLink="/shop">{{ 'NAVBAR.item1' | translate }}</a></li>
+                <li><a routerLink="/shop">{{ 'NAVBAR.item2' | translate }}</a></li>
+                <li><a routerLink="/shop">{{ 'NAVBAR.item3' | translate }}</a></li>
+                <li><a routerLink="/shop">{{ 'NAVBAR.item4' | translate }}</a></li>
+                <li><a routerLink="/shop">{{ 'NAVBAR.item5' | translate }}</a></li>
             </ul>
             <div class="icons">
                 <div class="icon__container" svgIcon="Search_alt"></div>
                 <div class="icon__container" svgIcon="Bag"></div>
                 <div class="icon__container" svgIcon="User"></div>
-                <div class="icon__container menu__icon" svgIcon="Menu"></div>
+                <div class="icon__container menu__icon" svgIcon="Menu" size="22"></div>
             </div>
         </div>
     </div>

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { LoaderService } from './shared/services/loader.service';
 import { pageTransitions } from './page-transitions';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -10,5 +11,13 @@ import { pageTransitions } from './page-transitions';
 })
 export class AppComponent {
   title = 'sportswear';
-  constructor(public loaderService: LoaderService) {}
+
+  constructor(
+    private translate: TranslateService,
+    public loaderService: LoaderService
+  ) {
+    this.translate.setDefaultLang('en');
+    this.translate.addLangs(['fr', 'en']);
+    this.translate.use(this.translate?.getBrowserLang() ?? 'en');
+  }
 }

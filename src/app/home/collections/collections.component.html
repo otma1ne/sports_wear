@@ -1,26 +1,26 @@
 <section class="collections">
     <div class="max__width">
         <div class="main__title">
-            <div class="title">New Collections</div>
-            <div class="subtitle">Discover the Trendsetters: Unveiling a World of Exciting New Collections</div>
+            <div class="title">{{ 'HOME.collection.title' | translate }}</div>
+            <div class="subtitle">{{ 'HOME.collection.subtitle' | translate }}</div>
         </div>
         <div class="container">
             <div class="card">
                 <div class="content">
                     <img src="../../../assets/images/img4-1.jpg.webp" alt="collection">
                     <div class="title">
-                        THE ADAPT FAMILY
+                        {{ 'HOME.collection.card1.title' | translate }}
                     </div>
-                    <app-primary-btn textBtn="Shop collection"></app-primary-btn>
+                    <app-primary-btn [textBtn]="'HOME.collection.card2.btn_text' | translate"></app-primary-btn>
                 </div>
             </div>
             <div class="card">
                 <div class="content">
                     <img src="../../../assets/images/img4-2.jpg.webp" alt="collection">
                     <div class="title">
-                        THE ADAPT FAMILY
+                        {{ 'HOME.collection.card2.title' | translate }}
                     </div>
-                    <app-primary-btn textBtn="Shop collection"></app-primary-btn>
+                    <app-primary-btn [textBtn]="'HOME.collection.card2.btn_text' | translate"></app-primary-btn>
                 </div>
             </div>
         </div>

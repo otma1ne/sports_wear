@@ -1,4 +1,95 @@
 {
-  "hello": "Bonjour",
-  "greeting": "Bienvenue, {{name}} !"
+  "NAVBAR": {
+    "home": "Accueil",
+    "item1": "Fitness",
+    "item2": "Hommes",
+    "item3": "Femmes",
+    "item4": "Enfants",
+    "item5": "Chaussures"
+  },
+  "HOME": {
+    "showcase": {
+      "navigation_text": "LIVRAISON GRATUITE POUR TOUTE COMMANDE DE PLUS DE 120 $",
+      "title1": "EXCLUSIF",
+      "text1": "Débardeur de sport",
+      "title2": "PROJET",
+      "text2": "Collection Rock",
+      "title3": "SOUTIEN",
+      "text3": "Pour chaque sport"
+    },
+    "collection": {
+      "title": "Nouvelles Collections",
+      "subtitle": "Découvrez les Tendances : Révélation d'un Monde de Nouvelles Collections Passionnantes",
+      "card1": {
+        "title": "LA FAMILLE ADAPT",
+        "btn_text": "Voir la collection"
+      },
+      "card2": {
+        "title": "COLLECTION FLEX",
+        "btn_text": "Voir la collection"
+      }
+    },
+    "categories": {
+      "item1": "Les mieux notés",
+      "item2": "Meilleures ventes",
+      "item3": "En vedette"
+    },
+    "collection2": {
+      "title": "Collection",
+      "card1": {
+        "title": "HOMMES",
+        "btn_text": "Voir la collection"
+      },
+      "card2": {
+        "title": "FEMMES",
+        "btn_text": "Voir la collection"
+      },
+      "card3": {
+        "title": "ACCESSOIRES",
+        "btn_text": "Voir la collection"
+      }
+    },
+    "newsletter": {
+      "title": "ABONNEZ-VOUS À LA NEWSLETTER",
+      "text": "Inscrivez-vous à notre newsletter et restez à jour avec les dernières collections, les dernières tendances et les meilleures offres !",
+      "btn_placeholder": "Votre adresse e-mail",
+      "send_btn": "Envoyer"
+    }
+  },
+  "FOOTER": {
+    "contact": {
+      "title": "Contact"
+    },
+    "working_hours": {
+      "title": "Horaires d'ouverture",
+      "item1": "Lun - Dim"
+    },
+    "services": {
+      "title": "Services",
+      "item1": "Guides de montage",
+      "item2": "Forfaits de mobilier et aménagements",
+      "item3": "Programme commercial",
+      "item4": "Vente",
+      "item5": "Nouveaux designs",
+      "item6": "Cartes-cadeaux"
+    },
+    "connect": {
+      "title": "Suivez-nous",
+      "item1": "Twitter",
+      "item2": "Facebook",
+      "item3": "Instagram",
+      "item4": "Pinterest",
+      "item5": "Emplois",
+      "item6": "Contact"
+    },
+    "get_help": {
+      "title": "Obtenir de l'aide",
+      "item1": "Contact & FAQ",
+      "item2": "Suivre votre commande",
+      "item3": "Expédition & Livraison",
+      "item4": "Visitez notre studio à Brisbane",
+      "item5": "Financement sans intérêt",
+      "item6": "Cipmoney"
+    }
+  }
 }
