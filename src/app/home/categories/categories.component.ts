@@ -60,6 +60,19 @@ export class CategoriesComponent {
       isHot: true,
       isSale: false,
     },
+    {
+      id: 'product3',
+      name: 'Water Repellent Jacket',
+      images: [
+        'Water-Repellent-Jacket-1.jpg.webp',
+        'Water-Repellent-Jacket-2.jpg.webp',
+      ],
+      rating: 4,
+      price: 265,
+      isHot: true,
+      isSale: true,
+      salePercentage: 10,
+    }
   ];
 
   config: SwiperOptions = {
@@ -83,4 +96,12 @@ export class CategoriesComponent {
       },
     },
   };
+
+  nextSlide(): void {
+    this.swiper?.swiperRef.slideNext();
+  }
+
+  prevSlide(): void {
+    this.swiper?.swiperRef.slidePrev();
+  }
 }

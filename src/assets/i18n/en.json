@@ -1,4 +1,95 @@
 {
-  "hello": "Hello",
-  "greeting": "Welcome, {{name}}!"
+  "NAVBAR": {
+    "home": "Home",
+    "item1": "Fitness",
+    "item2": "Mens",
+    "item3": "Womenes",
+    "item4": "Kids",
+    "item5": "Footwears"
+  },
+  "HOME": {
+    "showcase": {
+      "navigation_text": "FREE SHIPPNG OVER ORDER $120",
+      "title1": "EXCLUSIVE",
+      "text1": "Racerback sport",
+      "title2": "PROJECT",
+      "text2": "Rockcollection",
+      "title3": "SUPPORT",
+      "text3": "For every sport"
+    },
+    "collection": {
+      "title": "New Collections",
+      "subtitle": "Discover the Trendsetters: Unveiling a World of Exciting New Collections",
+      "card1": {
+        "title": "THE ADAPT FAMILY",
+        "btn_text": "Shop collection"
+      },
+      "card2": {
+        "title": "FLEX COLLECTION",
+        "btn_text": "Shop collection"
+      }
+    },
+    "categories": {
+      "item1": "Top rating",
+      "item2": "Best selling",
+      "item3": "Featured"
+    },
+    "collection2": {
+      "title": "Collection",
+      "card1": {
+        "title": "MENS",
+        "btn_text": "Shop collection"
+      },
+      "card2": {
+        "title": "WOMENS",
+        "btn_text": "Shop collection"
+      },
+      "card3": {
+        "title": "ACCESSORIES",
+        "btn_text": "Shop collection"
+      }
+    },
+    "newsletter": {
+      "title": "SUBSCRIBE FOR NEWSLETTER",
+      "text": "Sign up for our newsletter and stay up-to-date with the latest collection, the latest trends and the best deals!",
+      "btn_placeholder": "Your email address",
+      "send_btn": "send"
+    }
+  },
+  "FOOTER": {
+    "contact": {
+      "title": "Contact"
+    },
+    "working_hours": {
+      "title": "Working Hours",
+      "item1": "Mon – Sun"
+    },
+    "services": {
+      "title": "Services",
+      "item1": "Assembly Guides",
+      "item2": "Furniture Packages & Fitouts",
+      "item3": "Trade Programme",
+      "item4": "Sale",
+      "item5": "New Designs",
+      "item6": "Gift Cards"
+    },
+    "connect": {
+      "title": "Connect",
+      "item1": "Twitter",
+      "item2": "Facebook",
+      "item3": "Instagram",
+      "item4": "Pinterest",
+      "item5": "Jobs",
+      "item6": "Contact"
+    },
+    "get_help": {
+      "title": "Get Help",
+      "item1": "Contact & FAQ",
+      "item2": "Track Your Order",
+      "item3": "Shipping & Delivery",
+      "item4": "Visit Brisbane Studio",
+      "item5": "Interest Free Finance",
+      "item6": "Cipmoney"
+    }
+  }
 }

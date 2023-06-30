@@ -6,13 +6,11 @@
                     SUBSCRIBE <br>
                     FOR NEWSLETTER<span>.</span>
                 </div>
-                <div class="text">Sign up for our newsletter and stay up-to-date with the latest collection, the latest
-                    trends and the best deals!
-                </div>
+                <div class="text">{{'HOME.newsletter.text' | translate}}</div>
             </div>
             <div class="right__side">
-                <input type="text" placeholder="Your email here">
-                <app-primary-btn textBtn="Send" theme="dark"></app-primary-btn>
+                <input type="text" [placeholder]="'HOME.newsletter.btn_placeholder' | translate">
+                <app-primary-btn [textBtn]="'HOME.newsletter.send_btn' | translate" theme="dark"></app-primary-btn>
             </div>
         </div>
     </div>

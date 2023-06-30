@@ -2,15 +2,15 @@
     <div class="max__width">
         <div class="header">
             <ul class="categories__list">
-                <li class="active">Top Rating</li>
-                <li>Best selling</li>
-                <li>Featured</li>
+                <li class="active">{{'HOME.categories.item1' | translate}}</li>
+                <li>{{'HOME.categories.item2' | translate}}</li>
+                <li>{{'HOME.categories.item3' | translate}}</li>
             </ul>
             <div class="navigations">
-                <button>
+                <button (click)="prevSlide()">
                     <div class="svg__icon__container" svgIcon="arrow-left" size="16"></div>
                 </button>
-                <button>
+                <button (click)="nextSlide()">
                     <div class="svg__icon__container" svgIcon="arrow-right" size="16"></div>
                 </button>
             </div>
