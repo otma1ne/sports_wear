@@ -14,8 +14,6 @@ export class LoaderService {
   }
 
   hide(): void {
-    setTimeout(() => {
-      this.isLoading.next(false);
-    }, 1000); // Add a delay of 1.5 seconds before hiding the loader
+    this.isLoading.next(false);
   }
 }

@@ -29,6 +29,9 @@ export class ShowcaseComponent {
     slidesPerView: 1,
     spaceBetween: 50,
     effect: 'fade',
+    fadeEffect: {
+      crossFade: true,
+    },
     autoplay: {
       delay: 5000,
     },
