@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -21,6 +23,12 @@ import { BrandsComponent } from './home/brands/brands.component';
 import { NewsletterComponent } from './home/newsletter/newsletter.component';
 import { LoaderComponent } from './shared/loader/loader.component';
 import { ShopComponent } from './shop/shop.component';
+import { HttpClient } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 @NgModule({
   declarations: [
@@ -40,7 +48,21 @@ import { ShopComponent } from './shop/shop.component';
     LoaderComponent,
     ShopComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, SwiperModule, StarRatingModule.forRoot()],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    SwiperModule,
+    HttpClientModule,
+    StarRatingModule.forRoot(),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient],
+      },
+      defaultLanguage: 'en',
+    }),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
