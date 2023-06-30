@@ -1,7 +1,96 @@
 <section class="shop" [@pageTransitions]>
+    <div class="breadcrumb">
+        <div class="title">Shop</div>
+        <ul>
+            <li>Home</li>
+            <li>Shop</li>
+        </ul>
+    </div>
     <div class="max__width">
-        <p>shop works!</p>
-        <h1>{{ 'HOME.hello' | translate }}</h1>
-        <p>{{ 'HOME.greeting' | translate: { name: 'John' } }}</p>
+        <div class="container">
+            <div class="filtre">
+                <div class="item">
+                    <div class="title">
+                        Categories
+                    </div>
+                    <ul>
+                        <li>
+                            Fitness
+                            <div class="number">5</div>
+                        </li>
+                        <li>
+                            Footwear
+                            <div class="number">2</div>
+                        </li>
+                        <li>
+                            Kids
+                            <div class="number">3</div>
+                        </li>
+                        <li>
+                            Mens
+                            <div class="number">8</div>
+                        </li>
+                        <li>
+                            Trach
+                            <div class="number">5</div>
+                        </li>
+                        <li>
+                            Womens
+                            <div class="number">9</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="item">
+                    <div class="title">
+                        Price
+                    </div>
+                    <input type="range">
+                    <div class="info">
+                        <span>Range</span> : $0 - $100
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="title">
+                        Color
+                    </div>
+                    <div class="colors">
+                        <div class="color" style="background: #cc7b4a;"></div>
+                        <div class="color" style="background: #313131;"></div>
+                        <div class="color" style="background: #2c484f;"></div>
+                        <div class="color" style="background: #dd3333;"></div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="title">Size</div>
+                    <div class="sizes">
+                        <div class="size">S</div>
+                        <div class="size">M</div>
+                        <div class="size">L</div>
+                    </div>
+                </div>
+            </div>
+            <div class="products__container">
+                <div class="header">
+                    <div class="info">
+                        Showing all 17 results
+                    </div>
+                    <div class="sorting__grid">
+                        <div class="grid">
+                            <div class="icon__container" svgIcon="Appstore" size="14"></div>
+                            <div class="icon__container" svgIcon="Bars" size="14"></div>
+                        </div>
+                        <select>
+                            <option value="default">Default Sorting</option>
+                            <option value="by_name">Sort by name</option>
+                            <option value="by_price_desc">Sort by price Desc</option>
+                            <option value="by_price_asc">Sort by price Asc</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="products">
+                    <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
