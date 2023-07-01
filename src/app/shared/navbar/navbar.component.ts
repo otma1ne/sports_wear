@@ -9,6 +9,7 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class NavbarComponent {
   isScrolled: boolean = false;
+  isSideMenuActive: boolean = false;
 
   constructor(private translate: TranslateService, private router: Router) {
     translate.setDefaultLang('en');
@@ -22,6 +23,10 @@ export class NavbarComponent {
 
   navigateToHome() {
     this.router.navigate(['/']);
+  }
+
+  hnadleMenuClick(value: boolean) {
+    this.isSideMenuActive = value;
   }
 
   @HostListener('window:scroll', [])

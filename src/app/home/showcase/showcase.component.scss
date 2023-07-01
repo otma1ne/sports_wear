@@ -250,3 +250,20 @@
         }
     }
 }
+
+@media screen and (max-width: 786px) {
+
+    .showcase {
+
+        .container {
+
+            swiper {
+
+                .slide {
+                    grid-template-columns: 60px 1fr;
+                    gap: 10px;
+                }
+            }
+        }
+    }
+}

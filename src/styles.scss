@@ -52,6 +52,11 @@
 body {
     @include mixins.body1;
     font-family: variables.$font-stack;
+
+
+    &[dir="rtl"] {
+        font-family: variables.$font-stack3;
+    }
 }
 
 .form__control {

@@ -10,6 +10,7 @@ import { SwiperComponent } from 'swiper/angular';
 import { gsap } from 'gsap';
 import { DOCUMENT } from '@angular/common';
 import SplitType from 'split-type';
+import { TranslateService } from '@ngx-translate/core';
 
 SwiperCore.use([Autoplay, EffectFade]);
 

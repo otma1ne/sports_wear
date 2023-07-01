@@ -14,6 +14,7 @@
                 <select (change)="switchLanguage($event)">
                     <option value="en" translate>En</option>
                     <option value="fr" translate>Fr</option>
+                    <option value="ar" translate>Ar</option>
                 </select>
             </div>
         </div>
@@ -23,7 +24,7 @@
             <div class="logo__container" (click)="navigateToHome()">
                 <img src="../../../assets/images/Logo-dark-1.webp" alt="logo">
             </div>
-            <ul class="menu">
+            <ul class="menu" [ngClass]="{active : isSideMenuActive}">
                 <li><a routerLink="/">{{ 'NAVBAR.home' | translate }}</a></li>
                 <li><a routerLink="/shop">{{ 'NAVBAR.item1' | translate }}</a></li>
                 <li><a routerLink="/shop">{{ 'NAVBAR.item2' | translate }}</a></li>
@@ -35,8 +36,9 @@
                 <div class="icon__container" svgIcon="Search_alt"></div>
                 <div class="icon__container" svgIcon="Bag"></div>
                 <div class="icon__container" svgIcon="User"></div>
-                <div class="icon__container menu__icon" svgIcon="Menu" size="22"></div>
+                <div class="icon__container menu__icon" svgIcon="Menu" size="22" (click)="hnadleMenuClick(true)"></div>
             </div>
         </div>
     </div>
+    <div class="overlay" [ngClass]="{active : isSideMenuActive}" (click)="hnadleMenuClick(false)"></div>
 </nav>
