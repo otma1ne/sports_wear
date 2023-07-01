@@ -5,7 +5,7 @@ import { Product } from '../shared/models/product';
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
-  styleUrls: ['./shop.component.scss'],
+  styleUrls: ['./shop.component.scss', './shop_responsive.component.scss'],
   animations: [pageTransitions],
 })
 export class ShopComponent {
