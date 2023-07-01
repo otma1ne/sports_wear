@@ -66,7 +66,7 @@ export class ShowcaseComponent {
       x: '50%',
     });
 
-    gsap.from(this.document.getElementsByClassName('overlay'), {
+    gsap.from(this.document.getElementsByClassName('showcase__overlay'), {
       duration: 0.5,
       display: 'none',
       delay: 0.3,
