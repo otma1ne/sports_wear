@@ -1,7 +1,7 @@
 .showcase {
-    margin-top: 90px;
+    margin-top: 124px;
     width: 100%;
-    height: calc(100vh - 120px);
+    height: calc(100vh - 150px);
     max-height: 700px;
 
     .container {
@@ -204,8 +204,14 @@
     }
 }
 
+@media screen and (max-width: 992px) {
+    .showcase {
+        margin-top: 95px;
+    }
+}
 
-@media screen and (max-width: 786px) {
+
+@media screen and (max-width: 768px) {
 
     .showcase {
         max-height: 600px;
@@ -221,8 +227,8 @@
             swiper {
 
                 .slide {
-                    grid-template-columns: 80px 1fr;
-                    gap: 20px;
+                    grid-template-columns: 60px 1fr;
+                    gap: 10px;
 
                     .discount__img {
 
@@ -245,23 +251,6 @@
                         }
                     }
 
-                }
-            }
-        }
-    }
-}
-
-@media screen and (max-width: 786px) {
-
-    .showcase {
-
-        .container {
-
-            swiper {
-
-                .slide {
-                    grid-template-columns: 60px 1fr;
-                    gap: 10px;
                 }
             }
         }
