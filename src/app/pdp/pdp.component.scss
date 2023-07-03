@@ -180,6 +180,10 @@
             }
         }
     }
+
+    .related {
+        margin-top: 100px;
+    }
 }
 
 /* responsive style */
@@ -202,6 +206,7 @@
 
         .container {
             margin-top: 100px;
+
             .swiper__container {
                 grid-template-columns: 1fr;
                 grid-template-rows: 1fr 80px;

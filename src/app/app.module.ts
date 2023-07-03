@@ -28,6 +28,7 @@ import { HttpClient } from '@angular/common/http';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { PdpComponent } from './pdp/pdp.component';
 import { SecondaryBtnComponent } from './shared/secondary-btn/secondary-btn.component';
+import { RelatedProductsComponent } from './shared/related-products/related-products.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -52,6 +53,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ShopComponent,
     PdpComponent,
     SecondaryBtnComponent,
+    RelatedProductsComponent,
   ],
   imports: [
     BrowserModule,
