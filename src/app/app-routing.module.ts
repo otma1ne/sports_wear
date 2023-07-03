@@ -1,9 +1,16 @@
 import { NgModule } from '@angular/core';
-import { NavigationEnd, NavigationStart, Router, RouterModule, Routes } from '@angular/router';
+import {
+  NavigationEnd,
+  NavigationStart,
+  Router,
+  RouterModule,
+  Routes,
+} from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ShopComponent } from './shop/shop.component';
 import { LoaderService } from './shared/services/loader.service';
 import { filter } from 'rxjs/operators';
+import { PdpComponent } from './pdp/pdp.component';
 
 const routes: Routes = [
   {
@@ -14,10 +21,16 @@ const routes: Routes = [
     path: 'shop',
     component: ShopComponent,
   },
+  {
+    path: 'product',
+    component: PdpComponent,
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [
+    RouterModule.forRoot(routes, { scrollPositionRestoration: 'enabled' }),
+  ],
   exports: [RouterModule],
 })
 export class AppRoutingModule {
