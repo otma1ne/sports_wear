@@ -1,0 +1,12 @@
+<section class="related__products">
+    <div class="title">
+        Related Products
+    </div>
+    <div class="container">
+        <swiper #swiper [config]="config">
+            <ng-template swiperSlide *ngFor="let product of products">
+                <app-product-card [product]="product"></app-product-card>
+            </ng-template>
+        </swiper>
+    </div>
+</section>

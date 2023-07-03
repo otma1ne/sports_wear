@@ -1,0 +1,16 @@
+@use "../../../styles/variables";
+@use "../../../styles/mixins";
+
+.related__products {
+    .title {
+        @include mixins.headline3;
+        text-align: center;
+    }
+
+    .container {
+        margin-top: 60px;
+        swiper {
+            width: 100%;
+        }
+    }
+}
