@@ -21,12 +21,17 @@ export class NavbarComponent {
     this.translate.use(lang);
   }
 
-  navigateToHome() {
+  navigateToHome(): void {
     this.router.navigate(['/']);
   }
 
-  hnadleMenuClick(value: boolean) {
+  hnadleMenuClick(value: boolean): void {
     this.isSideMenuActive = value;
+  }
+
+  handleMenuItemClick(path: string): void {
+    this.router.navigate([path]);
+    this.isSideMenuActive = false;
   }
 
   @HostListener('window:scroll', [])

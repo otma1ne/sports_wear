@@ -1,0 +1,68 @@
+<section class="product__detail">
+    <div class="max__width">
+        <div class="container">
+            <div class="swiper__container">
+                <div class="navigations">
+                    <div class="img__nav" *ngFor="let image of product.images; let index = index"
+                        (click)="slideToIndex(index)" [ngClass]="{active : index == activeImgIndex}">
+                        <img [src]="'../../assets/images/products/' + image" alt="product image">
+                    </div>
+                </div>
+                <swiper #swiper [config]="config">
+                    <ng-template swiperSlide>
+                        <div class="slide__img">
+                            <img src="../../assets/images/products/Short-Sleeve-T-Shirt-1.jpg.webp" alt="product image">
+                        </div>
+                    </ng-template>
+                    <ng-template swiperSlide>
+                        <div class="slide__img">
+                            <img src="../../assets/images/products/Short-Sleeve-T-Shirt-2.jpg.webp" alt="product image">
+                        </div>
+                    </ng-template>
+                </swiper>
+            </div>
+            <div class="details">
+                <div class="ratings">
+                    <star-rating [starType]="'svg'" [rating]="product.rating" size="small"
+                        staticColor="ok"></star-rating>
+                    <p>(1 customer review)</p>
+                </div>
+                <div class="name">{{ product.name }}</div>
+                <div class="price">${{ product.price }}</div>
+                <div class="divider"></div>
+                <div class="description">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut alias, quae animi, tenetur velit ipsam
+                    ducimus dolorem distinctio laborum doloremque commodi facilis voluptatibus beatae recusandae omnis
+                    veniam architecto dolores! Sit praesentium, esse fuga repellat dolorem consequuntur animi, rerum
+                    maiores doloribus fugit quisquam vero accusamus commodi. Quam voluptatum veniam minus. Excepturi
+                    voluptatem tempora architecto reiciendis. Tenetur esse veritatis, rem soluta velit, dolores
+                    laboriosam error autem tempora unde id, nulla vero doloremque cum possimus. Et voluptatem distinctio
+                    ab tempore. Dicta, dolore fuga.
+                </div>
+                <div class="btns">
+                    <div class="qnt">
+                        <button class="minus" (click)="decrementQuantity()">-</button>
+                        <input type="text" [value]="quantity">
+                        <button class="add" (click)="incrementQuantity()">+</button>
+                    </div>
+                    <div class="btn__container">
+                        <app-secondary-btn textBtn="Buy Now"></app-secondary-btn>
+                    </div>
+                </div>
+                <div class="wichlist__container">
+                    <div class="icon__container" svgIcon="Favorite_light"></div>
+                    <p>Add to wichlist</p>
+                </div>
+                <div class="divider"></div>
+                <ul class="info">
+                    <li><span>SKU:</span> Z3453-2</li>
+                    <li><span>Category:</span> Mens</li>
+                    <li><span>Tags:</span> Fashion, Man, Women</li>
+                    <li>
+                        <span>Share:</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

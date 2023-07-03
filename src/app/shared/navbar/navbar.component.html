@@ -25,12 +25,12 @@
                 <img src="../../../assets/images/Logo-dark-1.webp" alt="logo">
             </div>
             <ul class="menu" [ngClass]="{active : isSideMenuActive}">
-                <li><a routerLink="/">{{ 'NAVBAR.home' | translate }}</a></li>
-                <li><a routerLink="/shop">{{ 'NAVBAR.item1' | translate }}</a></li>
-                <li><a routerLink="/shop">{{ 'NAVBAR.item2' | translate }}</a></li>
-                <li><a routerLink="/shop">{{ 'NAVBAR.item3' | translate }}</a></li>
-                <li><a routerLink="/shop">{{ 'NAVBAR.item4' | translate }}</a></li>
-                <li><a routerLink="/shop">{{ 'NAVBAR.item5' | translate }}</a></li>
+                <li (click)="handleMenuItemClick('/')">{{ 'NAVBAR.home' | translate }}</li>
+                <li (click)="handleMenuItemClick('/shop')">{{ 'NAVBAR.item1' | translate }}</li>
+                <li (click)="handleMenuItemClick('/shop')">{{ 'NAVBAR.item2' | translate }}</li>
+                <li (click)="handleMenuItemClick('/shop')">{{ 'NAVBAR.item3' | translate }}</li>
+                <li (click)="handleMenuItemClick('/shop')">{{ 'NAVBAR.item4' | translate }}</li>
+                <li (click)="handleMenuItemClick('/shop')">{{ 'NAVBAR.item5' | translate }}</li>
             </ul>
             <div class="icons">
                 <div class="icon__container" svgIcon="Search_alt"></div>
