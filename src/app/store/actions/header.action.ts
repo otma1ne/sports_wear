@@ -9,3 +9,8 @@ export const handleSearchState = createAction(
   '[Header Component] handleSearchState',
   props<{ state: boolean }>()
 );
+
+export const handleMenuState = createAction(
+  '[Header Component] handleMenuState',
+  props<{ state: boolean }>()
+);

@@ -30,6 +30,10 @@ import { PdpComponent } from './pdp/pdp.component';
 import { SecondaryBtnComponent } from './shared/secondary-btn/secondary-btn.component';
 import { RelatedProductsComponent } from './shared/related-products/related-products.component';
 import { NewsletterPopinComponent } from './shared/newsletter-popin/newsletter-popin.component';
+import { StoreModule } from '@ngrx/store';
+import { headerReducer } from './store/reducers/header.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { newsletterReducer } from './store/reducers/newsletter.reducer';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -72,6 +76,11 @@ export function HttpLoaderFactory(http: HttpClient) {
       },
       defaultLanguage: 'en',
     }),
+    StoreModule.forRoot({
+      header: headerReducer,
+      newsletter: newsletterReducer,
+    }),
+    EffectsModule.forRoot([]),
   ],
   providers: [],
   bootstrap: [AppComponent],

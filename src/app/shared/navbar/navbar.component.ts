@@ -1,6 +1,13 @@
 import { Component, HostListener } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import {
+  handleCartState,
+  handleMenuState,
+  handleSearchState,
+} from 'src/app/store/actions/header.action';
 
 @Component({
   selector: 'app-navbar',
@@ -9,10 +16,23 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class NavbarComponent {
   isScrolled: boolean = false;
-  isSideMenuActive: boolean = false;
+  showCart: boolean = false;
+  showSearch: boolean = false;
+  showMenu: boolean = false;
+  header$: Observable<any>;
 
-  constructor(private translate: TranslateService, private router: Router) {
+  constructor(
+    private translate: TranslateService,
+    private router: Router,
+    private store: Store<{ header: any }>
+  ) {
     translate.setDefaultLang('en');
+    this.header$ = store.select('header');
+    this.header$.subscribe((headerData) => {
+      this.showCart = headerData.isCartOpen;
+      this.showSearch = headerData.isSearchOpen;
+      this.showMenu = headerData.isMenuOpen;
+    });
   }
 
   switchLanguage(event: Event) {
@@ -25,13 +45,39 @@ export class NavbarComponent {
     this.router.navigate(['/']);
   }
 
-  hnadleMenuClick(value: boolean): void {
-    this.isSideMenuActive = value;
+  hnadleMenuClick(state: boolean): void {
+    const body = document.querySelector('body');
+    this.store.dispatch(handleMenuState({ state }));
+    if (state) {
+      body!.style.overflow = 'hidden';
+    } else {
+      body!.style.overflow = 'auto';
+    }
   }
 
   handleMenuItemClick(path: string): void {
     this.router.navigate([path]);
-    this.isSideMenuActive = false;
+    this.store.dispatch(handleMenuState({ state : false }));
+  }
+
+  handleCartClick(state: boolean) {
+    const body = document.querySelector('body');
+    this.store.dispatch(handleCartState({ state }));
+    if (state) {
+      body!.style.overflow = 'hidden';
+    } else {
+      body!.style.overflow = 'auto';
+    }
+  }
+
+  handleSearchClick(state: boolean) {
+    const body = document.querySelector('body');
+    this.store.dispatch(handleSearchState({ state }));
+    if (state) {
+      body!.style.overflow = 'hidden';
+    } else {
+      body!.style.overflow = 'auto';
+    }
   }
 
   @HostListener('window:scroll', [])
