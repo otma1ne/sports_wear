@@ -1,8 +1,8 @@
-<div class="overlay"></div>
-<section class="newsletter__popin">
+<div class="overlay" *ngIf="showNewsletter"></div>
+<section class="newsletter__popin" *ngIf="showNewsletter">
     <div class="container">
         <div class="left__side">
-            <div class="close__icon" svgIcon="Close_round_light"></div>
+            <div class="close__icon" svgIcon="Close_round_light" (click)="closePopin()"></div>
             <div class="title">Get 20% discount shipped to your inbox</div>
             <div class="text">
                 Subscribe to our newlletter and we will ship 20% discount code today

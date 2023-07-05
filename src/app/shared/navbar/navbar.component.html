@@ -24,7 +24,7 @@
             <div class="logo__container" (click)="navigateToHome()">
                 <img src="../../../assets/images/Logo-dark-1.webp" alt="logo">
             </div>
-            <ul class="menu" [ngClass]="{active : isSideMenuActive}">
+            <ul class="menu" [ngClass]="{active : showMenu}">
                 <li (click)="handleMenuItemClick('/')">{{ 'NAVBAR.home' | translate }}</li>
                 <li (click)="handleMenuItemClick('/shop')">{{ 'NAVBAR.item1' | translate }}</li>
                 <li (click)="handleMenuItemClick('/shop')">{{ 'NAVBAR.item2' | translate }}</li>
@@ -40,5 +40,5 @@
             </div>
         </div>
     </div>
-    <div class="overlay" [ngClass]="{active : isSideMenuActive}" (click)="hnadleMenuClick(false)"></div>
+    <div class="overlay" [ngClass]="{active : showMenu}" (click)="hnadleMenuClick(false)"></div>
 </nav>
