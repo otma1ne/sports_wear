@@ -29,6 +29,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { PdpComponent } from './pdp/pdp.component';
 import { SecondaryBtnComponent } from './shared/secondary-btn/secondary-btn.component';
 import { RelatedProductsComponent } from './shared/related-products/related-products.component';
+import { NewsletterPopinComponent } from './shared/newsletter-popin/newsletter-popin.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -54,6 +55,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     PdpComponent,
     SecondaryBtnComponent,
     RelatedProductsComponent,
+    NewsletterPopinComponent,
   ],
   imports: [
     BrowserModule,
