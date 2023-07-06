@@ -38,6 +38,7 @@ import { ProductTabsComponent } from './shared/product-tabs/product-tabs.compone
 import { SidecartComponent } from './shared/sidecart/sidecart.component';
 import { LoginComponent } from './shared/login/login.component';
 import { RegisterComponent } from './shared/register/register.component';
+import { ProductCartComponent } from './shared/product-cart/product-cart.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -68,6 +69,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SidecartComponent,
     LoginComponent,
     RegisterComponent,
+    ProductCartComponent,
   ],
   imports: [
     BrowserModule,

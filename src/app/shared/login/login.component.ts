@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { handleLoginState } from 'src/app/store/actions/header.action';
+import { handleLoginState, handleRegisterState } from 'src/app/store/actions/header.action';
 
 @Component({
   selector: 'app-login',
@@ -21,5 +21,10 @@ export class LoginComponent {
 
   closeLogin(): void {
     this.store.dispatch(handleLoginState({ state: false }));
+  }
+
+  register(): void {
+    this.closeLogin();
+    this.store.dispatch(handleRegisterState({ state: true }));
   }
 }
