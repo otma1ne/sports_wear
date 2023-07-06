@@ -3,7 +3,7 @@
 
 .related__products {
     .title {
-        @include mixins.headline3;
+        font-size: 26px;
         text-align: center;
     }
 

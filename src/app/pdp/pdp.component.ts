@@ -2,11 +2,13 @@ import { Component, ViewChild } from '@angular/core';
 import { SwiperOptions } from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
 import { Product } from '../shared/models/product';
+import { pageTransitions } from '../page-transitions';
 
 @Component({
   selector: 'app-pdp',
   templateUrl: './pdp.component.html',
   styleUrls: ['./pdp.component.scss'],
+  animations: [pageTransitions],
 })
 export class PdpComponent {
   @ViewChild('swiper', { static: false }) swiper?: SwiperComponent;
