@@ -1,0 +1,98 @@
+<section class="product__tabs">
+    <div class="tabs__header">
+        <div class="item" [ngClass]="{active : activeTab === 0 }" (click)="changeTab(0)">
+            Description
+        </div>
+        <div class="item" [ngClass]="{active : activeTab === 1 }" (click)="changeTab(1)">
+            Reviews (3)
+        </div>
+    </div>
+    <div class="container">
+        <div class="description" *ngIf=" activeTab === 0">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut alias, quae animi, tenetur velit ipsam ducimus
+            dolorem distinctio laborum doloremque commodi facilis voluptatibus beatae recusandae omnis veniam architecto
+            dolores! Sit praesentium, esse fuga repellat dolorem consequuntur animi, rerum maiores doloribus fugit
+            quisquam
+            vero accusamus commodi. Quam voluptatum veniam minus. Excepturi voluptatem tempora architecto reiciendis.
+            Tenetur esse veritatis, rem soluta velit, dolores laboriosam error autem tempora unde id, nulla vero
+            doloremque
+            cum possimus. Et voluptatem distinctio ab tempore. Dicta, dolore fuga.
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut alias, quae animi, tenetur velit ipsam ducimus
+            dolorem distinctio laborum doloremque commodi facilis voluptatibus beatae recusandae omnis veniam architecto
+            dolores! Sit praesentium, esse fuga repellat dolorem consequuntur animi, rerum maiores doloribus fugit
+            quisquam
+            vero accusamus commodi. Quam voluptatum veniam minus. Excepturi voluptatem tempora architecto reiciendis.
+            Tenetur esse veritatis, rem soluta velit, dolores laboriosam error autem tempora unde id, nulla vero
+            doloremque
+            cum possimus. Et voluptatem distinctio ab tempore. Dicta, dolore fuga.
+        </div>
+        <div class="reviews" *ngIf=" activeTab === 1">
+            <div class="reviews__container">
+                <div class="item">
+                    <div class="item__info">
+                        <div class="profile">
+                            <div class="img__container">
+                                <img src="../../../assets/images/53444f91e698c0c7caa2dbc3bdbf93fc.png"
+                                    alt="profile avatar">
+                            </div>
+                            <div class="profile__info">
+                                <div class="name">Otmane</div>
+                                <div class="date">05 Jun 2023</div>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <star-rating [starType]="'svg'" [rating]="3" size="small" staticColor="ok"></star-rating>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        Curabitur egestas malesuada volutpat. Nunc vel vestibulum odio, ac pellentesque lacus.
+                        Pellentesque dapibus nunc nec est imperdiet, a malesuada sem rutrum. Sed quam odio, porta a
+                        finibus quis, sagittis aliquet leo. Nunc ornare metus urna, eu luctus velit placerat ut. Cras at
+                        porttitor lectus. Ut dapibus aliquam nibh, in imperdiet libero tincidunt sit amet. Morbi sodales
+                        fermentum nibh nec facilisis. Morbi pharetra varius velit, eget varius libero finibus quis
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="item__info">
+                        <div class="profile">
+                            <div class="img__container">
+                                <img src="../../../assets/images/53444f91e698c0c7caa2dbc3bdbf93fc.png"
+                                    alt="profile avatar">
+                            </div>
+                            <div class="profile__info">
+                                <div class="name">Otmane</div>
+                                <div class="date">05 Jun 2023</div>
+                            </div>
+                        </div>
+                        <div class="rating">
+                            <star-rating [starType]="'svg'" [rating]="3" size="small" staticColor="ok"></star-rating>
+                        </div>
+                    </div>
+                    <div class="comment">
+                        Curabitur egestas malesuada volutpat. Nunc vel vestibulum odio, ac pellentesque lacus.
+                        Pellentesque dapibus nunc nec est imperdiet, a malesuada sem rutrum. Sed quam odio, porta a
+                        finibus quis, sagittis aliquet leo. Nunc ornare metus urna, eu luctus velit placerat ut. Cras at
+                    </div>
+                </div>
+            </div>
+            <div class="title">
+                <div class="icon__container" svgIcon="linear_edit"></div>
+                Add a review
+            </div>
+            <form>
+                <div class="review">
+                    Your Rating 
+                    <star-rating [starType]="'svg'" [rating]="3" size="medium" staticColor="ok"></star-rating>
+                </div>
+                <div class="form__container">
+                    <input type="text" placeholder="Name *" id="nameInput">
+                    <input type="text" placeholder="Email *" id="emailInput">
+                    <textarea placeholder="Your Review *" id="textArea"></textarea>
+                    <div class="btn">
+                        <app-secondary-btn textBtn="Submit"></app-secondary-btn>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

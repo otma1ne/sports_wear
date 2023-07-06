@@ -34,6 +34,7 @@ import { StoreModule } from '@ngrx/store';
 import { headerReducer } from './store/reducers/header.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { newsletterReducer } from './store/reducers/newsletter.reducer';
+import { ProductTabsComponent } from './shared/product-tabs/product-tabs.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -60,6 +61,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     SecondaryBtnComponent,
     RelatedProductsComponent,
     NewsletterPopinComponent,
+    ProductTabsComponent,
   ],
   imports: [
     BrowserModule,
