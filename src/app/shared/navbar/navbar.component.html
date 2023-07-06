@@ -34,11 +34,12 @@
             </ul>
             <div class="icons">
                 <div class="icon__container" svgIcon="Search_alt"></div>
-                <div class="icon__container" svgIcon="Bag"></div>
-                <div class="icon__container" svgIcon="User"></div>
+                <div class="icon__container" svgIcon="Bag" (click)="handleCartClick(true)"></div>
+                <div class="icon__container" svgIcon="User" (click)="handleLoginClick()"></div>
                 <div class="icon__container menu__icon" svgIcon="Menu" size="22" (click)="hnadleMenuClick(true)"></div>
             </div>
         </div>
     </div>
     <div class="overlay" [ngClass]="{active : showMenu}" (click)="hnadleMenuClick(false)"></div>
+    <app-sidecart></app-sidecart>
 </nav>
