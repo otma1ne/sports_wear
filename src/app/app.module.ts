@@ -35,6 +35,9 @@ import { headerReducer } from './store/reducers/header.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { newsletterReducer } from './store/reducers/newsletter.reducer';
 import { ProductTabsComponent } from './shared/product-tabs/product-tabs.component';
+import { SidecartComponent } from './shared/sidecart/sidecart.component';
+import { LoginComponent } from './shared/login/login.component';
+import { RegisterComponent } from './shared/register/register.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -62,6 +65,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     RelatedProductsComponent,
     NewsletterPopinComponent,
     ProductTabsComponent,
+    SidecartComponent,
+    LoginComponent,
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import {
   handleCartState,
+  handleLoginState,
   handleMenuState,
   handleSearchState,
 } from 'src/app/store/actions/header.action';
@@ -78,6 +79,10 @@ export class NavbarComponent {
     } else {
       body!.style.overflow = 'auto';
     }
+  }
+
+  handleLoginClick(): void {
+    this.store.dispatch(handleLoginState({ state : true }));
   }
 
   @HostListener('window:scroll', [])

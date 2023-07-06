@@ -21,4 +21,8 @@
         border: 1px solid variables.$primary-color1;
     }
 
+    &.full{
+        max-width: 100%;
+    }
+
 }

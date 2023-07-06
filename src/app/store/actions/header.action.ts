@@ -14,3 +14,13 @@ export const handleMenuState = createAction(
   '[Header Component] handleMenuState',
   props<{ state: boolean }>()
 );
+
+export const handleLoginState = createAction(
+  '[Header Component] handleSearchState',
+  props<{ state: boolean }>()
+);
+
+export const handleRegisterState = createAction(
+  '[Header Component] handleMenuState',
+  props<{ state: boolean }>()
+);

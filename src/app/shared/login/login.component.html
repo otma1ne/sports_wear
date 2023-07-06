@@ -1,0 +1,19 @@
+<div class="overlay" [ngClass]="{active : showLogin}" (click)="closeLogin()"></div>
+<div class="login__container" [ngClass]="{active : showLogin}">
+    <div class="title">Sign In</div>
+    <form>
+        <input type="text" placeholder="Your name">
+        <input type="text" placeholder="Your email">
+        <div class="info">
+            <div class="remember">
+                <input type="checkbox">
+                Remember me
+            </div>
+            <div class="lost__pass">
+                Lost your password ?
+            </div>
+        </div>
+        <app-secondary-btn textBtn="Sign In" [isFull]="true"></app-secondary-btn>
+        <app-primary-btn textBtn="Create an accout" theme="dark" [isFull]="true"></app-primary-btn>
+    </form>
+</div>
