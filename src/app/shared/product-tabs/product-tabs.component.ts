@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./product-tabs.component.scss'],
 })
 export class ProductTabsComponent {
-  activeTab: number = 1;
+  activeTab: number = 0;
 
   changeTab(index: number): void {
     this.activeTab = index;
