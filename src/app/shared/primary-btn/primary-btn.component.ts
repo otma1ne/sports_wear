@@ -1,4 +1,10 @@
-import { Component, Input, HostBinding } from '@angular/core';
+import {
+  Component,
+  Input,
+  HostBinding,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 
 @Component({
   selector: 'app-primary-btn',
@@ -10,6 +16,8 @@ export class PrimaryBtnComponent {
   @Input() theme: string = '';
   @Input() isFull: boolean = false;
 
+  @Output() onClick = new EventEmitter<any>();
+
   @HostBinding('class.dark')
   get isDarkTheme(): boolean {
     return this.theme === 'dark';
@@ -18,5 +26,10 @@ export class PrimaryBtnComponent {
   @HostBinding('class.full')
   get isButtonFull(): boolean {
     return this.isFull;
+  }
+
+  btnClick(e: Event) {
+    e.preventDefault();
+    this.onClick.emit();
   }
 }

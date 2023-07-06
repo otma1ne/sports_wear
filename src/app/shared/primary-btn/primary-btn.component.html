@@ -1,1 +1,1 @@
-<button class="primary__btn" [class.dark]="theme === 'dark'" [class.full]="isFull">{{textBtn}}</button>
+<button class="primary__btn" [class.dark]="theme === 'dark'" [class.full]="isFull" (click)="btnClick($event)">{{textBtn}}</button>
