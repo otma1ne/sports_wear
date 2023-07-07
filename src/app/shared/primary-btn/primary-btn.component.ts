@@ -15,6 +15,7 @@ export class PrimaryBtnComponent {
   @Input() textBtn: string = '';
   @Input() theme: string = '';
   @Input() isFull: boolean = false;
+  @Input() isLarge: boolean = false;
 
   @Output() onClick = new EventEmitter<any>();
 
@@ -26,6 +27,11 @@ export class PrimaryBtnComponent {
   @HostBinding('class.full')
   get isButtonFull(): boolean {
     return this.isFull;
+  }
+
+  @HostBinding('class.large')
+  get isButtonLarge(): boolean {
+    return this.isLarge;
   }
 
   btnClick(e: Event) {
