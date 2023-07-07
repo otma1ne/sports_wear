@@ -8,7 +8,7 @@ import {
 } from '../actions/header.action';
 
 export const initialState = {
-  isCartOpen: false,
+  isCartOpen: true,
   isSearchOpen: false,
   isMenuOpen: false,
   isLoginOpen: false,
