@@ -39,6 +39,9 @@ import { SidecartComponent } from './shared/sidecart/sidecart.component';
 import { LoginComponent } from './shared/login/login.component';
 import { RegisterComponent } from './shared/register/register.component';
 import { ProductCartComponent } from './shared/product-cart/product-cart.component';
+import { authReducer } from './store/reducers/auth.reducer';
+import { CookieService } from 'ngx-cookie-service';
+import { cartReducer } from './store/reducers/cart.reducer';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -89,10 +92,12 @@ export function HttpLoaderFactory(http: HttpClient) {
     StoreModule.forRoot({
       header: headerReducer,
       newsletter: newsletterReducer,
+      auth: authReducer,
+      cart: cartReducer,
     }),
     EffectsModule.forRoot([]),
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

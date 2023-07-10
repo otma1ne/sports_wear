@@ -11,40 +11,32 @@ import { Product } from '../models/product';
 })
 export class SidecartComponent {
   header$: Observable<any>;
+  auth$: Observable<any>;
+  cart$: Observable<any>;
   showCart: boolean = false;
-  products: Product[] = [
-    {
-      id: 'product1',
-      name: 'Top Dri FIT Academy',
-      images: [
-        'Top-Dri-FIT-Academy-1.jpg.webp',
-        'Top-Dri-FIT-Academy-2.jpg.webp',
-      ],
-      rating: 5,
-      price: 265,
-      isHot: true,
-      isSale: false,
-    },
-    {
-      id: 'product2',
-      name: 'Short Sleeve T-Shirt',
-      images: [
-        'Short-Sleeve-T-Shirt-1.jpg.webp',
-        'Short-Sleeve-T-Shirt-2.jpg.webp',
-      ],
-      rating: 3,
-      price: 265,
-      isHot: true,
-      isSale: false,
-    },
-  ];
+  isAuth: boolean = false;
+  products: Product[] = [];
 
-  constructor(private store: Store<{ header: any }>) {
-    this.header$ = store.select('header');
+  constructor(
+    private store: Store<{ header: any }>,
+    private authStore: Store<{ auth: any }>,
+    private cartStore: Store<{ cart: any }>
+  ) {
+    this.auth$ = this.authStore.select('auth');
+    this.auth$.subscribe((authData) => {
+      this.isAuth = authData.isAuth;
+    });
+    this.header$ = this.store.select('header');
     this.header$.subscribe((headerData) => {
       this.showCart = headerData.isCartOpen;
     });
+    this.cart$ = this.cartStore.select('cart');
+    this.cart$.subscribe((cartData) => {
+      this.products = cartData.cart;
+    });
   }
+
+  ngOnInit() {}
 
   closeSidecart(): void {
     const body = document.querySelector('body');

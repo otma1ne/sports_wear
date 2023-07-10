@@ -110,11 +110,31 @@ nav {
             align-items: center;
 
             .icon__container {
+                position: relative;
                 stroke: black;
                 cursor: pointer;
 
                 &.menu__icon {
                     display: none;
+                }
+
+                .badge {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    width: 14px;
+                    height: 14px;
+                    border-radius: 100%;
+                    background: black;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background: variables.$error-color;
+                    color: white;
+                    padding-top: 1px;
+                    font-size: 8px;
+                    font-weight: 600;
+                    font-family: variables.$font-stack2;
                 }
             }
         }

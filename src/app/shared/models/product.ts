@@ -6,6 +6,6 @@ export interface Product {
   images: string[];
   rating: number;
   isHot: boolean;
-  isSale: boolean;
+  onsale: boolean;
   salePercentage?: number;
 }

@@ -21,11 +21,14 @@ export class NavbarComponent {
   showSearch: boolean = false;
   showMenu: boolean = false;
   header$: Observable<any>;
+  cart$: Observable<any>;
+  cartCount: number = 0;
 
   constructor(
     private translate: TranslateService,
     private router: Router,
-    private store: Store<{ header: any }>
+    private store: Store<{ header: any }>,
+    private cartStore: Store<{ cart: any }>
   ) {
     translate.setDefaultLang('en');
     this.header$ = store.select('header');
@@ -33,6 +36,10 @@ export class NavbarComponent {
       this.showCart = headerData.isCartOpen;
       this.showSearch = headerData.isSearchOpen;
       this.showMenu = headerData.isMenuOpen;
+    });
+    this.cart$ = cartStore.select('cart');
+    this.cart$.subscribe((cartData) => {
+      this.cartCount = cartData.cart.length;
     });
   }
 
@@ -58,7 +65,7 @@ export class NavbarComponent {
 
   handleMenuItemClick(path: string): void {
     this.router.navigate([path]);
-    this.store.dispatch(handleMenuState({ state : false }));
+    this.store.dispatch(handleMenuState({ state: false }));
   }
 
   handleCartClick(state: boolean) {
@@ -82,7 +89,7 @@ export class NavbarComponent {
   }
 
   handleLoginClick(): void {
-    this.store.dispatch(handleLoginState({ state : true }));
+    this.store.dispatch(handleLoginState({ state: true }));
   }
 
   @HostListener('window:scroll', [])
