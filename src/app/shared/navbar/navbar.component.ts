@@ -65,7 +65,7 @@ export class NavbarComponent {
 
   handleMenuItemClick(path: string): void {
     this.router.navigate([path]);
-    this.store.dispatch(handleMenuState({ state: false }));
+    this.hnadleMenuClick(false)
   }
 
   handleCartClick(state: boolean) {
