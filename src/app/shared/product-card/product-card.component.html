@@ -2,7 +2,7 @@
     <div class="img__container" (mouseenter)="onHoverStart()" (mouseleave)="onHoverEnd()">
         <img [src]="'../../../assets/images/products/' + product!.images[currentImg]" alt="product">
         <div class="info__container">
-            <div class="sale" *ngIf="product?.isHot && product?.isSale ?? false">-{{product!.salePercentage}}%</div>
+            <div class="sale" *ngIf="product?.isHot && product?.onsale ?? false">-{{product!.salePercentage}}%</div>
             <div class="hot" *ngIf="product?.isHot ?? false">Hot</div>
         </div>
         <div class="icons__container">

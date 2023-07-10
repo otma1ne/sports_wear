@@ -1,5 +1,11 @@
 /* responsive style */
 
+@media screen and (max-width: 1600px) {
+    .products {
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
 @media screen and (max-width: 1200px) {
     .products {
         grid-template-columns: repeat(2, 1fr) !important;

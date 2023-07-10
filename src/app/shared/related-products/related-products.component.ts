@@ -21,7 +21,7 @@ export class RelatedProductsComponent {
       rating: 5,
       price: 265,
       isHot: true,
-      isSale: false,
+      onsale: false,
     },
     {
       id: 'product2',
@@ -33,7 +33,7 @@ export class RelatedProductsComponent {
       rating: 3,
       price: 265,
       isHot: true,
-      isSale: false,
+      onsale: false,
     },
     {
       id: 'product3',
@@ -45,7 +45,7 @@ export class RelatedProductsComponent {
       rating: 4,
       price: 265,
       isHot: true,
-      isSale: true,
+      onsale: true,
       salePercentage: 10,
     },
     {
@@ -58,7 +58,7 @@ export class RelatedProductsComponent {
       rating: 4,
       price: 265,
       isHot: true,
-      isSale: false,
+      onsale: false,
     },
     {
       id: 'product3',
@@ -70,7 +70,7 @@ export class RelatedProductsComponent {
       rating: 4,
       price: 265,
       isHot: true,
-      isSale: true,
+      onsale: true,
       salePercentage: 10,
     },
   ];

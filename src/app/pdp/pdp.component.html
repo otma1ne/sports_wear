@@ -3,32 +3,28 @@
         <div class="container">
             <div class="swiper__container">
                 <div class="navigations">
-                    <div class="img__nav" *ngFor="let image of product.images; let index = index"
+                    <div class="img__nav" *ngFor="let image of product?.images; let index = index"
                         (click)="slideToIndex(index)" [ngClass]="{active : index == activeImgIndex}">
                         <img [src]="'../../assets/images/products/' + image" alt="product image">
                     </div>
                 </div>
                 <swiper #swiper [config]="config">
-                    <ng-template swiperSlide>
+                    <ng-template swiperSlide *ngFor="let image of product?.images; let index = index">
                         <div class="slide__img">
-                            <img src="../../assets/images/products/Short-Sleeve-T-Shirt-1.jpg.webp" alt="product image">
-                        </div>
-                    </ng-template>
-                    <ng-template swiperSlide>
-                        <div class="slide__img">
-                            <img src="../../assets/images/products/Short-Sleeve-T-Shirt-2.jpg.webp" alt="product image">
+                            <img [src]="'../../assets/images/products/' + product!.images[activeImgIndex]"
+                                alt="product image">
                         </div>
                     </ng-template>
                 </swiper>
             </div>
             <div class="details">
                 <div class="ratings">
-                    <star-rating [starType]="'svg'" [rating]="product.rating" size="small"
+                    <star-rating [starType]="'svg'" [rating]="product?.rating || 3" size="small"
                         staticColor="ok"></star-rating>
                     <p>(1 customer review)</p>
                 </div>
-                <div class="name">{{ product.name }}</div>
-                <div class="price">${{ product.price }}</div>
+                <div class="name">{{ product?.name }}</div>
+                <div class="price">${{ product?.price }}</div>
                 <div class="divider"></div>
                 <div class="description">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut alias, quae animi, tenetur velit ipsam

@@ -3,6 +3,9 @@ import { SwiperOptions } from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
 import { Product } from '../shared/models/product';
 import { pageTransitions } from '../page-transitions';
+import { ProductsService } from '../services/products.service';
+import { ActivatedRoute } from '@angular/router';
+import { catchError, throwError } from 'rxjs';
 
 @Component({
   selector: 'app-pdp',
@@ -12,24 +15,40 @@ import { pageTransitions } from '../page-transitions';
 })
 export class PdpComponent {
   @ViewChild('swiper', { static: false }) swiper?: SwiperComponent;
-  product: Product = {
-    id: 'product2',
-    name: 'Short Sleeve T-Shirt',
-    images: [
-      'Short-Sleeve-T-Shirt-1.jpg.webp',
-      'Short-Sleeve-T-Shirt-2.jpg.webp',
-    ],
-    rating: 3,
-    price: 265,
-    isHot: true,
-    isSale: false,
-  };
+  product?: Product;
   activeImgIndex: number = 0;
   quantity: number = 1;
+  isLoading: boolean = true;
+  error: string = '';
 
   config: SwiperOptions = {
     allowTouchMove: false,
   };
+
+  constructor(
+    private productService: ProductsService,
+    private route: ActivatedRoute
+  ) {}
+
+  ngOnInit() {
+    this.route.params.subscribe((params) => {
+      const productId = params['id'];
+      this.productService
+        .getProduct(productId)
+        .pipe(
+          catchError((err) => {
+            this.isLoading = false;
+            this.error = 'An error occurred while fetching the product.';
+            return throwError(err);
+          })
+        )
+        .subscribe((product) => {
+          this.product = product.product;
+          this.isLoading = false;
+          this.error = '';
+        });
+    });
+  }
 
   slideToIndex(index: number): void {
     this.swiper?.swiperRef.slideTo(index);
