@@ -2,7 +2,7 @@ import { createReducer, on } from '@ngrx/store';
 import { handleNewsletterState } from '../actions/newsletter.action';
 
 export const initialState = {
-  isNewsletterOpen: false,
+  isNewsletterOpen: true,
 };
 
 export const newsletterReducer = createReducer(
