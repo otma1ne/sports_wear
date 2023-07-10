@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { Product } from '../models/product';
+import { Product } from '../../models/product';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';

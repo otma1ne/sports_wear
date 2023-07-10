@@ -1,6 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { ProductsService } from 'src/app/services/products.service';
-import { Product } from 'src/app/shared/models/product';
+import { Product } from 'src/app/models/product';
 import { SwiperOptions } from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
 

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { BASE_URL } from './base-url';
-import { Product } from '../shared/models/product';
+import { Product } from '../models/product';
 
 @Injectable({
   providedIn: 'root',

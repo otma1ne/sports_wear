@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { SwiperOptions } from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
-import { Product } from '../shared/models/product';
+import { Product } from '../models/product';
 import { pageTransitions } from '../page-transitions';
 import { ProductsService } from '../services/products.service';
 import { ActivatedRoute } from '@angular/router';

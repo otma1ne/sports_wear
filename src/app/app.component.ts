@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { LoaderService } from './shared/services/loader.service';
+import { LoaderService } from './services/loader.service';
 import { pageTransitions } from './page-transitions';
 import { TranslateService } from '@ngx-translate/core';
 import { Observable, Subject } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { handleCarteState } from './store/actions/cart.action';
-import { Product } from './shared/models/product';
+import { Product } from './models/product';
 import { CookieService } from 'ngx-cookie-service';
 
 @Component({
