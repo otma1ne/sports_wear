@@ -33,7 +33,7 @@
                 <li (click)="handleMenuItemClick('/shop')">{{ 'NAVBAR.item5' | translate }}</li>
             </ul>
             <div class="icons">
-                <div class="icon__container" svgIcon="Search_alt"></div>
+                <div class="icon__container" svgIcon="Search_alt" (click)="handleSearchClick(true)"></div>
                 <div class="icon__badge">
                     <div class="icon__container" svgIcon="Bag" (click)="handleCartClick(true)">
                         <div class="badge">{{cartCount}}</div>
@@ -45,5 +45,6 @@
         </div>
     </div>
     <div class="overlay" [ngClass]="{active : showMenu}" (click)="hnadleMenuClick(false)"></div>
-    <app-sidecart></app-sidecart>
+    <app-sidecart />
+    <app-search />
 </nav>
