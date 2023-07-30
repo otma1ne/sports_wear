@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import { handleCarteState } from 'src/app/store/actions/cart.action';
 import { ProductCart } from 'src/app/models/product_cart.model';
+import { handleSearchState } from 'src/app/store/actions/header.action';
 
 @Component({
   selector: 'app-product-card',
@@ -22,6 +23,7 @@ export class ProductCardComponent {
     private router: Router,
     private store: Store<{ auth: any }>,
     private cartStore: Store<{ cart: any }>,
+    private headerStore: Store<{ header: any }>,
     private cookieService: CookieService
   ) {
     this.auth$ = this.store.select('auth');
@@ -32,6 +34,7 @@ export class ProductCardComponent {
 
   handleCardClick(): void {
     this.router.navigate(['/product/' + this.product?.id]);
+    this.headerStore.dispatch(handleSearchState({ state: false }));
   }
 
   handleAddToCart(event: any): void {

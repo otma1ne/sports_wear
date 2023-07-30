@@ -33,4 +33,10 @@ export class ProductsService {
     const url = `${BASE_URL}/products/bestselling`;
     return this.http.get<Product[]>(url);
   }
+
+  search(query: string) {
+    const url = `${BASE_URL}/products/search`;
+    const params = { query };
+    return this.http.get<Product[]>(url, { params });
+  }
 }

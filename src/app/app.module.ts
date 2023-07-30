@@ -44,6 +44,7 @@ import { authReducer } from './store/reducers/auth.reducer';
 import { CookieService } from 'ngx-cookie-service';
 import { cartReducer } from './store/reducers/cart.reducer';
 import { ProductCardSkeletonComponent } from './shared/product-card-skeleton/product-card-skeleton.component';
+import { SearchComponent } from './shared/search/search.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -76,6 +77,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     RegisterComponent,
     ProductCartComponent,
     ProductCardSkeletonComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,
