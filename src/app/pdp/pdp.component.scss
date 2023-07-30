@@ -23,7 +23,15 @@
                 grid-area: carousel;
                 width: 100%;
 
-                .slide__img {
+                .swiper-zoom-container {
+                    height: 500px;
+
+                    img {
+                        object-fit: cover !important;
+                    }
+                }
+
+                /* .slide__img {
                     aspect-ratio: 1/1;
                     overflow: hidden;
 
@@ -33,7 +41,7 @@
                         object-fit: cover;
                         object-position: top;
                     }
-                }
+                } */
             }
 
             .navigations {

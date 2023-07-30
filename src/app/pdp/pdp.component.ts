@@ -1,11 +1,13 @@
 import { Component, ViewChild } from '@angular/core';
-import { SwiperOptions } from 'swiper';
+import SwiperCore, { SwiperOptions, Zoom, EffectFade } from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
-import { Product } from '../shared/models/product';
+import { Product } from '../models/product.model';
 import { pageTransitions } from '../page-transitions';
 import { ProductsService } from '../services/products.service';
 import { ActivatedRoute } from '@angular/router';
 import { catchError, throwError } from 'rxjs';
+
+SwiperCore.use([EffectFade, Zoom]);
 
 @Component({
   selector: 'app-pdp',
@@ -22,7 +24,13 @@ export class PdpComponent {
   error: string = '';
 
   config: SwiperOptions = {
-    allowTouchMove: false,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    zoom: {
+      maxRatio: 2,
+      minRatio: 3,
+      toggle : true
+    },
   };
 
   constructor(
