@@ -89,8 +89,11 @@
                         </select>
                     </div>
                 </div>
-                <div class="products">
+                <div class="products" *ngIf="!isLoading">
                     <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
+                </div>
+                <div class="products" *ngIf="isLoading">
+                    <app-product-card-skeleton *ngFor="let items of [0, 1, 2]" />
                 </div>
             </div>
         </div>

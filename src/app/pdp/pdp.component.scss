@@ -22,26 +22,6 @@
             swiper {
                 grid-area: carousel;
                 width: 100%;
-
-                .swiper-zoom-container {
-                    height: 500px;
-
-                    img {
-                        object-fit: cover !important;
-                    }
-                }
-
-                /* .slide__img {
-                    aspect-ratio: 1/1;
-                    overflow: hidden;
-
-                    img {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                        object-position: top;
-                    }
-                } */
             }
 
             .navigations {
@@ -66,7 +46,7 @@
                     }
 
                     &.active {
-                        border: 2px solid black;
+                        border: 1px solid black;
                     }
                 }
             }
@@ -195,6 +175,17 @@
 
     .related {
         margin-top: 100px;
+    }
+
+    .lodaer__container {
+        min-height: 70vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 40px;
+        }
     }
 }
 
