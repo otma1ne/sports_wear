@@ -11,12 +11,20 @@ import { ProductsService } from '../services/products.service';
 })
 export class ShopComponent {
   products: Product[] = [];
+  isLoading : boolean = true;
 
   constructor(private productService: ProductsService) {}
 
   ngOnInit() {
-    this.productService.getProducts().subscribe((products: Product[]) => {
-      this.products = products;
-    });
+    this.productService.getProducts().subscribe({
+      next: (products: Product[]) => {
+        this.products = products;
+        this.isLoading = false;
+      },
+      error: (error) => {
+        console.error('Error fetching products:', error);
+        this.isLoading = false;
+      }
+    });   
   }
 }
