@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Product } from 'src/app/models/product';
+import { Product } from 'src/app/models/product.model';
 
 export const handleCartState = createAction(
   '[Header Component] handleCartState',

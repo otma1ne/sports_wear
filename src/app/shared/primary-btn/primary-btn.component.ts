@@ -16,6 +16,7 @@ export class PrimaryBtnComponent {
   @Input() theme: string = '';
   @Input() isFull: boolean = false;
   @Input() isLarge: boolean = false;
+  @Input() disabled: boolean = false;
 
   @Output() onClick = new EventEmitter<any>();
 

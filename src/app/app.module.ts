@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, HammerModule } from '@angular/platform-browser';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -42,6 +43,8 @@ import { ProductCartComponent } from './shared/product-cart/product-cart.compone
 import { authReducer } from './store/reducers/auth.reducer';
 import { CookieService } from 'ngx-cookie-service';
 import { cartReducer } from './store/reducers/cart.reducer';
+import { TestComponent } from './test/test.component';
+import { ProductCardSkeletonComponent } from './shared/product-card-skeleton/product-card-skeleton.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -73,6 +76,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoginComponent,
     RegisterComponent,
     ProductCartComponent,
+    TestComponent,
+    ProductCardSkeletonComponent,
   ],
   imports: [
     BrowserModule,
@@ -96,6 +101,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       cart: cartReducer,
     }),
     EffectsModule.forRoot([]),
+    NgxSkeletonLoaderModule
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],

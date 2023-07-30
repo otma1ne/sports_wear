@@ -1,7 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { SwiperOptions } from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
-import { Product } from '../../models/product';
+import { Product } from '../../models/product.model';
 
 @Component({
   selector: 'app-related-products',

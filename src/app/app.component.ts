@@ -5,8 +5,9 @@ import { TranslateService } from '@ngx-translate/core';
 import { Observable, Subject } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { handleCarteState } from './store/actions/cart.action';
-import { Product } from './models/product';
+import { Product } from './models/product.model';
 import { CookieService } from 'ngx-cookie-service';
+import { ProductCart } from './models/product_cart.model';
 
 @Component({
   selector: 'app-root',
@@ -55,7 +56,7 @@ export class AppComponent {
     }
   }
 
-  getProductsFromCookie(): Product[] {
+  getProductsFromCookie(): ProductCart[] {
     const productsString = this.cookieService.get('cartProducts');
     if (productsString) {
       return JSON.parse(productsString);

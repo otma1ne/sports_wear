@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { pageTransitions } from '../page-transitions';
-import { Product } from '../models/product';
+import { Product } from '../models/product.model';
 import { ProductsService } from '../services/products.service';
 
 @Component({

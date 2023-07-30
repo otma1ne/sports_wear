@@ -25,10 +25,17 @@
         display: flex;
         flex-direction: column;
 
+        .name,
+        .price {
+            font-size: 14px;
+            line-height: 16px;
+        }
+
         .qty {
             font-family: variables.$font-stack2;
             @include mixins.body3;
             color: variables.$gray-color2;
+            margin-bottom: 3px;
         }
     }
 

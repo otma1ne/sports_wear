@@ -7,18 +7,25 @@
                 <li>{{'HOME.categories.item3' | translate}}</li>
             </ul>
             <div class="navigations">
-                <button (click)="prevSlide()">
+                <button (click)="prevSlide()" [disabled]="isPrevDisabled">
                     <div class="svg__icon__container" svgIcon="arrow-left" size="16"></div>
                 </button>
-                <button (click)="nextSlide()">
+                <button (click)="nextSlide()" [disabled]="isNextDisabled">
                     <div class="svg__icon__container" svgIcon="arrow-right" size="16"></div>
                 </button>
             </div>
         </div>
-        <div class="container">
+        <div class="container" *ngIf="!isLoading">
             <swiper #swiper [config]="config">
                 <ng-template swiperSlide *ngFor="let product of products">
                     <app-product-card [product]="product"></app-product-card>
+                </ng-template>
+            </swiper>
+        </div>
+        <div class="loader" *ngIf="isLoading">
+            <swiper #swiper [config]="config">
+                <ng-template swiperSlide *ngFor="let items of [0, 1, 2]">
+                    <app-product-card-skeleton />
                 </ng-template>
             </swiper>
         </div>

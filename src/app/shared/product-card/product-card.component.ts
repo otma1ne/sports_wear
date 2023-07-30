@@ -1,10 +1,11 @@
 import { Component, Input } from '@angular/core';
-import { Product } from '../../models/product';
+import { Product } from '../../models/product.model';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import { handleCarteState } from 'src/app/store/actions/cart.action';
+import { ProductCart } from 'src/app/models/product_cart.model';
 
 @Component({
   selector: 'app-product-card',
@@ -54,16 +55,16 @@ export class ProductCardComponent {
   }
 
   addProductToCookie(product: Product) {
-    let products: Product[] = this.getProductsFromCookie();
+    let products: ProductCart[] = this.getProductsFromCookie();
     if (products === null) {
-      products = [product];
+      products = [{ ...product, quantity: 1 }];
     } else {
-      products.push(product);
+      products.push({ ...product, quantity: 1 });
     }
     this.cookieService.set('cartProducts', JSON.stringify(products));
   }
 
-  getProductsFromCookie(): Product[] {
+  getProductsFromCookie(): ProductCart[] {
     const productsString = this.cookieService.get('cartProducts');
     if (productsString) {
       return JSON.parse(productsString);

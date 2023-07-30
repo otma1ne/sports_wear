@@ -11,6 +11,7 @@ import { ShopComponent } from './shop/shop.component';
 import { LoaderService } from './services/loader.service';
 import { filter } from 'rxjs/operators';
 import { PdpComponent } from './pdp/pdp.component';
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'product/:id',
     component: PdpComponent,
+  },
+  {
+    path: 'test',
+    component: TestComponent,
   },
 ];
 

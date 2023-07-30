@@ -4,8 +4,8 @@
     </div>
     <div class="info">
         <div class="name">{{ product!.name }}</div>
-        <div class="qty">Qte : 3</div>
-        <div class="price">${{ product!.price }}</div>
+        <div class="qty">Qte : {{product?.quantity}}</div>
+        <div class="price">${{ product!.price.toFixed(2) }}</div>
     </div>
     <div class="close">
         <div class="icon_container" svgIcon="Close_round_light"></div>

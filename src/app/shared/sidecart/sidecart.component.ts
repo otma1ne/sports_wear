@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { handleCartState } from 'src/app/store/actions/header.action';
-import { Product } from '../../models/product';
+import { ProductCart } from 'src/app/models/product_cart.model';
 
 @Component({
   selector: 'app-sidecart',
@@ -15,7 +15,7 @@ export class SidecartComponent {
   cart$: Observable<any>;
   showCart: boolean = false;
   isAuth: boolean = false;
-  products: Product[] = [];
+  products: ProductCart[] = [];
 
   constructor(
     private store: Store<{ header: any }>,
@@ -42,5 +42,13 @@ export class SidecartComponent {
     const body = document.querySelector('body');
     this.store.dispatch(handleCartState({ state: false }));
     body!.style.overflow = 'auto';
+  }
+
+  calculTotal(): number {
+    let total = 0;
+    for (const product of this.products) {
+      total += product.price * product.quantity;
+    }
+    return total;
   }
 }

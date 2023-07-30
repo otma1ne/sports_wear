@@ -1,0 +1,13 @@
+<section class="test">
+    <div class="max__width">
+        <div class="img__container" (mousedown)="onImageDown($event)" (touchstart)="onImageDown($event)"
+            (mousemove)="onImageMove($event)" (touchmove)="onImageTouchMove($event)" (mouseup)="onImageUp()"
+            (touchend)="onImageUp()">
+            <img src="../../assets/images/products/BackBeat-FIT-2100-Grey.jpg.webp" alt="">
+        </div>
+        <div class="btns">
+            <app-primary-btn theme="dark" textBtn="-" (onClick)="zoomImage()"></app-primary-btn>
+            <app-primary-btn theme="dark" textBtn="+"></app-primary-btn>
+        </div>
+    </div>
+</section>
