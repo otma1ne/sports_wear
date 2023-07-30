@@ -34,7 +34,9 @@ export class ProductCardComponent {
 
   handleCardClick(): void {
     this.router.navigate(['/product/' + this.product?.id]);
+    const body = document.querySelector('body');
     this.headerStore.dispatch(handleSearchState({ state: false }));
+    body!.style.overflow = 'auto';
   }
 
   handleAddToCart(event: any): void {
