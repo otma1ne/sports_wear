@@ -25,8 +25,9 @@ export class AuthService {
   }
 
   login(email: string, password: string) {
-    const url = `${BASE_URL}/signup`;
-    return this.http.post<any>(url, { email, password });
+    const url = `${BASE_URL}/signin`;
+    const requestBody = { email, password };
+    return this.http.post<any>(url, requestBody);
   }
 
   logout(token: string) {
