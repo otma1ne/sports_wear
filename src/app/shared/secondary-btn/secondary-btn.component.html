@@ -1,1 +1,4 @@
-<button class="secondary__btn" [ngClass]="{full : isFull}">{{textBtn}}</button>
+<button class="secondary__btn" [ngClass]="{full : isFull}" [disabled]="isLoading">
+    <span *ngIf="!isLoading">{{ textBtn }}</span>
+    <div *ngIf="isLoading" class="dots"></div>
+</button>

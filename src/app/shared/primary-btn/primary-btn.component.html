@@ -4,7 +4,8 @@
   [class.full]="isFull"
   [class.large]="isLarge"
   (click)="btnClick($event)"
-  [disabled]="disabled"
+  [disabled]="disabled || isLoading"
 >
-  {{ textBtn }}
+  <span *ngIf="!isLoading">{{ textBtn }}</span>
+  <div *ngIf="isLoading" class="dots"></div>
 </button>
