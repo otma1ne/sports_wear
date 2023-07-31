@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 export class SecondaryBtnComponent {
   @Input() textBtn: String = '';
   @Input() isFull: boolean = false;
+  @Input() isLoading: boolean = false;
 }

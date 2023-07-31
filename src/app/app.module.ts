@@ -4,6 +4,7 @@ import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -85,6 +86,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     SwiperModule,
     HttpClientModule,
     BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
     StarRatingModule.forRoot(),
     TranslateModule.forRoot({
       loader: {
@@ -101,7 +104,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       cart: cartReducer,
     }),
     EffectsModule.forRoot([]),
-    NgxSkeletonLoaderModule
+    NgxSkeletonLoaderModule,
   ],
   providers: [CookieService],
   bootstrap: [AppComponent],
