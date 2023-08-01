@@ -5,6 +5,10 @@ import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/services/auth.service';
 import {
+  handleAuthState,
+  handleUserState,
+} from 'src/app/store/actions/auth.action';
+import {
   handleLoginState,
   handleRegisterState,
 } from 'src/app/store/actions/header.action';
@@ -22,6 +26,7 @@ export class LoginComponent {
 
   constructor(
     private store: Store<{ header: any }>,
+    private authStore: Store<{ auth: any }>,
     private formBuilder: FormBuilder,
     private authService: AuthService,
     private cookieService: CookieService
@@ -56,7 +61,14 @@ export class LoginComponent {
           const token = res.token;
           this.cookieService.set('auth_token', token);
           this.cookieService.set('is_auth', 'true');
+          this.cookieService.set('userId', res.user._id);
           this.store.dispatch(handleLoginState({ state: false }));
+          if (this.cookieService.get('is_auth') === 'true') {
+            this.authStore.dispatch(handleAuthState({ state: true }));
+            this.authStore.dispatch(
+              handleUserState({ state: this.cookieService.get('userId') })
+            );
+          }
         },
         error: (err) => {
           console.log(err);
