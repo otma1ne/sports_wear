@@ -24,6 +24,7 @@ export class ShowcaseComponent {
   showcaseImg!: ElementRef<HTMLDivElement>;
   currentPage = 1;
   totalPages = 3;
+  rtl: boolean = false;
   myText = new SplitType('#text__showcase');
 
   config: SwiperOptions = {
@@ -38,11 +39,26 @@ export class ShowcaseComponent {
     },
     allowTouchMove: false,
   };
+  languageChangeSubscription: any;
 
   constructor(
     private cdr: ChangeDetectorRef,
+    private translate: TranslateService,
     @Inject(DOCUMENT) private document: Document
-  ) {}
+  ) {
+    this.detectLanguageAndSetRTL();
+    this.subscribeToLanguageChange();
+  }
+
+  ngOnInit() {
+    this.detectLanguageAndSetRTL();
+  }
+
+  ngOnDestroy() {
+    if (this.languageChangeSubscription) {
+      this.languageChangeSubscription.unsubscribe();
+    }
+  }
 
   onSwiper(event: any) {
     this.swiperAnimations();
@@ -56,6 +72,19 @@ export class ShowcaseComponent {
 
   slideToIndex(index: number): void {
     this.swiper?.swiperRef.slideTo(index);
+  }
+
+  detectLanguageAndSetRTL() {
+    const currentLang = this.translate.currentLang;
+    this.rtl = currentLang === 'ar';
+  }
+
+  private subscribeToLanguageChange() {
+    this.languageChangeSubscription = this.translate.onLangChange.subscribe(
+      () => {
+        this.detectLanguageAndSetRTL();
+      }
+    );
   }
 
   swiperAnimations(): void {
