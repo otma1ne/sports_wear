@@ -8,6 +8,9 @@ import { handleCarteState } from './store/actions/cart.action';
 import { Product } from './models/product.model';
 import { CookieService } from 'ngx-cookie-service';
 import { ProductCart } from './models/product_cart.model';
+import { handleAuthState, handleUserState } from './store/actions/auth.action';
+import { CartService } from './services/cart.service';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -21,17 +24,63 @@ export class AppComponent {
   isRtl: boolean = false;
   auth$: Observable<any>;
   isAuth: boolean = false;
+  userId: string = '';
 
   constructor(
-    private translate: TranslateService,
     public loaderService: LoaderService,
+    private translate: TranslateService,
     private authStore: Store<{ auth: any }>,
     private cartStore: Store<{ cart: any }>,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private cartService: CartService,
+    private authService: AuthService
   ) {
     this.auth$ = this.authStore.select('auth');
     this.auth$.subscribe((authData) => {
       this.isAuth = authData.isAuth;
+      this.userId = authData.userId;
+      if (this.isAuth && this.userId) {
+        const cartItems: { productId: string; quantity: number }[] = [];
+        const cookieProducts = this.getProductsFromCookie();
+        cookieProducts.map((cookieProduct) => {
+          cartItems.push({
+            productId: cookieProduct.id,
+            quantity: cookieProduct.quantity,
+          });
+        });
+        if (cartItems.length > 0) {
+          this.cartService.addProductsToCart(this.userId, cartItems).subscribe({
+            next: (res) => {
+              console.log(res);
+              cookieService.delete('cartProducts');
+            },
+            error: (err) => {
+              console.log(err);
+            },
+          });
+        }
+        const token = cookieService.get('auth_token');
+        this.authService.getUser(token).subscribe({
+          next: (res) => {
+            const items = res.cart;
+            const cartItems: any = [];
+            items?.map((item) => {
+              cartItems.push({
+                quantity: item.quantity,
+                ...item.product,
+              });
+            });
+            this.cartStore.dispatch(handleCarteState({ state: cartItems }));
+          },
+          error: (err) => {
+            console.log(err);
+          },
+        });
+      } else {
+        this.cartStore.dispatch(
+          handleCarteState({ state: this.getProductsFromCookie() })
+        );
+      }
     });
     this.translate.setDefaultLang('en');
     this.translate.addLangs(['fr', 'en']);
@@ -39,6 +88,7 @@ export class AppComponent {
   }
 
   ngOnInit() {
+    this.checkAuth();
     this.isRtl = this.translate.currentLang === 'ar';
     document.body.dir = this.isRtl ? 'rtl' : 'ltr';
 
@@ -47,13 +97,6 @@ export class AppComponent {
       this.isRtl = event.lang === 'ar';
       document.body.dir = this.isRtl ? 'rtl' : 'ltr';
     });
-
-    if (this.isAuth) {
-    } else {
-      this.cartStore.dispatch(
-        handleCarteState({ state: this.getProductsFromCookie() })
-      );
-    }
   }
 
   getProductsFromCookie(): ProductCart[] {
@@ -62,5 +105,14 @@ export class AppComponent {
       return JSON.parse(productsString);
     }
     return [];
+  }
+
+  checkAuth(): void {
+    if (this.cookieService.get('is_auth') === 'true') {
+      this.authStore.dispatch(handleAuthState({ state: true }));
+      this.authStore.dispatch(
+        handleUserState({ state: this.cookieService.get('userId') })
+      );
+    }
   }
 }
