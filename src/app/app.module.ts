@@ -46,6 +46,10 @@ import { CookieService } from 'ngx-cookie-service';
 import { cartReducer } from './store/reducers/cart.reducer';
 import { ProductCardSkeletonComponent } from './shared/product-card-skeleton/product-card-skeleton.component';
 import { SearchComponent } from './shared/search/search.component';
+import { CartComponent } from './cart/cart.component';
+import { Tab1Component } from './cart/component/tab1/tab1.component';
+import { Tab2Component } from './cart/component/tab2/tab2.component';
+import { Tab3Component } from './cart/component/tab3/tab3.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -79,6 +83,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProductCartComponent,
     ProductCardSkeletonComponent,
     SearchComponent,
+    CartComponent,
+    Tab1Component,
+    Tab2Component,
+    Tab3Component,
   ],
   imports: [
     BrowserModule,

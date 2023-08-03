@@ -1,0 +1,34 @@
+@use "../../styles/variables";
+@use "../../styles/mixins";
+
+.cart {
+    min-height: calc(100vh - 124px);
+    margin-top: 154px;
+
+    .tabs {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        font-size: 18px;
+
+        .tab {
+            position: relative;
+            cursor: pointer;
+
+            &.active::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: -6px;
+                width: 100%;
+                height: 2px;
+                background: variables.$primary-color1;
+
+            }
+        }
+    }
+
+    .container {
+        margin-top: 100px;
+    }
+}
