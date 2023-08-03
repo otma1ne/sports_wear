@@ -9,6 +9,12 @@ import {
   handleMenuState,
   handleSearchState,
 } from 'src/app/store/actions/header.action';
+import { AuthService } from 'src/app/services/auth.service';
+import { CookieService } from 'ngx-cookie-service';
+import {
+  handleAuthState,
+  handleUserState,
+} from 'src/app/store/actions/auth.action';
 
 @Component({
   selector: 'app-navbar',
@@ -22,13 +28,20 @@ export class NavbarComponent {
   showMenu: boolean = false;
   header$: Observable<any>;
   cart$: Observable<any>;
+  auth$: Observable<any>;
+  isAuth: boolean = false;
   cartCount: number = 0;
+  showUserMenu: boolean = false;
+  selectedLang = 'en';
 
   constructor(
     private translate: TranslateService,
     private router: Router,
     private store: Store<{ header: any }>,
-    private cartStore: Store<{ cart: any }>
+    private cartStore: Store<{ cart: any }>,
+    private authStore: Store<{ auth: any }>,
+    private authService: AuthService,
+    private cookieService: CookieService
   ) {
     translate.setDefaultLang('en');
     this.header$ = store.select('header');
@@ -40,6 +53,10 @@ export class NavbarComponent {
     this.cart$ = cartStore.select('cart');
     this.cart$.subscribe((cartData) => {
       this.cartCount = cartData.cart.length;
+    });
+    this.auth$ = authStore.select('auth');
+    this.auth$.subscribe((authData) => {
+      this.isAuth = authData.isAuth;
     });
   }
 
@@ -65,7 +82,7 @@ export class NavbarComponent {
 
   handleMenuItemClick(path: string): void {
     this.router.navigate([path]);
-    this.hnadleMenuClick(false)
+    this.hnadleMenuClick(false);
   }
 
   handleCartClick(state: boolean) {
@@ -89,7 +106,34 @@ export class NavbarComponent {
   }
 
   handleLoginClick(): void {
-    this.store.dispatch(handleLoginState({ state: true }));
+    if (this.isAuth) {
+      this.handleShowMenu(true);
+    } else {
+      this.store.dispatch(handleLoginState({ state: true }));
+    }
+  }
+
+  handleShowMenu(value: boolean): void {
+    this.showUserMenu = value;
+  }
+
+  logout(): void {
+    const token = this.cookieService.get('auth_token');
+    this.authService.logout(token).subscribe({
+      next: (res) => {
+        this.cookieService.delete('auth_token');
+        this.cookieService.delete('is_auth');
+        this.cookieService.delete('userId');
+        this.authStore.dispatch(handleAuthState({ state: false }));
+        this.authStore.dispatch(handleUserState({ state: '' }));
+        this.showUserMenu = false;
+      },
+      error: (err) => {},
+    });
+  }
+
+  onLangSelected(value: string) {
+    this.translate.use(value);
   }
 
   @HostListener('window:scroll', [])

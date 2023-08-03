@@ -163,6 +163,8 @@ input[type="checkbox"] {
 
 select {
     width: 100%;
+    padding: 8px 16px;
+    border: 1px solid variables.$gray-color2;
 }
 
 a {

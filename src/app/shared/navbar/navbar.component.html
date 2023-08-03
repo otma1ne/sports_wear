@@ -25,12 +25,20 @@
                 <img src="../../../assets/images/Logo-dark-1.webp" alt="logo">
             </div>
             <ul class="menu" [ngClass]="{active : showMenu}">
+                <div class="close__icon" [svgIcon]="'Close_round_light'" (click)="handleShowMenu(false)"></div>
                 <li (click)="handleMenuItemClick('/')">{{ 'NAVBAR.home' | translate }}</li>
                 <li (click)="handleMenuItemClick('/shop')">{{ 'NAVBAR.item1' | translate }}</li>
                 <li (click)="handleMenuItemClick('/shop')">{{ 'NAVBAR.item2' | translate }}</li>
                 <li (click)="handleMenuItemClick('/shop')">{{ 'NAVBAR.item3' | translate }}</li>
                 <li (click)="handleMenuItemClick('/shop')">{{ 'NAVBAR.item4' | translate }}</li>
                 <li (click)="handleMenuItemClick('/shop')">{{ 'NAVBAR.item5' | translate }}</li>
+                <li>
+                    <select #lang id="" (change)="onLangSelected(lang.value)">
+                        <option value="en">English</option>
+                        <option value="fr">Francais</option>
+                        <option value="ar">العربية</option>
+                    </select>
+                </li>
             </ul>
             <div class="icons">
                 <div class="icon__container" svgIcon="Search_alt" (click)="handleSearchClick(true)"></div>
@@ -39,12 +47,39 @@
                         <div class="badge">{{cartCount}}</div>
                     </div>
                 </div>
-                <div class="icon__container" svgIcon="User" (click)="handleLoginClick()"></div>
+                <div class="icon__container" svgIcon="User" (click)="handleLoginClick()">
+                    <div class="user__menu" [ngClass]="{ active: showUserMenu }">
+                        <div class="info">
+                            <div class="avatar">
+                                <img src="../../../assets/images/Profile_avatar_placeholder_large.png" alt="" />
+                            </div>
+                            <div class="username__email">
+                                <div class="username">oouali</div>
+                                <div class="email">othmanou01@gmail.com</div>
+                            </div>
+                        </div>
+                        <ul class="menu">
+                            <li>
+                                <div class="icon__container" [svgIcon]="'user_outline'" size="16"></div>
+                                Profile
+                            </li>
+                            <li>
+                                <div class="icon__container" [svgIcon]="'gear 1'" size="16"></div>
+                                Settings
+                            </li>
+                            <li class="logout" (click)="logout()">
+                                <div class="icon__container" [svgIcon]="'logout 1'" size="16"></div>
+                                Logout
+                            </li>
+                        </ul>
+                    </div>
+                </div>
                 <div class="icon__container menu__icon" svgIcon="Menu" size="22" (click)="hnadleMenuClick(true)"></div>
             </div>
         </div>
     </div>
     <div class="overlay" [ngClass]="{active : showMenu}" (click)="hnadleMenuClick(false)"></div>
+    <div class="overlay" [ngClass]="{active : showUserMenu}" (click)="handleShowMenu(false)"></div>
     <app-sidecart />
     <app-search />
 </nav>
