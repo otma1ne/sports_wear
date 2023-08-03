@@ -1,0 +1,14 @@
+<section class="cart">
+    <div class="max__width">
+        <div class="tabs">
+            <div class="tab" [ngClass]="{'active' : activeTab == 0 }" (click)="switchTabs(0)">Shopping cart</div>
+            <div class="tab" [ngClass]="{'active' : activeTab == 1 }" (click)="switchTabs(1)">Chekout</div>
+            <div class="tab" [ngClass]="{'active' : activeTab == 2 }" (click)="switchTabs(2)">Order Tracking</div>
+        </div>
+        <div class="container" [ngSwitch]="activeTab">
+            <div *ngSwitchCase="0">One</div>
+            <div *ngSwitchCase="1">Two</div>
+            <div *ngSwitchCase="2">Three</div>
+        </div>
+    </div>
+</section>
