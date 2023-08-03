@@ -51,7 +51,7 @@ export class AppComponent {
         if (cartItems.length > 0) {
           this.cartService.addProductsToCart(this.userId, cartItems).subscribe({
             next: (res) => {
-              console.log(res);
+              this.getUserProduct();
               cookieService.delete('cartProducts');
             },
             error: (err) => {
@@ -59,23 +59,7 @@ export class AppComponent {
             },
           });
         }
-        const token = cookieService.get('auth_token');
-        this.authService.getUser(token).subscribe({
-          next: (res) => {
-            const items = res.cart;
-            const cartItems: any = [];
-            items?.map((item) => {
-              cartItems.push({
-                quantity: item.quantity,
-                ...item.product,
-              });
-            });
-            this.cartStore.dispatch(handleCarteState({ state: cartItems }));
-          },
-          error: (err) => {
-            console.log(err);
-          },
-        });
+        this.getUserProduct();
       } else {
         this.cartStore.dispatch(
           handleCarteState({ state: this.getProductsFromCookie() })
@@ -105,6 +89,26 @@ export class AppComponent {
       return JSON.parse(productsString);
     }
     return [];
+  }
+
+  getUserProduct() {
+    const token = this.cookieService.get('auth_token');
+    this.authService.getUser(token).subscribe({
+      next: (res) => {
+        const items = res.cart;
+        const cartItems: any = [];
+        items?.map((item) => {
+          cartItems.push({
+            quantity: item.quantity,
+            ...item.product,
+          });
+        });
+        this.cartStore.dispatch(handleCarteState({ state: cartItems }));
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
   checkAuth(): void {

@@ -11,6 +11,9 @@ export class BrandsComponent {
     slidesPerView: 5,
     spaceBetween: 0,
     loop: true,
+    autoplay: {
+      delay: 5000,
+    },
     breakpoints: {
       0: {
         slidesPerView: 2,
