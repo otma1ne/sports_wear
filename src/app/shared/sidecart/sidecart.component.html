@@ -13,8 +13,8 @@
             <div class="price">${{calculTotal().toFixed(2)}}</div>
         </div>
         <div class="btns">
-            <app-secondary-btn textBtn="View Cart" [isFull]="true"></app-secondary-btn>
-            <app-primary-btn textBtn="Checkout" [isFull]="true" [isLarge]="true" theme="dark"></app-primary-btn>
+            <app-secondary-btn textBtn="View Cart" [isFull]="true" (onClick)="redirectTocart('')"></app-secondary-btn>
+            <app-primary-btn textBtn="Checkout" [isFull]="true" [isLarge]="true" theme="dark" (onClick)="redirectTocart('checkout')"></app-primary-btn>
         </div>
     </div>
 </aside>
