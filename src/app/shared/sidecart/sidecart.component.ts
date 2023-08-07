@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { handleCartState } from 'src/app/store/actions/header.action';
 import { ProductCart } from 'src/app/models/product_cart.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidecart',
@@ -20,7 +21,8 @@ export class SidecartComponent {
   constructor(
     private store: Store<{ header: any }>,
     private authStore: Store<{ auth: any }>,
-    private cartStore: Store<{ cart: any }>
+    private cartStore: Store<{ cart: any }>,
+    private router: Router
   ) {
     this.auth$ = this.authStore.select('auth');
     this.auth$.subscribe((authData) => {
@@ -50,5 +52,16 @@ export class SidecartComponent {
       total += product.price * product.quantity;
     }
     return total;
+  }
+
+  redirectTocart(activeTab: string) {
+    if (activeTab !== '') {
+      this.router.navigate(['/cart'], {
+        queryParams: { activeTab: activeTab },
+      });
+    } else {
+      this.router.navigate(['/cart']);
+    }
+    this.store.dispatch(handleCartState({ state: false }));
   }
 }

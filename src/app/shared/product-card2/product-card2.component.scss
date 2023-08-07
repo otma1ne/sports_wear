@@ -1,0 +1,76 @@
+@use "../../../styles/variables";
+@use "../../../styles/mixins";
+
+.product {
+    display: grid;
+    grid-template-columns: auto 1fr auto auto;
+    align-items: center;
+    font-family: variables.$font-stack;
+    gap: 20px;
+    padding: 20px;
+
+    .img__container {
+        img {
+            width: 80px;
+            object-fit: cover;
+            object-position: top;
+            aspect-ratio: 1/1;
+        }
+    }
+
+    .product__info {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .name {
+            @include mixins.body1;
+        }
+
+        .price {
+            @include mixins.body2;
+            font-family: variables.$font-stack3;
+        }
+    }
+
+    .btns {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+
+        .qnt {
+            border: 1px solid variables.$gray-color1;
+            display: flex;
+            align-items: center;
+            font-family: variables.$font-stack2;
+
+            input {
+                font-family: variables.$font-stack3;
+                width: 40px;
+                border: none;
+                padding: 0;
+                text-align: center;
+                font-size: 16px;
+            }
+
+            button {
+                padding: 7px 10px;
+                background: transparent;
+                border: none;
+                cursor: pointer;
+                font-size: 16px;
+            }
+        }
+
+        .btn__container {
+            width: 100%;
+        }
+    }
+
+    .icon__container{
+        margin-top: 6px;
+        cursor: pointer;
+    }
+}
