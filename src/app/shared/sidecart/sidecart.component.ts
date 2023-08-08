@@ -62,6 +62,8 @@ export class SidecartComponent {
     } else {
       this.router.navigate(['/cart']);
     }
+    const body = document.querySelector('body');
     this.store.dispatch(handleCartState({ state: false }));
+    body!.style.overflow = 'auto';
   }
 }
