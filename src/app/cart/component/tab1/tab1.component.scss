@@ -4,7 +4,7 @@
 .tab1 {
     .tab__container {
         display: grid;
-        grid-template-columns: 1fr 300px;
+        grid-template-columns: 1fr 340px;
         gap: 30px;
 
         .products__container {
@@ -14,7 +14,7 @@
             .product__container {
                 border-bottom: 1px solid variables.$gray-color2;
 
-                &:last-child{
+                &:last-child {
                     border: none;
                 }
             }
@@ -55,6 +55,16 @@
                     margin-top: 20px;
                 }
             }
+        }
+    }
+}
+
+/* Responsive style */
+
+@media screen and (max-width: 992px) {
+    .tab1 {
+        .tab__container {
+            grid-template-columns: 1fr;
         }
     }
 }

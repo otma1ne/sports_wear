@@ -8,15 +8,15 @@
     </div>
     <div class="max__width" *ngIf="productsCart && productsCart!.length > 0">
         <div class="tabs">
-            <div class="tab" [ngClass]="{'active' : activeTab == '' }" (click)="switchTabs('')">Shopping cart</div>
-            <div class="tab" [ngClass]="{'active' : activeTab == 'checkout' }" (click)="switchTabs('checkout')">Chekout
+            <div class="tab" [ngClass]="{'active' : activeTab == '' }">Shopping cart</div>
+            <div class="tab" [ngClass]="{'active' : activeTab == 'checkout' }">Chekout
             </div>
-            <div class="tab" [ngClass]="{'active' : activeTab == 'tracking' }" (click)="switchTabs('tracking')">Order
+            <div class="tab" [ngClass]="{'active' : activeTab == 'tracking' }">Order
                 Tracking</div>
         </div>
         <div class="container" [ngSwitch]="activeTab">
-            <app-tab1 *ngSwitchCase="''" />
-            <app-tab2 *ngSwitchCase="'checkout'" />
+            <app-tab1 *ngSwitchCase="''" [productsCart]="productsCart" (switchTabs)="switchTabs($event)" />
+            <app-tab2 *ngSwitchCase="'checkout'" [productsCart]="productsCart" (switchTabs)="switchTabs($event)" />
             <app-tab3 *ngSwitchCase="'tracking'" />
         </div>
     </div>
