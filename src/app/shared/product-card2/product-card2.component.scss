@@ -19,7 +19,6 @@
     }
 
     .product__info {
-
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -69,8 +68,17 @@
         }
     }
 
-    .icon__container{
+    .icon__container {
         margin-top: 6px;
         cursor: pointer;
+    }
+}
+
+/* Responsive style */
+
+@media screen and (max-width: 500px) {
+    .product {
+        display: grid;
+        grid-template-columns: auto 1fr;
     }
 }

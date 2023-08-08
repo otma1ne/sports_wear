@@ -1,0 +1,76 @@
+@use "../../../../styles/variables";
+@use "../../../../styles/mixins";
+
+.tab2 {
+    .tab__container {
+        display: grid;
+        grid-template-columns: 1fr 340px;
+        gap: 30px;
+
+        .form__container {
+            .title {
+                font-size: 18px;
+            }
+
+            form {
+                margin-top: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .row{
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 20px;
+                }
+            }
+        }
+
+        .cart__info {
+            background: #f6f6f6;
+            height: max-content;
+
+            .header {
+                padding: 10px 20px;
+                background: #e9e9e9;
+            }
+
+            .body {
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                font-family: variables.$font-stack3;
+
+                .row {
+                    display: grid;
+                    grid-template-columns: repeat(2, 1fr);
+                    align-items: center;
+
+                    .title {
+                        @include mixins.body3;
+                    }
+
+                    .value {
+                        font-size: 14px;
+                        font-weight: 600;
+                    }
+                }
+
+                .btn__container {
+                    margin-top: 20px;
+                }
+            }
+        }
+    }
+}
+
+/* Responsive style */
+
+@media screen and (max-width: 992px) {
+    .tab2 {
+        .tab__container {
+            grid-template-columns: 1fr;
+        }
+    }
+}

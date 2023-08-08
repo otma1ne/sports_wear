@@ -101,6 +101,7 @@ body {
     label {
         @include mixins.body3;
         color: black;
+        margin-top: 3px;
 
         span {
             color: black;

@@ -23,7 +23,7 @@
                     <div class="value">$217.55</div>
                 </div>
                 <div class="btn__container">
-                    <app-secondary-btn [isFull]="true" textBtn="Proceed to checkout" />
+                    <app-secondary-btn [isFull]="true" textBtn="Proceed to checkout" (onClick)="onCheckout()" />
                 </div>
             </div>
         </div>

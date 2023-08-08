@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { ProductCart } from 'src/app/models/product_cart.model';
@@ -9,13 +9,16 @@ import { ProductCart } from 'src/app/models/product_cart.model';
   styleUrls: ['./tab1.component.scss'],
 })
 export class Tab1Component {
+  @Input() productsCart: ProductCart[] = [];
+  @Output() switchTabs = new EventEmitter<any>();
+
   cart$: Observable<any>;
-  productsCart: ProductCart[] = [];
 
   constructor(private cartStore: Store<{ cart: any }>) {
     this.cart$ = this.cartStore.select('cart');
-    this.cart$.subscribe((data) => {
-      this.productsCart = data.cart;
-    });
+  }
+
+  onCheckout(): void {
+    this.switchTabs.emit('checkout');
   }
 }
