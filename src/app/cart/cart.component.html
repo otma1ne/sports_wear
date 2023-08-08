@@ -1,5 +1,12 @@
 <section class="cart">
-    <div class="max__width">
+    <div class="breadcrumb">
+        <div class="title">Cart</div>
+        <ul>
+            <li>Home</li>
+            <li>Cart</li>
+        </ul>
+    </div>
+    <div class="max__width" *ngIf="productsCart && productsCart!.length > 0">
         <div class="tabs">
             <div class="tab" [ngClass]="{'active' : activeTab == '' }" (click)="switchTabs('')">Shopping cart</div>
             <div class="tab" [ngClass]="{'active' : activeTab == 'checkout' }" (click)="switchTabs('checkout')">Chekout
@@ -10,7 +17,16 @@
         <div class="container" [ngSwitch]="activeTab">
             <app-tab1 *ngSwitchCase="''" />
             <app-tab2 *ngSwitchCase="'checkout'" />
-            <app-tab3 *ngSwitchCase="'tracking'"/>
+            <app-tab3 *ngSwitchCase="'tracking'" />
+        </div>
+    </div>
+    <div class="max__width" *ngIf="productsCart && productsCart!.length <= 0">
+        <div class="empty__container">
+            <div [svgIcon]="'empty_cart'" size="140"></div>
+            <div class="text">Your cart is currently empty.</div>
+            <div class="btn__container">
+                <app-secondary-btn textBtn="Return to shop" (onClick)="returnToshop()" />
+            </div>
         </div>
     </div>
 </section>
