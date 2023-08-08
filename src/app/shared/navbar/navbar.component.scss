@@ -11,67 +11,6 @@ nav {
     border-bottom: 1px solid transparent;
     transition: .3s ease-in-out;
 
-    .header {
-        width: 100%;
-        font-family: variables.$font-stack2;
-        background: black;
-        color: white;
-        font-size: 10px;
-        transition: .5s ease;
-        height: 28px;
-
-
-        .container__header {
-            display: flex;
-            justify-content: space-between;
-
-            .pub {
-                display: flex;
-                gap: 10px;
-                align-items: center;
-
-                .icon__container {
-                    padding-top: 4px;
-                    fill: white;
-                }
-            }
-
-            .info {
-                display: flex;
-                align-items: center;
-                gap: 10px;
-
-                .email {
-                    display: flex;
-                    align-items: center;
-                    gap: 6px;
-
-                    .icon__container {
-                        padding-top: 8px;
-                    }
-                }
-            }
-
-            .divider {
-                width: 1px;
-                height: 50%;
-                background: #ccc;
-            }
-
-            select {
-                background: transparent;
-                color: white;
-                border: none;
-                font-size: 10px;
-
-                option {
-                    color: black;
-                    font-size: 12px;
-                }
-            }
-        }
-    }
-
     .container {
         display: flex;
         justify-content: space-between;

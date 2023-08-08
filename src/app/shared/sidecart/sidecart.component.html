@@ -4,17 +4,24 @@
         <div class="title">Shoping Cart</div>
         <div class="icon__container" svgIcon="Close_round_light" (click)="closeSidecart()"></div>
     </div>
-    <div class="body">
-        <app-product-cart *ngFor="let product of products" [product]="product"></app-product-cart>
-    </div>
-    <div class="footer">
-        <div class="total">
-            <div class="title">Total :</div>
-            <div class="price">${{calculTotal().toFixed(2)}}</div>
+    <ng-container *ngIf="products && products!.length > 0">
+        <div class="body">
+            <app-product-cart *ngFor="let product of products" [product]="product"></app-product-cart>
         </div>
-        <div class="btns">
-            <app-secondary-btn textBtn="View Cart" [isFull]="true" (onClick)="redirectTocart('')"></app-secondary-btn>
-            <app-primary-btn textBtn="Checkout" [isFull]="true" [isLarge]="true" theme="dark" (onClick)="redirectTocart('checkout')"></app-primary-btn>
+        <div class="footer">
+            <div class="total">
+                <div class="title">Total :</div>
+                <div class="price">${{calculTotal().toFixed(2)}}</div>
+            </div>
+            <div class="btns">
+                <app-secondary-btn textBtn="View Cart" [isFull]="true"
+                    (onClick)="redirectTocart('')"></app-secondary-btn>
+                <app-primary-btn textBtn="Checkout" [isFull]="true" [isLarge]="true" theme="dark"
+                    (onClick)="redirectTocart('checkout')"></app-primary-btn>
+            </div>
         </div>
+    </ng-container>
+    <div class="empty" *ngIf="products && products!.length <= 0">
+        Your cart is empty
     </div>
 </aside>

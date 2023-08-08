@@ -19,7 +19,11 @@ import {
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss', 'navbar-responsive.component.scss'],
+  styleUrls: [
+    './navbar.component.scss',
+    './navbar-responsive.component.scss',
+    './navbar-header.component.scss',
+  ],
 })
 export class NavbarComponent {
   isScrolled: boolean = false;
