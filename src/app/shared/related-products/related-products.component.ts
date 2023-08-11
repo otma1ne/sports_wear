@@ -14,7 +14,6 @@ export class RelatedProductsComponent {
     {
       id: 'product1',
       name: 'Top Dri FIT Academy',
-      category: "Mens",
       images: [
         'Top-Dri-FIT-Academy-1.jpg.webp',
         'Top-Dri-FIT-Academy-2.jpg.webp',
@@ -27,7 +26,6 @@ export class RelatedProductsComponent {
     {
       id: 'product2',
       name: 'Short Sleeve T-Shirt',
-      category: "Mens",
       images: [
         'Short-Sleeve-T-Shirt-1.jpg.webp',
         'Short-Sleeve-T-Shirt-2.jpg.webp',
@@ -40,7 +38,6 @@ export class RelatedProductsComponent {
     {
       id: 'product3',
       name: 'Water Repellent Jacket',
-      category: "Mens",
       images: [
         'Water-Repellent-Jacket-1.jpg.webp',
         'Water-Repellent-Jacket-2.jpg.webp',
@@ -49,12 +46,11 @@ export class RelatedProductsComponent {
       price: 265,
       isHot: true,
       onsale: true,
-      salePercent: 10,
+      salePercentage: 10,
     },
     {
       id: 'product4',
       name: 'BackBeat FIT 2100 Grey',
-      category: "Mens",
       images: [
         'BackBeat-FIT-2100-Grey.jpg.webp',
         'BackBeat-FIT-2100-Grey1.jpg.webp',
@@ -67,7 +63,6 @@ export class RelatedProductsComponent {
     {
       id: 'product3',
       name: 'Water Repellent Jacket',
-      category: "Mens",
       images: [
         'Water-Repellent-Jacket-1.jpg.webp',
         'Water-Repellent-Jacket-2.jpg.webp',
@@ -76,7 +71,7 @@ export class RelatedProductsComponent {
       price: 265,
       isHot: true,
       onsale: true,
-      salePercent: 10,
+      salePercentage: 10,
     },
   ];
 

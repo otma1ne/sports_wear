@@ -26,12 +26,12 @@
             </div>
             <ul class="menu" [ngClass]="{active : showMenu}">
                 <div class="close__icon" [svgIcon]="'Close_round_light'" (click)="handleShowMenu(false)"></div>
-                <li (click)="handleMenuItemClick('home')">{{ 'NAVBAR.home' | translate }}</li>
-                <li (click)="handleMenuItemClick('fitness')">{{ 'NAVBAR.item1' | translate }}</li>
-                <li (click)="handleMenuItemClick('mens')">{{ 'NAVBAR.item2' | translate }}</li>
-                <li (click)="handleMenuItemClick('womens')">{{ 'NAVBAR.item3' | translate }}</li>
-                <li (click)="handleMenuItemClick('kids')">{{ 'NAVBAR.item4' | translate }}</li>
-                <li (click)="handleMenuItemClick('footwear')">{{ 'NAVBAR.item5' | translate }}</li>
+                <li (click)="handleMenuItemClick('/')">{{ 'NAVBAR.home' | translate }}</li>
+                <li (click)="handleMenuItemClick('/shop')">{{ 'NAVBAR.item1' | translate }}</li>
+                <li (click)="handleMenuItemClick('/shop')">{{ 'NAVBAR.item2' | translate }}</li>
+                <li (click)="handleMenuItemClick('/shop')">{{ 'NAVBAR.item3' | translate }}</li>
+                <li (click)="handleMenuItemClick('/shop')">{{ 'NAVBAR.item4' | translate }}</li>
+                <li (click)="handleMenuItemClick('/shop')">{{ 'NAVBAR.item5' | translate }}</li>
                 <li>
                     <select #lang id="" (change)="onLangSelected(lang.value)">
                         <option value="en">English</option>

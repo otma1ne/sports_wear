@@ -85,7 +85,6 @@
                         li {
                             display: flex;
                             justify-content: space-between;
-                            cursor: pointer;
 
                             .number {
                                 width: 18px;
@@ -97,15 +96,6 @@
                                 display: flex;
                                 align-items: center;
                                 justify-content: center;
-                            }
-
-                            &.active {
-                                color: variables.$primary-color1;
-                                text-decoration: underline;
-
-                                .number {
-                                    color: variables.$primary-color1;
-                                }
                             }
                         }
                     }

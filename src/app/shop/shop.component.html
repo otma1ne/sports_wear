@@ -15,29 +15,29 @@
                             Categories
                         </div>
                         <ul>
-                            <li [ngClass]="{'active' : activeCategory === 'all'}" (click)="setCategory('all')">
-                                All
-                                <div class="number">{{getCategoryLength('all')}}</div>
-                            </li>
-                            <li [ngClass]="{'active' : activeCategory === 'fitness'}" (click)="setCategory('fitness')">
+                            <li>
                                 Fitness
-                                <div class="number">{{getCategoryLength('fitness')}}</div>
+                                <div class="number">5</div>
                             </li>
-                            <li [ngClass]="{'active' : activeCategory === 'footwear'}" (click)="setCategory('footwear')">
+                            <li>
                                 Footwear
-                                <div class="number">{{getCategoryLength('footwear')}}</div>
+                                <div class="number">2</div>
                             </li>
-                            <li [ngClass]="{'active' : activeCategory === 'mens'}" (click)="setCategory('mens')">
-                                Mens
-                                <div class="number">{{getCategoryLength('mens')}}</div>
-                            </li>
-                            <li [ngClass]="{'active' : activeCategory === 'womens'}" (click)="setCategory('womens')">
-                                Womens
-                                <div class="number">{{getCategoryLength('womens')}}</div>
-                            </li>
-                            <li [ngClass]="{'active' : activeCategory === 'kids'}" (click)="setCategory('kids')">
+                            <li>
                                 Kids
-                                <div class="number">{{getCategoryLength('kids')}}</div>
+                                <div class="number">3</div>
+                            </li>
+                            <li>
+                                Mens
+                                <div class="number">8</div>
+                            </li>
+                            <li>
+                                Trach
+                                <div class="number">5</div>
+                            </li>
+                            <li>
+                                Womens
+                                <div class="number">9</div>
                             </li>
                         </ul>
                     </div>
@@ -74,14 +74,14 @@
             <div class="products__container">
                 <div class="header">
                     <div class="info">
-                        Showing all {{showedProducts.length}} results
+                        Showing all 17 results
                     </div>
                     <div class="sorting__grid">
                         <div class="grid">
                             <div class="icon__container" svgIcon="Appstore" size="14"></div>
                             <div class="icon__container" svgIcon="Bars" size="14"></div>
                         </div>
-                        <select (change)="setSort($event)">
+                        <select>
                             <option value="default">Default Sorting</option>
                             <option value="by_name">Sort by name</option>
                             <option value="by_price_desc">Sort by price Desc</option>
@@ -90,7 +90,7 @@
                     </div>
                 </div>
                 <div class="products" *ngIf="!isLoading">
-                    <app-product-card *ngFor="let product of showedProducts" [product]="product"></app-product-card>
+                    <app-product-card *ngFor="let product of products" [product]="product"></app-product-card>
                 </div>
                 <div class="products" *ngIf="isLoading">
                     <app-product-card-skeleton *ngFor="let items of [0, 1, 2]" />
