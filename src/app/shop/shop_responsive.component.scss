@@ -2,20 +2,20 @@
 
 @media screen and (max-width: 1600px) {
     .products {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr) !important;
 
         &.inline {
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr !important;
         }
     }
 }
 
 @media screen and (max-width: 1200px) {
     .products {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr) !important;
 
         &.inline {
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr !important;
         }
     }
 }
@@ -34,10 +34,10 @@
             }
 
             .products {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns: repeat(3, 1fr) !important;
 
                 &.inline {
-                    grid-template-columns: 1fr;
+                    grid-template-columns: 1fr !important;
                 }
             }
         }
@@ -49,10 +49,10 @@
     .shop {
         .container {
             .products {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns: repeat(2, 1fr) !important;
 
                 &.inline {
-                    grid-template-columns: 1fr;
+                    grid-template-columns: 1fr !important;
                 }
             }
         }
@@ -63,10 +63,10 @@
     .shop {
         .container {
             .products {
-                grid-template-columns: 1fr;
+                grid-template-columns: 1fr !important;
 
                 &.inline {
-                    grid-template-columns: 1fr;
+                    grid-template-columns: 1fr !important;
                 }
             }
         }

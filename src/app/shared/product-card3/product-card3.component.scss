@@ -5,6 +5,7 @@
     display: grid;
     grid-template-columns: 200px 1fr;
     gap: 20px;
+    max-width: 800px;
 
     .img__container {
         overflow: hidden;
@@ -49,6 +50,10 @@
         .desc {
             font-family: variables.$font-stack3;
             @include mixins.body3;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
     }
 }
