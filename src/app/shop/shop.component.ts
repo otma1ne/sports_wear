@@ -7,7 +7,11 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-shop',
   templateUrl: './shop.component.html',
-  styleUrls: ['./shop.component.scss', './shop_responsive.component.scss'],
+  styleUrls: [
+    './shop.component.scss',
+    './shop_responsive.component.scss',
+    './breadcrumb.component.scss',
+  ],
   animations: [pageTransitions],
 })
 export class ShopComponent {
@@ -26,7 +30,7 @@ export class ShopComponent {
     this.fetchProducts();
     this.activeRoute.queryParams.subscribe((params) => {
       this.activeCategory = params['category'] || 'all';
-      this.setProducts()
+      this.setProducts();
     });
   }
 
