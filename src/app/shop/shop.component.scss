@@ -56,9 +56,7 @@
         grid-template-columns: 240px 1fr;
         gap: 40px;
 
-
         .filtre {
-
             .filtre__container {
                 position: sticky;
                 top: 100px;
@@ -120,7 +118,6 @@
                         appearance: none;
                         cursor: pointer;
 
-
                         &::-webkit-slider-thumb {
                             -webkit-appearance: none;
                             height: 10px;
@@ -130,14 +127,12 @@
                             transition: background .3s ease-in-out;
                         }
 
-
                         &::-webkit-slider-runnable-track {
                             -webkit-appearance: none;
                             box-shadow: none;
                             border: none;
                             background: transparent;
                         }
-
                     }
 
                     .info {
@@ -176,7 +171,6 @@
                         }
                     }
                 }
-
             }
         }
 
@@ -214,7 +208,6 @@
                     padding: 6px;
                     font-size: 12px;
                 }
-
             }
 
             .products {
