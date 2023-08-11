@@ -46,8 +46,8 @@
                         <div class="title">
                             Price
                         </div>
-                        <input type="range" [min]="productMinPrice" [max]="productMaxPrice" [value]="maxPrice" [step]="50"
-                            (change)="setMaxPrice($event)">
+                        <input type="range" [min]="productMinPrice" [max]="productMaxPrice" [value]="maxPrice"
+                            [step]="50" (change)="setMaxPrice($event)">
                         <div class="info">
                             <span>Range</span> : ${{productMinPrice}} - ${{maxPrice}}
                         </div>
@@ -80,8 +80,14 @@
                     </div>
                     <div class="sorting__grid">
                         <div class="grid">
-                            <div class="icon__container" svgIcon="Appstore" size="14"></div>
-                            <div class="icon__container" svgIcon="Bars" size="14"></div>
+                            <div class="icon__container" svgIcon="Appstore" size="14"
+                                [stroke]="shopType == 'shopType1' ? '#ff3535' : 'black'"
+                                (click)="setShopType('shopType1')">
+                            </div>
+                            <div class="icon__container" svgIcon="Bars" size="14"
+                                [stroke]="shopType == 'shopType2' ? '#ff3535' : 'black'"
+                                (click)="setShopType('shopType2')">
+                            </div>
                         </div>
                         <select (change)="setSort($event)">
                             <option value="default">Default Sorting</option>
@@ -91,8 +97,13 @@
                         </select>
                     </div>
                 </div>
-                <div class="products" *ngIf="!isLoading">
-                    <app-product-card *ngFor="let product of showedProducts" [product]="product"></app-product-card>
+                <div class="products" [ngClass]="{'inline' : shopType == 'shopType2'}" *ngIf="!isLoading">
+                    <ng-container *ngIf="shopType == 'shopType1'">
+                        <app-product-card *ngFor="let product of showedProducts" [product]="product"></app-product-card>
+                    </ng-container>
+                    <ng-container *ngIf="shopType == 'shopType2'">
+                        <app-product-card3 *ngFor="let product of showedProducts" [product]="product"></app-product-card3>
+                    </ng-container>
                 </div>
                 <div class="products" *ngIf="isLoading">
                     <app-product-card-skeleton *ngFor="let items of [0, 1, 2]" />

@@ -51,6 +51,7 @@ import { Tab1Component } from './cart/component/tab1/tab1.component';
 import { Tab2Component } from './cart/component/tab2/tab2.component';
 import { Tab3Component } from './cart/component/tab3/tab3.component';
 import { ProductCard2Component } from './shared/product-card2/product-card2.component';
+import { ProductCard3Component } from './shared/product-card3/product-card3.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -89,6 +90,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     Tab2Component,
     Tab3Component,
     ProductCard2Component,
+    ProductCard3Component,
   ],
   imports: [
     BrowserModule,

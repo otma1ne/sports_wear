@@ -172,6 +172,10 @@
                 display: grid;
                 grid-template-columns: repeat(4, 1fr);
                 gap: 30px;
+
+                &.inline {
+                    grid-template-columns: 1fr;
+                }
             }
         }
     }

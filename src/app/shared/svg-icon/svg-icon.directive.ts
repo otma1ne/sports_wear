@@ -7,6 +7,7 @@ export class SvgIconDirective implements OnInit {
   @Input() svgIcon: string = '';
   @Input() color: string = '';
   @Input() size: string = '20';
+  @Input() stroke: string = '';
 
   constructor(private elementRef: ElementRef) {}
 
@@ -22,6 +23,7 @@ export class SvgIconDirective implements OnInit {
         const svgElement = div.querySelector('svg');
         if (svgElement) {
           svgElement.style.fill = this.color;
+          svgElement.style.stroke = this.stroke;
           svgElement.setAttribute('width', this.size);
           svgElement.setAttribute('height', this.size);
           this.elementRef.nativeElement.appendChild(svgElement);
