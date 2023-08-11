@@ -18,6 +18,7 @@ SwiperCore.use([EffectFade, Zoom]);
 export class PdpComponent {
   @ViewChild('swiper', { static: false }) swiper?: SwiperComponent;
   product?: Product;
+  relatedProducts?: Product[];
   activeImgIndex: number = 0;
   quantity: number = 1;
   isLoading: boolean = true;
@@ -29,7 +30,7 @@ export class PdpComponent {
     zoom: {
       maxRatio: 2,
       minRatio: 3,
-      toggle : true
+      toggle: true,
     },
   };
 
@@ -50,8 +51,10 @@ export class PdpComponent {
             return throwError(err);
           })
         )
-        .subscribe((product) => {
-          this.product = product.product;
+        .subscribe((data) => {
+          console.log(data);
+          this.product = data.product;
+          this.relatedProducts = data.relatedProducts;
           this.isLoading = false;
           this.error = '';
         });

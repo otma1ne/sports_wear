@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { pageTransitions } from '../page-transitions';
 import { Product } from '../models/product.model';
 import { ProductsService } from '../services/products.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-shop',
@@ -19,11 +19,15 @@ export class ShopComponent {
   showedProducts: Product[] = [];
   activeCategory: string = 'all';
   activeSort: string = 'dafault';
+  maxPrice: number | null = null;
+  productMinPrice: number = 0;
+  productMaxPrice: number = 0;
   isLoading: boolean = true;
 
   constructor(
     private productService: ProductsService,
-    private activeRoute: ActivatedRoute
+    private activeRoute: ActivatedRoute,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -41,6 +45,7 @@ export class ShopComponent {
         this.products = products;
         this.isLoading = false;
         this.setProducts();
+        this.getMinMaxPrice();
       },
       error: (error) => {
         console.error('Error fetching products:', error);
@@ -60,11 +65,31 @@ export class ShopComponent {
 
   setCategory(category: string): void {
     this.activeCategory = category;
+    this.router.navigate([], { queryParams: { category: category } });
     this.setProducts();
   }
 
   setSort(event: any): void {
     this.activeSort = event.target.value;
+    this.setProducts();
+  }
+
+  getMinMaxPrice() {
+    if (this.products.length > 0) {
+      const minPrice = Math.min(
+        ...this.products.map((product) => product.price)
+      );
+      const maxPrice = Math.max(
+        ...this.products.map((product) => product.price)
+      );
+      this.productMinPrice = minPrice;
+      this.productMaxPrice = maxPrice;
+      this.maxPrice = maxPrice;
+    }
+  }
+
+  setMaxPrice(event: any): void {
+    this.maxPrice = event.target.value;
     this.setProducts();
   }
 
@@ -76,6 +101,12 @@ export class ShopComponent {
           product.category.toLocaleLowerCase() ===
           this.activeCategory.toLocaleLowerCase()
       );
+    }
+
+    if (this.maxPrice) {
+      filtredProducts = filtredProducts.filter((product) => {
+        return product.price <= this.maxPrice!;
+      });
     }
 
     switch (this.activeSort) {
