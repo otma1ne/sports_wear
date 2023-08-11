@@ -11,8 +11,7 @@
                 <swiper #swiper [config]="config">
                     <ng-template swiperSlide *ngFor="let image of product?.images; let index = index">
                         <div class="swiper-zoom-container slide__img">
-                            <img [src]="'../../assets/images/products/' + image"
-                                alt="product image">
+                            <img [src]="'../../assets/images/products/' + image" alt="product image">
                         </div>
                     </ng-template>
                 </swiper>
@@ -60,11 +59,11 @@
                 </ul>
             </div>
         </div>
-        <div class="tabs" *ngIf="!isLoading"> 
+        <div class="tabs" *ngIf="!isLoading">
             <app-product-tabs></app-product-tabs>
         </div>
         <div class="related" *ngIf="!isLoading">
-            <app-related-products></app-related-products>
+            <app-related-products [products]="relatedProducts"></app-related-products>
         </div>
         <div class="lodaer__container" *ngIf="isLoading">
             <img src="../../assets/images/squares_loader.gif" alt="loader">

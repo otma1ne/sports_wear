@@ -23,7 +23,8 @@
                                 Fitness
                                 <div class="number">{{getCategoryLength('fitness')}}</div>
                             </li>
-                            <li [ngClass]="{'active' : activeCategory === 'footwear'}" (click)="setCategory('footwear')">
+                            <li [ngClass]="{'active' : activeCategory === 'footwear'}"
+                                (click)="setCategory('footwear')">
                                 Footwear
                                 <div class="number">{{getCategoryLength('footwear')}}</div>
                             </li>
@@ -45,9 +46,10 @@
                         <div class="title">
                             Price
                         </div>
-                        <input type="range">
+                        <input type="range" [min]="productMinPrice" [max]="productMaxPrice" [value]="maxPrice" [step]="50"
+                            (change)="setMaxPrice($event)">
                         <div class="info">
-                            <span>Range</span> : $0 - $100
+                            <span>Range</span> : ${{productMinPrice}} - ${{maxPrice}}
                         </div>
                     </div>
                     <div class="item">
