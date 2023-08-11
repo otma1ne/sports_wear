@@ -1,0 +1,47 @@
+@use "../../styles/variables";
+@use "../../styles/mixins";
+
+.shop {
+    .breadcrumb {
+        padding: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background: url(../../assets/images/breadcumd.jpg.webp);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        color: white;
+
+        .title {
+            @include mixins.headline2;
+        }
+
+        ul {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            font-family: variables.$font-stack2;
+
+            li {
+                position: relative;
+                font-size: 12px;
+                display: flex;
+                align-items: center;
+
+                &:not(:last-child):before {
+                    content: "";
+                    width: 14px;
+                    height: 14px;
+                    background: url(../../assets/icons/Expand_right.svg);
+                    background-position: center;
+                    background-size: contain;
+                    position: absolute;
+                    right: -20px;
+                }
+            }
+        }
+    }
+}
