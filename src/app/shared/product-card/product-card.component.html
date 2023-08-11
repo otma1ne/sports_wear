@@ -2,8 +2,8 @@
     <div class="img__container" (mouseenter)="onHoverStart()" (mouseleave)="onHoverEnd()">
         <img [src]="'../../../assets/images/products/' + product!.images[currentImg]" alt="product">
         <div class="info__container">
-            <div class="sale" *ngIf="product?.isHot && product?.onsale ?? false">-{{product!.salePercentage}}%</div>
-            <div class="hot" *ngIf="product?.isHot ?? false">Hot</div>
+            <div class="sale" *ngIf="product?.onsale">-{{product!.salePercent}}%</div>
+            <div class="hot" *ngIf="product?.isHot">Hot</div>
         </div>
         <div class="icons__container">
             <div class="icon__container" svgIcon="Bag" size="16"></div>
@@ -13,7 +13,7 @@
     <div class="content">
         <div class="info__header">
             <div class="category">
-                Mens
+                {{product?.category}}
             </div>
             <div class="ratings">
                 <star-rating [starType]="'svg'" [rating]="product?.rating ?? 0" size="small"

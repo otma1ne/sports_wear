@@ -84,8 +84,14 @@ export class NavbarComponent {
     }
   }
 
-  handleMenuItemClick(path: string): void {
-    this.router.navigate([path]);
+  handleMenuItemClick(param: string): void {
+    if (param === 'home') {
+      this.router.navigate(['/']);
+    } else {
+      this.router.navigate(['/shop'], {
+        queryParams: { category: param },
+      });
+    }
     this.hnadleMenuClick(false);
   }
 
