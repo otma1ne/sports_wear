@@ -1,0 +1,23 @@
+<div class="card" (click)="handleCardClick()">
+    <div class="img__container">
+        <img [src]="'../../../assets/images/products/' + product!.images[0]" [alt]="product?.name">
+    </div>
+    <div class="product__info">
+        <div class="rating">
+            <star-rating [starType]="'svg'" [rating]="product?.rating || 3" size="small" staticColor="ok"></star-rating>
+        </div>
+        <div class="name">
+            {{product?.name}}
+        </div>
+        <div class="price">
+            ${{product?.price?.toFixed(2)}}
+        </div>
+        <div class="btn__container">
+            <app-secondary-btn textBtn="Add To Cart"></app-secondary-btn>
+        </div>
+        <div class="divider"></div>
+        <div class="desc">
+            {{product?.description}}
+        </div>
+    </div>
+</div>

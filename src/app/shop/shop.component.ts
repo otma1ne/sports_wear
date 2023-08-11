@@ -23,6 +23,7 @@ export class ShopComponent {
   productMinPrice: number = 0;
   productMaxPrice: number = 0;
   isLoading: boolean = true;
+  shopType: string = 'shopType1';
 
   constructor(
     private productService: ProductsService,
@@ -121,5 +122,9 @@ export class ShopComponent {
     }
 
     this.showedProducts = filtredProducts;
+  }
+
+  setShopType(shopType: string) {
+    this.shopType = shopType;
   }
 }
