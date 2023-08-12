@@ -13,6 +13,6 @@ export class SecondaryBtnComponent {
 
   btnClick(e: Event) {
     e.preventDefault();
-    this.onClick.emit();
+    this.onClick.emit(e);
   }
 }
