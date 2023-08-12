@@ -69,6 +69,7 @@ export class PdpComponent {
           })
         )
         .subscribe((data) => {
+          console.log(data);
           this.product = data.product;
           this.relatedProducts = data.relatedProducts;
           this.isLoading = false;

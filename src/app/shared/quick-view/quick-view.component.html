@@ -1,0 +1,36 @@
+<div class="overlay" [ngClass]="{'active' : showQuickView}" *ngIf="showQuickView" (click)="closeModal()"></div>
+<div class="product__container" [ngClass]="{'active' : showQuickView}" *ngIf="showQuickView">
+    <div class="icon__container" svgIcon="Close_round_light" (click)="closeModal()"></div>
+    <div class="img__container">
+        <img [src]="'../../../assets/images/products/' + product!.images[0]" [alt]="product!.name">
+    </div>
+    <div class="product__info">
+        <div class="title">
+            {{product!.name}}
+        </div>
+        <div class="rating__container">
+            <star-rating [starType]="'svg'" [rating]="product!.rating || 3" size="small" staticColor="ok"></star-rating>
+        </div>
+        <div class="description">
+            {{product!.description}}
+        </div>
+        <div class="price" [ngClass]="{sold : product?.onsale}">
+            <div class="init__price">
+                ${{product?.price?.toFixed(2)}}
+            </div>
+            <div class="sold__price" *ngIf="product?.onsale">
+                ${{product?.sale_price}}
+            </div>
+        </div>
+        <div class="btns">
+            <div class="qnt">
+                <button class="minus" (click)="decrementQuantity()">-</button>
+                <input type="text" [value]="quantity">
+                <button class="add" (click)="incrementQuantity()">+</button>
+            </div>
+        </div>
+        <div class="btn__container">
+            <app-secondary-btn textBtn="Add to Cart" (onClick)="handleAddToCart($event)"></app-secondary-btn>
+        </div>
+    </div>
+</div>

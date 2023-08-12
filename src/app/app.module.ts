@@ -52,6 +52,8 @@ import { Tab2Component } from './cart/component/tab2/tab2.component';
 import { Tab3Component } from './cart/component/tab3/tab3.component';
 import { ProductCard2Component } from './shared/product-card2/product-card2.component';
 import { ProductCard3Component } from './shared/product-card3/product-card3.component';
+import { QuickViewComponent } from './shared/quick-view/quick-view.component';
+import { quickViewReducer } from './store/reducers/quickView.reducer';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -91,6 +93,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     Tab3Component,
     ProductCard2Component,
     ProductCard3Component,
+    QuickViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -114,6 +117,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       newsletter: newsletterReducer,
       auth: authReducer,
       cart: cartReducer,
+      quickView: quickViewReducer,
     }),
     EffectsModule.forRoot([]),
     NgxSkeletonLoaderModule,
