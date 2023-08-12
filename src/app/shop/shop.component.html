@@ -9,7 +9,7 @@
     <div class="max__width">
         <div class="container">
             <div class="filtre">
-                <div class="filtre__container">
+                <div class="filtre__container" [ngClass]="{active : showFilter}">
                     <div class="item">
                         <div class="title">
                             Categories
@@ -76,6 +76,8 @@
             <div class="products__container">
                 <div class="header">
                     <div class="info">
+                        <div class="icon__container filter" svgIcon="filter_outline" size="14" stroke="black"
+                            (click)="handleShowFilter(true)"></div>
                         Showing all {{showedProducts.length}} results
                     </div>
                     <div class="sorting__grid">
@@ -110,4 +112,5 @@
             </div>
         </div>
     </div>
+    <div class="overlay" [ngClass]="{active : showFilter}" (click)="handleShowFilter(false)"></div>
 </section>

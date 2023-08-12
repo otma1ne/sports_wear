@@ -24,6 +24,7 @@ export class ShopComponent {
   productMaxPrice: number = 0;
   isLoading: boolean = true;
   shopType: string = 'shopType1';
+  showFilter: boolean = false;
 
   constructor(
     private productService: ProductsService,
@@ -126,5 +127,9 @@ export class ShopComponent {
 
   setShopType(shopType: string) {
     this.shopType = shopType;
+  }
+
+  handleShowFilter(value: boolean) {
+    this.showFilter = value;
   }
 }
