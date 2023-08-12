@@ -5,7 +5,12 @@ import { Product } from '../models/product.model';
 import { pageTransitions } from '../page-transitions';
 import { ProductsService } from '../services/products.service';
 import { ActivatedRoute } from '@angular/router';
-import { catchError, throwError } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
+import { ProductCart } from '../models/product_cart.model';
+import { Store } from '@ngrx/store';
+import { handleCarteState } from '../store/actions/cart.action';
+import { CookieService } from 'ngx-cookie-service';
+import { CartService } from '../services/cart.service';
 
 SwiperCore.use([EffectFade, Zoom]);
 
@@ -34,10 +39,22 @@ export class PdpComponent {
     },
   };
 
+  auth$: Observable<any>;
+  isAuth: boolean = false;
+
   constructor(
     private productService: ProductsService,
-    private route: ActivatedRoute
-  ) {}
+    private route: ActivatedRoute,
+    private store: Store<{ auth: any }>,
+    private cartStore: Store<{ cart: any }>,
+    private cookieService: CookieService,
+    private cartService: CartService
+  ) {
+    this.auth$ = this.store.select('auth');
+    this.auth$.subscribe((authData) => {
+      this.isAuth = authData.isAuth;
+    });
+  }
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
@@ -52,7 +69,6 @@ export class PdpComponent {
           })
         )
         .subscribe((data) => {
-          console.log(data);
           this.product = data.product;
           this.relatedProducts = data.relatedProducts;
           this.isLoading = false;
@@ -72,5 +88,58 @@ export class PdpComponent {
 
   decrementQuantity(): void {
     if (this.quantity > 1) this.quantity--;
+  }
+
+  async handleAddToCart(event: any) {
+    event.stopPropagation();
+    var products: ProductCart[] = [];
+    if (this.isAuth) {
+      this.addProductToBd();
+    } else {
+      this.addProductToCookie();
+      products = this.getProductsFromCookie();
+      this.cartStore.dispatch(handleCarteState({ state: products }));
+    }
+  }
+
+  addProductToBd() {
+    const userId = this.cookieService.get('userId');
+    const productId = this.product?.id ?? '';
+    const quantity = this.quantity;
+    this.cartService.addProductToCart(userId, productId, quantity).subscribe({
+      next: (result) => {
+        const productCart: ProductCart[] = [];
+        result.user.cart.map((cart: any) => {
+          const mapedProduct: ProductCart = {
+            ...cart.product,
+            quantity: cart.quantity,
+          };
+          productCart.push(mapedProduct);
+        });
+        this.cartStore.dispatch(handleCarteState({ state: productCart }));
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  addProductToCookie() {
+    const products = this.getProductsFromCookie();
+    const existingProduct = products.find((p) => p.id === this.product?.id);
+    if (existingProduct) {
+      existingProduct.quantity += this.quantity;
+    } else {
+      products.push({ ...this.product!, quantity: this.quantity });
+    }
+    this.cookieService.set('cartProducts', JSON.stringify(products));
+  }
+
+  getProductsFromCookie(): ProductCart[] {
+    const productsString = this.cookieService.get('cartProducts');
+    if (productsString) {
+      return JSON.parse(productsString);
+    }
+    return [];
   }
 }

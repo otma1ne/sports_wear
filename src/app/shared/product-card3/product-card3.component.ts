@@ -5,6 +5,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/models/product.model';
 import { ProductCart } from 'src/app/models/product_cart.model';
+import { CartService } from 'src/app/services/cart.service';
 import { handleCarteState } from 'src/app/store/actions/cart.action';
 import { handleSearchState } from 'src/app/store/actions/header.action';
 
@@ -23,7 +24,8 @@ export class ProductCard3Component {
     private headerStore: Store<{ header: any }>,
     private store: Store<{ auth: any }>,
     private cartStore: Store<{ cart: any }>,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private cartService: CartService
   ) {
     this.auth$ = this.store.select('auth');
     this.auth$.subscribe((authData) => {
@@ -38,24 +40,49 @@ export class ProductCard3Component {
     body!.style.overflow = 'auto';
   }
 
-  handleAddToCart(event: any): void {
-    if (this.isAuht) {
-    } else {
-      this.addProductToCookie(this.product!);
-    }
-    const products = this.getProductsFromCookie();
-    this.cartStore.dispatch(handleCarteState({ state: products }));
+  async handleAddToCart(event: any) {
     event.stopPropagation();
+    var products: ProductCart[] = [];
+    if (this.isAuht) {
+      this.addProductToBd();
+    } else {
+      this.addProductToCookie();
+      products = this.getProductsFromCookie();
+      this.cartStore.dispatch(handleCarteState({ state: products }));
+    }
   }
 
-  addProductToCookie(product: Product) {
-    let products: ProductCart[] = this.getProductsFromCookie();
-    if (products === null) {
-      products = [{ ...product, quantity: 1 }];
+  addProductToCookie() {
+    const products = this.getProductsFromCookie();
+    const existingProduct = products.find((p) => p.id === this.product?.id);
+    if (existingProduct) {
+      existingProduct.quantity += 1;
     } else {
-      products.push({ ...product, quantity: 1 });
+      products.push({ ...this.product!, quantity: 1 });
     }
     this.cookieService.set('cartProducts', JSON.stringify(products));
+  }
+
+  addProductToBd() {
+    const userId = this.cookieService.get('userId');
+    const productId = this.product?.id ?? '';
+    this.cartService.addProductToCart(userId, productId).subscribe({
+      next: (result) => {
+        console.log(result.user.cart);
+        const productCart: ProductCart[] = [];
+        result.user.cart.map((cart: any) => {
+          const mapedProduct: ProductCart = {
+            ...cart.product,
+            quantity: cart.quantity,
+          };
+          productCart.push(mapedProduct);
+        });
+        this.cartStore.dispatch(handleCarteState({ state: productCart }));
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
   getProductsFromCookie(): ProductCart[] {

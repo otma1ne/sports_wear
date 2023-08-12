@@ -15,8 +15,10 @@
                 Tracking</div>
         </div>
         <div class="container" [ngSwitch]="activeTab">
-            <app-tab1 *ngSwitchCase="''" [productsCart]="productsCart" (switchTabs)="switchTabs($event)" />
-            <app-tab2 *ngSwitchCase="'checkout'" [productsCart]="productsCart" (switchTabs)="switchTabs($event)" />
+            <app-tab1 *ngSwitchCase="''" [productsCart]="productsCart" (switchTabs)="switchTabs($event)"
+                [cartTotal]="calculTotal()" />
+            <app-tab2 *ngSwitchCase="'checkout'" [productsCart]="productsCart" (switchTabs)="switchTabs($event)"
+                [cartTotal]="calculTotal()" />
             <app-tab3 *ngSwitchCase="'tracking'" />
         </div>
     </div>

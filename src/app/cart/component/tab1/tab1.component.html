@@ -6,24 +6,26 @@
             </div>
         </div>
         <div class="cart__info">
-            <div class="header">
-                <div class="title">Cart totals</div>
-            </div>
-            <div class="body">
-                <div class="row">
-                    <div class="title">Subtotal</div>
-                    <div class="value">$217.55</div>
+            <div class="sticky__container">
+                <div class="header">
+                    <div class="title">Cart totals</div>
                 </div>
-                <div class="row">
-                    <div class="title">Shipping</div>
-                    <div class="value">Free shipping</div>
-                </div>
-                <div class="row">
-                    <div class="title">Total</div>
-                    <div class="value">$217.55</div>
-                </div>
-                <div class="btn__container">
-                    <app-secondary-btn [isFull]="true" textBtn="Proceed to checkout" (onClick)="onCheckout()" />
+                <div class="body">
+                    <div class="row">
+                        <div class="title">Subtotal</div>
+                        <div class="value">${{cartTotal.toFixed(2)}}</div>
+                    </div>
+                    <div class="row">
+                        <div class="title">Shipping</div>
+                        <div class="value">Free shipping</div>
+                    </div>
+                    <div class="row">
+                        <div class="title">Total</div>
+                        <div class="value">${{cartTotal.toFixed(2)}}</div>
+                    </div>
+                    <div class="btn__container">
+                        <app-secondary-btn [isFull]="true" textBtn="Proceed to checkout" (onClick)="onCheckout()" />
+                    </div>
                 </div>
             </div>
         </div>

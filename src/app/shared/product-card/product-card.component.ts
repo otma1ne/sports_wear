@@ -7,6 +7,8 @@ import { CookieService } from 'ngx-cookie-service';
 import { handleCarteState } from 'src/app/store/actions/cart.action';
 import { ProductCart } from 'src/app/models/product_cart.model';
 import { handleSearchState } from 'src/app/store/actions/header.action';
+import { AuthService } from 'src/app/services/auth.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-product-card',
@@ -17,18 +19,19 @@ export class ProductCardComponent {
   @Input() product?: Product;
   currentImg: number = 0;
   auth$: Observable<any>;
-  isAuht: boolean = false;
+  isAuth: boolean = false;
 
   constructor(
     private router: Router,
     private store: Store<{ auth: any }>,
     private cartStore: Store<{ cart: any }>,
     private headerStore: Store<{ header: any }>,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private cartService: CartService
   ) {
     this.auth$ = this.store.select('auth');
     this.auth$.subscribe((authData) => {
-      this.isAuht = authData.isAuth;
+      this.isAuth = authData.isAuth;
     });
   }
 
@@ -39,14 +42,16 @@ export class ProductCardComponent {
     body!.style.overflow = 'auto';
   }
 
-  handleAddToCart(event: any): void {
+  async handleAddToCart(event: any) {
     event.stopPropagation();
-    if (this.isAuht) {
+    var products: ProductCart[] = [];
+    if (this.isAuth) {
+      this.addProductToBd();
     } else {
-      this.addProductToCookie(this.product!);
+      this.addProductToCookie();
+      products = this.getProductsFromCookie();
+      this.cartStore.dispatch(handleCarteState({ state: products }));
     }
-    const products = this.getProductsFromCookie();
-    this.cartStore.dispatch(handleCarteState({ state: products }));
   }
 
   onHoverStart() {
@@ -59,14 +64,36 @@ export class ProductCardComponent {
     this.currentImg = 0;
   }
 
-  addProductToCookie(product: Product) {
-    let products: ProductCart[] = this.getProductsFromCookie();
-    if (products === null) {
-      products = [{ ...product, quantity: 1 }];
+  addProductToCookie() {
+    const products = this.getProductsFromCookie();
+    const existingProduct = products.find((p) => p.id === this.product?.id);
+    if (existingProduct) {
+      existingProduct.quantity += 1;
     } else {
-      products.push({ ...product, quantity: 1 });
+      products.push({ ...this.product!, quantity: 1 });
     }
     this.cookieService.set('cartProducts', JSON.stringify(products));
+  }
+
+  addProductToBd() {
+    const userId = this.cookieService.get('userId');
+    const productId = this.product?.id ?? '';
+    this.cartService.addProductToCart(userId, productId).subscribe({
+      next: (result) => {
+        const productCart: ProductCart[] = [];
+        result.user.cart.map((cart: any) => {
+          const mapedProduct: ProductCart = {
+            ...cart.product,
+            quantity: cart.quantity,
+          };
+          productCart.push(mapedProduct);
+        });
+        this.cartStore.dispatch(handleCarteState({ state: productCart }));
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
   }
 
   getProductsFromCookie(): ProductCart[] {

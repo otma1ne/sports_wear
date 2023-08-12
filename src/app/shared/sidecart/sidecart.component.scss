@@ -50,6 +50,7 @@
     .body {
         display: flex;
         flex-direction: column;
+        overflow-y: auto;
 
         app-product-cart {
             border-bottom: 1px solid variables.$gray-color3;
