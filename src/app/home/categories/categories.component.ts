@@ -4,6 +4,7 @@ import { Product } from 'src/app/models/product.model';
 import { SwiperOptions } from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
 import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-categories',
@@ -16,6 +17,7 @@ export class CategoriesComponent {
   isPrevDisabled = true;
   isNextDisabled = false;
   isLoading: boolean = true;
+  activeCategory: string = 'topRating';
 
   config: SwiperOptions = {
     slidesPerView: 4,
@@ -45,7 +47,35 @@ export class CategoriesComponent {
   ) {}
 
   ngOnInit() {
-    this.productService.getTopRating().subscribe({
+    this.fetchProducts();
+
+    if (this.swiper) {
+      this.swiper.swiperRef.on('slideChange', () => {
+        this.updateNextPrevButtons();
+      });
+      this.updateNextPrevButtons();
+    }
+  }
+
+  fetchProducts() {
+    this.isLoading = true;
+    let productObservable: Observable<Product[]>;
+
+    switch (this.activeCategory) {
+      case 'topRating':
+        productObservable = this.productService.getTopRating();
+        break;
+      case 'bestSelling':
+        productObservable = this.productService.getBestSelling();
+        break;
+      case 'featured':
+        productObservable = this.productService.getTrendingProduct();
+        break;
+      default:
+        console.error('Invalid product type');
+        return;
+    }
+    productObservable.subscribe({
       next: (products: Product[]) => {
         this.products = products;
         this.isLoading = false;
@@ -55,13 +85,6 @@ export class CategoriesComponent {
         this.isLoading = false;
       },
     });
-
-    if (this.swiper) {
-      this.swiper.swiperRef.on('slideChange', () => {
-        this.updateNextPrevButtons();
-      });
-      this.updateNextPrevButtons();
-    }
   }
 
   nextSlide(): void {
@@ -83,5 +106,10 @@ export class CategoriesComponent {
 
   naviagteToAllProduct() {
     this.router.navigate(['/shop']);
+  }
+
+  handleClickCat(value: string) {
+    this.activeCategory = value;
+    this.fetchProducts();
   }
 }

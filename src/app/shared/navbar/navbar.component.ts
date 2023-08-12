@@ -37,6 +37,8 @@ export class NavbarComponent {
   cartCount: number = 0;
   showUserMenu: boolean = false;
   selectedLang = 'en';
+  username: string = '';
+  email: string = '';
 
   constructor(
     private translate: TranslateService,
@@ -54,7 +56,7 @@ export class NavbarComponent {
       this.showSearch = headerData.isSearchOpen;
       this.showMenu = headerData.isMenuOpen;
     });
-    this.cart$ = cartStore.select('cart');
+    this.cart$ = this.cartStore.select('cart');
     this.cart$.subscribe((cartData) => {
       this.cartCount = cartData.cart.length;
     });
@@ -62,6 +64,8 @@ export class NavbarComponent {
     this.auth$.subscribe((authData) => {
       this.isAuth = authData.isAuth;
     });
+    this.username = this.cookieService.get('username');
+    this.email = this.cookieService.get('email');
   }
 
   switchLanguage(event: Event) {

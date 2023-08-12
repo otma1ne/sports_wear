@@ -62,6 +62,8 @@ export class LoginComponent {
           this.cookieService.set('auth_token', token);
           this.cookieService.set('is_auth', 'true');
           this.cookieService.set('userId', res.user._id);
+          this.cookieService.set('username', res.user.username);
+          this.cookieService.set('email', res.user.email);
           this.store.dispatch(handleLoginState({ state: false }));
           if (this.cookieService.get('is_auth') === 'true') {
             this.authStore.dispatch(handleAuthState({ state: true }));
