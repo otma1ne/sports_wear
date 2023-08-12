@@ -2,9 +2,12 @@
     <div class="max__width">
         <div class="header">
             <ul class="categories__list">
-                <li class="active">{{'HOME.categories.item1' | translate}}</li>
-                <li>{{'HOME.categories.item2' | translate}}</li>
-                <li>{{'HOME.categories.item3' | translate}}</li>
+                <li [ngClass]="{active : activeCategory == 'topRating'}" (click)="handleClickCat('topRating')">
+                    {{'HOME.categories.item1' | translate}}</li>
+                <li [ngClass]="{active : activeCategory == 'bestSelling'}" (click)="handleClickCat('bestSelling')">
+                    {{'HOME.categories.item2' | translate}}</li>
+                <li [ngClass]="{active : activeCategory == 'featured'}" (click)="handleClickCat('featured')">
+                    {{'HOME.categories.item3' | translate}}</li>
             </ul>
             <div class="navigations">
                 <button (click)="prevSlide()" [disabled]="isPrevDisabled">
@@ -30,7 +33,8 @@
             </swiper>
         </div>
         <div class="btn__container" *ngIf="!isLoading">
-            <app-primary-btn [textBtn]="'View all Porducts'" theme="dark" (onClick)="naviagteToAllProduct()"></app-primary-btn>
+            <app-primary-btn [textBtn]="'View all Porducts'" theme="dark"
+                (onClick)="naviagteToAllProduct()"></app-primary-btn>
         </div>
     </div>
 </section>

@@ -1,9 +1,16 @@
 import { createReducer, on } from '@ngrx/store';
-import { handleAuthState, handleUserState } from '../actions/auth.action';
+import {
+  handleAuthState,
+  handleEmailState,
+  handleUserState,
+  handleUsernameState,
+} from '../actions/auth.action';
 
 export const initialState = {
   isAuth: false,
   userId: '',
+  email: '',
+  username: '',
 };
 
 export const authReducer = createReducer(
@@ -15,5 +22,13 @@ export const authReducer = createReducer(
   on(handleUserState, (state, action) => ({
     ...state,
     userId: action.state,
+  })),
+  on(handleUsernameState, (state, action) => ({
+    ...state,
+    username: action.state,
+  })),
+  on(handleEmailState, (state, action) => ({
+    ...state,
+    email: action.state,
   }))
 );

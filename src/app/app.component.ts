@@ -8,7 +8,12 @@ import { handleCarteState } from './store/actions/cart.action';
 import { Product } from './models/product.model';
 import { CookieService } from 'ngx-cookie-service';
 import { ProductCart } from './models/product_cart.model';
-import { handleAuthState, handleUserState } from './store/actions/auth.action';
+import {
+  handleAuthState,
+  handleEmailState,
+  handleUserState,
+  handleUsernameState,
+} from './store/actions/auth.action';
 import { CartService } from './services/cart.service';
 import { AuthService } from './services/auth.service';
 
