@@ -49,7 +49,7 @@ export class SidecartComponent {
   calculTotal(): number {
     let total = 0;
     for (const product of this.products) {
-      total += product.price * product.quantity;
+      total += product.sale_price * product.quantity;
     }
     return total;
   }

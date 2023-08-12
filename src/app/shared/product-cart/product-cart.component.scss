@@ -24,11 +24,35 @@
     .info {
         display: flex;
         flex-direction: column;
+        justify-content: center;
 
         .name,
         .price {
             font-size: 14px;
             line-height: 16px;
+        }
+
+        .price {
+            @include mixins.body3;
+            margin-top: 2px;
+            font-weight: 600;
+            font-family: variables.$font-stack2;
+            display: flex;
+            gap: 10px;
+
+            &.sold {
+                align-items: center;
+
+                .init__price {
+                    margin-top: 1px;
+                    font-size: 10px;
+                    text-decoration: line-through;
+                }
+
+                .sold__price {
+                    color: variables.$primary-color1;
+                }
+            }
         }
 
         .qty {
@@ -43,5 +67,10 @@
         flex: 1;
         display: flex;
         justify-content: flex-end;
+        align-items: center;
+
+        .icon_container {
+            cursor: pointer;
+        }
     }
 }
