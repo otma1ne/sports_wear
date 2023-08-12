@@ -31,8 +31,29 @@
         }
 
         .price {
+            @include mixins.body3;
+            margin-top: 2px;
+            font-weight: 600;
+            font-family: variables.$font-stack2;
             margin-top: 6px;
             color: variables.$primary-color1;
+            display: flex;
+            gap: 10px;
+
+            &.sold {
+                align-items: center;
+
+                .init__price {
+                    margin-top: 1px;
+                    font-size: 10px;
+                    text-decoration: line-through;
+                    color: black;
+                }
+
+                .sold__price {
+                    color: variables.$primary-color1;
+                }
+            }
         }
 
         .btn__container {

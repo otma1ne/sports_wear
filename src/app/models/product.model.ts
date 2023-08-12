@@ -4,6 +4,7 @@ export interface Product {
   description?: string;
   category: string;
   price: number;
+  sale_price: number
   images: string[];
   rating: number;
   isHot: boolean;

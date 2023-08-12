@@ -79,9 +79,15 @@
     .container {
         margin-top: 40px;
     }
-    
+
     .loader {
         margin-top: 40px;
+    }
+
+    .btn__container {
+        margin-top: 60px;
+        display: flex;
+        justify-content: center;
     }
 }
 
@@ -96,7 +102,7 @@
 
 
 
-            .categories__list, 
+            .categories__list,
             .navigations {
                 justify-content: center;
             }

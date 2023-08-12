@@ -3,6 +3,7 @@ import { ProductsService } from 'src/app/services/products.service';
 import { Product } from 'src/app/models/product.model';
 import { SwiperOptions } from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categories',
@@ -14,7 +15,7 @@ export class CategoriesComponent {
   products: Product[] = [];
   isPrevDisabled = true;
   isNextDisabled = false;
-  isLoading : boolean = true;
+  isLoading: boolean = true;
 
   config: SwiperOptions = {
     slidesPerView: 4,
@@ -38,7 +39,10 @@ export class CategoriesComponent {
     },
   };
 
-  constructor(private productService: ProductsService) {}
+  constructor(
+    private productService: ProductsService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
     this.productService.getTopRating().subscribe({
@@ -49,8 +53,8 @@ export class CategoriesComponent {
       error: (error) => {
         console.error('Error fetching products:', error);
         this.isLoading = false;
-      }
-    });    
+      },
+    });
 
     if (this.swiper) {
       this.swiper.swiperRef.on('slideChange', () => {
@@ -75,5 +79,9 @@ export class CategoriesComponent {
       this.isPrevDisabled = this.swiper.swiperRef.isBeginning;
       this.isNextDisabled = this.swiper.swiperRef.isEnd;
     }
+  }
+
+  naviagteToAllProduct() {
+    this.router.navigate(['/shop']);
   }
 }

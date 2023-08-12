@@ -29,5 +29,8 @@
                 </ng-template>
             </swiper>
         </div>
+        <div class="btn__container" *ngIf="!isLoading">
+            <app-primary-btn [textBtn]="'View all Porducts'" theme="dark" (onClick)="naviagteToAllProduct()"></app-primary-btn>
+        </div>
     </div>
 </section>
