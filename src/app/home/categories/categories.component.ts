@@ -17,7 +17,7 @@ export class CategoriesComponent {
   isPrevDisabled = true;
   isNextDisabled = false;
   isLoading: boolean = true;
-  activeCategory: string = 'topRating';
+  activeCategory: string = 'bestSelling';
 
   config: SwiperOptions = {
     slidesPerView: 4,

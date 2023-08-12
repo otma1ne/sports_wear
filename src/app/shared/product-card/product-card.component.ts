@@ -9,6 +9,10 @@ import { ProductCart } from 'src/app/models/product_cart.model';
 import { handleSearchState } from 'src/app/store/actions/header.action';
 import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
+import {
+  handleQuickProductState,
+  handleQuickViewState,
+} from 'src/app/store/actions/quickView.action';
 
 @Component({
   selector: 'app-product-card',
@@ -27,7 +31,8 @@ export class ProductCardComponent {
     private cartStore: Store<{ cart: any }>,
     private headerStore: Store<{ header: any }>,
     private cookieService: CookieService,
-    private cartService: CartService
+    private cartService: CartService,
+    private quickViewStore: Store<{ quickView: any }>
   ) {
     this.auth$ = this.store.select('auth');
     this.auth$.subscribe((authData) => {
@@ -102,5 +107,13 @@ export class ProductCardComponent {
       return JSON.parse(productsString);
     }
     return [];
+  }
+
+  handleQuickView(event: any): void {
+    event.stopPropagation();
+    this.quickViewStore.dispatch(handleQuickViewState({ state: true }));
+    this.quickViewStore.dispatch(
+      handleQuickProductState({ state: this.product! })
+    );
   }
 }
