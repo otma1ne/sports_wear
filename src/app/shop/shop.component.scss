@@ -157,6 +157,13 @@
 
                         .icon__container {
                             cursor: pointer;
+                            opacity: 0.4;
+                            transition: .3s ease-in-out;
+
+                            &:hover:not(.active),
+                            &.active {
+                                opacity: 1;
+                            }
                         }
                     }
                 }
