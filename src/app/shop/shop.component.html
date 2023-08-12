@@ -81,12 +81,10 @@
                     <div class="sorting__grid">
                         <div class="grid">
                             <div class="icon__container" svgIcon="Appstore" size="14"
-                                [stroke]="shopType == 'shopType1' ? '#ff3535' : 'black'"
-                                (click)="setShopType('shopType1')">
+                                [ngClass]="{'active' : shopType == 'shopType1'}" (click)="setShopType('shopType1')">
                             </div>
                             <div class="icon__container" svgIcon="Bars" size="14"
-                                [stroke]="shopType == 'shopType2' ? '#ff3535' : 'black'"
-                                (click)="setShopType('shopType2')">
+                                [ngClass]="{'active' : shopType == 'shopType2'}" (click)="setShopType('shopType2')">
                             </div>
                         </div>
                         <select (change)="setSort($event)">
@@ -102,7 +100,8 @@
                         <app-product-card *ngFor="let product of showedProducts" [product]="product"></app-product-card>
                     </ng-container>
                     <ng-container *ngIf="shopType == 'shopType2'">
-                        <app-product-card3 *ngFor="let product of showedProducts" [product]="product"></app-product-card3>
+                        <app-product-card3 *ngFor="let product of showedProducts"
+                            [product]="product"></app-product-card3>
                     </ng-container>
                 </div>
                 <div class="products" *ngIf="isLoading">
