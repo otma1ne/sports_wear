@@ -43,7 +43,7 @@
             .icons {
 
                 .icon__container {
-                    &:not(.menu__icon) {
+                    &.search {
                         display: none;
                     }
 
