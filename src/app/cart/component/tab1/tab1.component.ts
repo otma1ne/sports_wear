@@ -10,6 +10,7 @@ import { ProductCart } from 'src/app/models/product_cart.model';
 })
 export class Tab1Component {
   @Input() productsCart: ProductCart[] = [];
+  @Input() cartTotal: number = 0;
   @Output() switchTabs = new EventEmitter<any>();
 
   cart$: Observable<any>;

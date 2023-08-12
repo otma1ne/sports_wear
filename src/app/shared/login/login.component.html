@@ -1,7 +1,7 @@
 <div class="overlay" [ngClass]="{active : showLogin}" (click)="closeLogin()"></div>
 <div class="login__container" [ngClass]="{active : showLogin}">
     <div class="title">Sign In</div>
-    <form [formGroup]="loginForm" (submit)="login()">
+    <form [formGroup]="loginForm">
         <input type="text" placeholder="Your email" formControlName="email">
         <input type="password" placeholder="Your password" formControlName="password">
         <div class="info">
@@ -13,7 +13,8 @@
                 Lost your password ?
             </div>
         </div>
-        <app-secondary-btn textBtn="Sign In" [isFull]="true" [isLoading]="isLoading"></app-secondary-btn>
+        <app-secondary-btn textBtn="Sign In" [isFull]="true" [isLoading]="isLoading"
+            (onClick)="login()"></app-secondary-btn>
         <app-primary-btn textBtn="Create an accout" theme="dark" [isFull]="true" [isLarge]="true"
             (onClick)="register()"></app-primary-btn>
     </form>

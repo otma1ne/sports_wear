@@ -41,7 +41,8 @@
                         <button class="add" (click)="incrementQuantity()">+</button>
                     </div>
                     <div class="btn__container">
-                        <app-secondary-btn textBtn="Buy Now"></app-secondary-btn>
+                        <app-secondary-btn textBtn="Add to Cart"
+                            (onClick)="handleAddToCart($event)"></app-secondary-btn>
                     </div>
                 </div>
                 <div class="wichlist__container">

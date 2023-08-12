@@ -38,4 +38,12 @@ export class CartComponent implements OnInit {
   returnToshop(): void {
     this.router.navigate(['/']);
   }
+
+  calculTotal(): number {
+    let total = 0;
+    for (const product of this.productsCart) {
+      total += product.sale_price * product.quantity;
+    }
+    return total;
+  }
 }

@@ -13,4 +13,13 @@ export class CartService {
     return this.http.post<any>(url, cartItems);
   }
 
+  addProductToCart(userId: string, productId: string, quantity?: number) {
+    const url = `${BASE_URL}/user/${userId}/cart`;
+    return this.http.post<any>(url, { productId, quantity });
+  }
+
+  deleteFromCart(userId: string, productId: string) {
+    const url = `${BASE_URL}/user/${userId}/cart/${productId}`;
+    return this.http.put<any>(url, { productId });
+  }
 }

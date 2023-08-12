@@ -38,7 +38,7 @@
             <div class="body">
                 <div class="row">
                     <div class="title">Subtotal</div>
-                    <div class="value">$217.55</div>
+                    <div class="value">${{cartTotal.toFixed(2)}}</div>
                 </div>
                 <div class="row">
                     <div class="title">Shipping</div>
@@ -46,7 +46,7 @@
                 </div>
                 <div class="row">
                     <div class="title">Total</div>
-                    <div class="value">$217.55</div>
+                    <div class="value">${{cartTotal.toFixed(2)}}</div>
                 </div>
                 <div class="btn__container">
                     <app-secondary-btn [isFull]="true" textBtn="Place Order" (onClick)="onPlaceOrder()" />

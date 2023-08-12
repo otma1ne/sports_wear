@@ -44,7 +44,6 @@ export class ShopComponent {
     this.isLoading = true;
     this.productService.getProducts().subscribe({
       next: (products: Product[]) => {
-        console.log(products)
         this.products = products;
         this.isLoading = false;
         this.setProducts();
