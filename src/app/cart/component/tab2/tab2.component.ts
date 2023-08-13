@@ -22,6 +22,7 @@ export class Tab2Component {
   isAuth: boolean = false;
   auth$: Observable<any>;
   orderForm: FormGroup;
+  showError: boolean = false;
 
   constructor(
     private authStore: Store<{ auth: any }>,
@@ -79,6 +80,7 @@ export class Tab2Component {
   }
 
   canSubmit(): boolean {
+    this.showError = true;
     return this.orderForm.valid;
   }
 }

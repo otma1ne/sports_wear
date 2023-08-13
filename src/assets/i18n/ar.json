@@ -114,7 +114,9 @@
   "LOGIN": {
     "title": "تسجيل الدخول",
     "email_placeholder": "عنوان بريدك الإلكتروني",
-    "password_placeholder": "كلمة المرور",
+    "email_error": "أدخل عنوان بريد إلكتروني صالح",
+    "password_placeholder": "كلمة المرور الخاصة بك",
+    "password_error": "أدخل كلمة المرور الخاصة بك",
     "remember_me": "تذكرني",
     "lost_password": "هل نسيت كلمة المرور؟",
     "sign_in_btn": "تسجيل الدخول",
@@ -122,10 +124,13 @@
   },
   "REGISTER": {
     "title": "التسجيل",
-    "username_placeholder": "اسمك",
+    "username_placeholder": "اسم المستخدم الخاص بك",
+    "username_error": "يرجى إدخال اسم المستخدم الخاص بك",
     "email_placeholder": "عنوان بريدك الإلكتروني",
-    "password_placeholder": "كلمة المرور",
-    "register_btn": "التسجيل",
+    "email_error": "يرجى إدخال عنوان بريد إلكتروني صالح",
+    "password_placeholder": "كلمة المرور الخاصة بك",
+    "password_error": "يرجى إدخال كلمة المرور الخاصة بك",
+    "register_btn": "تسجيل",
     "login_btn": "هل لديك حساب؟ تسجيل الدخول"
   },
   "CART": {
@@ -149,11 +154,15 @@
     "tab2": {
       "payment_details_title": "تفاصيل الدفع",
       "email_label": "عنوان البريد الإلكتروني",
+      "email_error": "أدخل عنوان بريد إلكتروني صالح",
       "card_number_label": "رقم البطاقة",
+      "cardNumber_error": "أدخل رقم بطاقة صالح",
       "expiry_date_label": "تاريخ الانتهاء",
+      "expiryDate_error": "أدخل تاريخ انتهاء صالح",
       "cvv_label": "CVV",
-      "promo_code_label": "لدي رمز ترويجي",
-      "promo_code_input_placeholder": "رمز ترويجي"
+      "cvv_error": "أدخل رمز CVV صالح",
+      "promo_code_label": "لدي كود ترويجي",
+      "promo_code_input_placeholder": "الكود الترويجي"
     }
   },
   "LOGINALERT": {

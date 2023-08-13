@@ -114,19 +114,24 @@
   "LOGIN": {
     "title": "Connexion",
     "email_placeholder": "Votre adresse e-mail",
+    "email_error": "Entrez une adresse e-mail valide",
     "password_placeholder": "Votre mot de passe",
+    "password_error": "Entrez votre mot de passe",
     "remember_me": "Se souvenir de moi",
-    "lost_password": "Mot de passe perdu ?",
+    "lost_password": "Mot de passe oublié ?",
     "sign_in_btn": "Se connecter",
     "create_account_btn": "Créer un compte"
   },
   "REGISTER": {
-    "title": "S'inscrire",
-    "username_placeholder": "Votre nom",
-    "email_placeholder": "Votre adresse e-mail",
-    "password_placeholder": "Votre mot de passe",
-    "register_btn": "S'inscrire",
-    "login_btn": "Déjà inscrit ? Se connecter"
+    "title": "Register",
+    "username_placeholder": "Your name",
+    "username_error": "Please enter your username",
+    "email_placeholder": "Your email",
+    "email_error": "Please enter a valid email",
+    "password_placeholder": "Your password",
+    "password_error": "Please enter your password",
+    "register_btn": "Register",
+    "login_btn": "Already signed up? Login"
   },
   "CART": {
     "breadcrumb_title": "Panier",
@@ -149,11 +154,15 @@
     "tab2": {
       "payment_details_title": "Détails de paiement",
       "email_label": "Adresse e-mail",
+      "email_error": "Entrez une adresse e-mail valide",
       "card_number_label": "Numéro de carte",
+      "cardNumber_error": "Entrez un numéro de carte valide",
       "expiry_date_label": "Date d'expiration",
-      "cvv_label": "CVV",
+      "expiryDate_error": "Entrez une date d'expiration valide",
+      "cvv_label": "Cvv",
+      "cvv_error": "Entrez un CVV valide",
       "promo_code_label": "J'ai un code promo",
-      "promo_code_input_placeholder": "Code promo"
+      "promo_code_input_placeholder": "Code Promo"
     }
   },
   "LOGINALERT": {
