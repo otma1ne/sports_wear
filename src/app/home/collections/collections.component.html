@@ -11,7 +11,8 @@
                     <div class="title">
                         {{ 'HOME.collection.card1.title' | translate }}
                     </div>
-                    <app-primary-btn [textBtn]="'HOME.collection.card2.btn_text' | translate"></app-primary-btn>
+                    <app-primary-btn [textBtn]="'HOME.collection.card2.btn_text' | translate"
+                        (onClick)="handleNavigate('mens')"></app-primary-btn>
                 </div>
             </div>
             <div class="card">
@@ -20,7 +21,8 @@
                     <div class="title">
                         {{ 'HOME.collection.card2.title' | translate }}
                     </div>
-                    <app-primary-btn [textBtn]="'HOME.collection.card2.btn_text' | translate"></app-primary-btn>
+                    <app-primary-btn [textBtn]="'HOME.collection.card2.btn_text' | translate"
+                        (onClick)="handleNavigate('womens')"></app-primary-btn>
                 </div>
             </div>
         </div>
