@@ -19,6 +19,7 @@ export class RegisterComponent {
   showRegister: boolean = false;
   registerForm: FormGroup;
   isLoading: boolean = false;
+  showError: boolean = false;
 
   constructor(
     private store: Store<{ header: any }>,
@@ -69,6 +70,7 @@ export class RegisterComponent {
   }
 
   canSubmit(): boolean {
+    this.showError = true;
     return this.registerForm.valid;
   }
 }

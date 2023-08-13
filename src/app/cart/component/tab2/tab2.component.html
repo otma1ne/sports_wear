@@ -3,22 +3,26 @@
         <div class="form__container">
             <div class="title">{{ 'CART.tab2.payment_details_title' | translate }}</div>
             <form [formGroup]="orderForm">
-                <div class="form__control">
+                <div class="form__control" [ngClass]="{'error': orderForm.controls['email'].invalid && showError}">
                     <label for="email">{{ 'CART.tab2.email_label' | translate }}</label>
                     <input type="text" id="email" formControlName="email">
+                    <div class="error">{{ 'CART.tab2.email_error' | translate }}</div>
                 </div>
-                <div class="form__control">
+                <div class="form__control" [ngClass]="{'error': orderForm.controls['cardNumber'].invalid && showError}">
                     <label for="cardNumber">{{ 'CART.tab2.card_number_label' | translate }}</label>
                     <input type="text" id="cardNumber" formControlName="cardNumber">
+                    <div class="error">{{ 'CART.tab2.cardNumber_error' | translate }}</div>
                 </div>
                 <div class="row">
-                    <div class="form__control">
+                    <div class="form__control" [ngClass]="{'error': orderForm.controls['expiryDate'].invalid && showError}">
                         <label for="expiryDate">{{ 'CART.tab2.expiry_date_label' | translate }}</label>
                         <input type="text" id="expiryDate" formControlName="expiryDate">
+                        <div class="error">{{ 'CART.tab2.expiryDate_error' | translate }}</div>
                     </div>
-                    <div class="form__control">
+                    <div class="form__control" [ngClass]="{'error': orderForm.controls['cvv'].invalid && showError}">
                         <label for="cvv">{{ 'CART.tab2.cvv_label' | translate }}</label>
                         <input type="text" id="cvv" formControlName="cvv">
+                        <div class="error">{{ 'CART.tab2.cvv_error' | translate }}</div>
                     </div>
                 </div>
                 <div class="form__control checkbox">

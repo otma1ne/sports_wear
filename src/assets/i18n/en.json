@@ -114,7 +114,9 @@
   "LOGIN": {
     "title": "Sign In",
     "email_placeholder": "Your email",
+    "email_error": "Enter a valid email address",
     "password_placeholder": "Your password",
+    "password_error": "Enter your password",
     "remember_me": "Remember me",
     "lost_password": "Lost your password?",
     "sign_in_btn": "Sign In",
@@ -123,8 +125,11 @@
   "REGISTER": {
     "title": "Register",
     "username_placeholder": "Your name",
+    "username_error": "Please enter your username",
     "email_placeholder": "Your email",
+    "email_error": "Please enter a valid email",
     "password_placeholder": "Your password",
+    "password_error": "Please enter your password",
     "register_btn": "Register",
     "login_btn": "Already signed up? Login"
   },
@@ -149,9 +154,13 @@
     "tab2": {
       "payment_details_title": "Payment details",
       "email_label": "Email address",
+      "email_error": "Enter a valid email address",
       "card_number_label": "Card Number",
+      "cardNumber_error": "Enter a valid card Number",
       "expiry_date_label": "Expiry date",
+      "expiryDate_error": "Enter a valid expiry date",
       "cvv_label": "Cvv",
+      "cvv_error": "Enter a valid cvv",
       "promo_code_label": "I've a promo code",
       "promo_code_input_placeholder": "Promo Code"
     }

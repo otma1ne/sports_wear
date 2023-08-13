@@ -23,6 +23,7 @@ export class LoginComponent {
   showLogin: boolean = false;
   loginForm: FormGroup;
   isLoading: boolean = false;
+  showError: boolean = false;
 
   constructor(
     private store: Store<{ header: any }>,
@@ -75,12 +76,14 @@ export class LoginComponent {
         error: (err) => {
           console.log(err);
           this.isLoading = false;
+          this.loginForm.get('email')!.setErrors({ serverError: true });
         },
       });
     }
   }
 
   canSubmit(): boolean {
+    this.showError = true;
     return this.loginForm.valid;
   }
 }

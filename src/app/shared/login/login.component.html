@@ -2,8 +2,14 @@
 <div class="login__container" [ngClass]="{active : showLogin}">
     <div class="title">{{ 'LOGIN.title' | translate }}</div>
     <form [formGroup]="loginForm">
-        <input type="text" [placeholder]="'LOGIN.email_placeholder' | translate" formControlName="email">
-        <input type="password" [placeholder]="'LOGIN.password_placeholder' | translate" formControlName="password">
+        <div class="form__control" [ngClass]="{'error': loginForm.controls['email'].invalid && showError}">
+            <input type="text" [placeholder]="'LOGIN.email_placeholder' | translate" formControlName="email">
+            <div class="error">{{ 'LOGIN.email_error' | translate }}</div>
+        </div>
+        <div class="form__control" [ngClass]="{'error': loginForm.controls['password'].invalid && showError}">
+            <input type="password" [placeholder]="'LOGIN.password_placeholder' | translate" formControlName="password">
+            <div class="error">{{ 'LOGIN.password_error' | translate }}</div>
+        </div>
         <div class="info">
             <div class="remember">
                 <input type="checkbox">

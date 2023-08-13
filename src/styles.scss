@@ -91,6 +91,7 @@ body {
         display: block;
         @include mixins.body3;
         color: variables.$error-color;
+        font-family: variables.$font-stack3;
     }
 }
 

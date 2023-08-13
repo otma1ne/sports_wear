@@ -2,9 +2,19 @@
 <div class="register__container" [ngClass]="{active : showRegister}">
     <div class="title">{{ 'REGISTER.title' | translate }}</div>
     <form [formGroup]="registerForm">
-        <input type="text" [placeholder]="'REGISTER.username_placeholder' | translate" formControlName="username">
-        <input type="text" [placeholder]="'REGISTER.email_placeholder' | translate" formControlName="email">
-        <input type="password" [placeholder]="'REGISTER.password_placeholder' | translate" formControlName="password">
+        <div class="form__control" [ngClass]="{'error': registerForm.controls['username'].invalid && showError}">
+            <input type="text" [placeholder]="'REGISTER.username_placeholder' | translate" formControlName="username">
+            <div class="error">{{ 'REGISTER.username_error' | translate }}</div>
+        </div>
+        <div class="form__control" [ngClass]="{'error': registerForm.controls['email'].invalid && showError}">
+            <input type="text" [placeholder]="'REGISTER.email_placeholder' | translate" formControlName="email">
+            <div class="error">{{ 'REGISTER.email_error' | translate }}</div>
+        </div>
+        <div class="form__control" [ngClass]="{'error': registerForm.controls['password'].invalid && showError}">
+            <input type="password" [placeholder]="'REGISTER.password_placeholder' | translate"
+                formControlName="password">
+                <div class="error">{{ 'REGISTER.password_error' | translate }}</div>
+        </div>
 
         <app-secondary-btn [textBtn]="'REGISTER.register_btn' | translate" [isFull]="true" [isLoading]="isLoading"
             (onClick)="register()"></app-secondary-btn>
