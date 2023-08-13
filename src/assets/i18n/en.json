@@ -5,7 +5,11 @@
     "item2": "Mens",
     "item3": "Womenes",
     "item4": "Kids",
-    "item5": "Footwears"
+    "item5": "Footwears",
+    "header": {
+      "returns_message": "We’ve extended our returns period to 60 days.",
+      "contact_email": "contact@azura.com"
+    }
   },
   "HOME": {
     "showcase": {
@@ -54,6 +58,102 @@
       "text": "Sign up for our newsletter and stay up-to-date with the latest collection, the latest trends and the best deals!",
       "btn_placeholder": "Your email address",
       "send_btn": "send"
+    }
+  },
+  "PDP": {
+    "wischListBtn": "Add to wichlist",
+    "sku": "SKU:",
+    "category": "Category:",
+    "tags": "Tags:",
+    "share": "Share:",
+    "tabs": {
+      "title1": "Description",
+      "title2": "Reviews"
+    },
+    "relatedProducts": {
+      "title": "Related Products"
+    }
+  },
+  "PLP": {
+    "breadcrumb": {
+      "title1": "Home",
+      "title2": "Shop"
+    },
+    "filter": {
+      "categories": "Categories",
+      "all": "All",
+      "fitness": "Fitness",
+      "footwear": "Footwear",
+      "mens": "Mens",
+      "womens": "Womens",
+      "kids": "Kids",
+      "price": "Price",
+      "range": "Range",
+      "color": "Color",
+      "size": "Size"
+    },
+    "results": {
+      "showing": "Showing all",
+      "results": "results"
+    }
+  },
+  "PRODUCTCARD": {
+    "add_to_cart": "Add to Cart",
+    "quick_view": "Quick View"
+  },
+  "SIDECART": {
+    "title": "Shopping Cart",
+    "empty": "Your cart is empty",
+    "view_cart": "View Cart",
+    "checkout": "Checkout"
+  },
+  "SEARCH": {
+    "title": "What are you looking for ?",
+    "placeholder": "Search..."
+  },
+  "LOGIN": {
+    "title": "Sign In",
+    "email_placeholder": "Your email",
+    "password_placeholder": "Your password",
+    "remember_me": "Remember me",
+    "lost_password": "Lost your password?",
+    "sign_in_btn": "Sign In",
+    "create_account_btn": "Create an account"
+  },
+  "REGISTER": {
+    "title": "Register",
+    "username_placeholder": "Your name",
+    "email_placeholder": "Your email",
+    "password_placeholder": "Your password",
+    "register_btn": "Register",
+    "login_btn": "Already signed up? Login"
+  },
+  "CART": {
+    "breadcrumb_title": "Cart",
+    "breadcrumb_home": "Home",
+    "breadcrumb_cart": "Cart",
+    "tab_shopping_cart": "Shopping cart",
+    "tab_checkout": "Checkout",
+    "tab_order_tracking": "Order Tracking",
+    "empty_cart_message": "Your cart is currently empty.",
+    "return_to_shop_btn": "Return to shop",
+    "cart_total": "Cart Total",
+    "tab1": {
+      "subtotal": "Subtotal",
+      "shipping": "Shipping",
+      "shipping_value": "Free shipping",
+      "total": "Total",
+      "proceed_to_checkout_btn": "Proceed to checkout",
+      "place_order_btn": "Place Order"
+    },
+    "tab2": {
+      "payment_details_title": "Payment details",
+      "email_label": "Email address",
+      "card_number_label": "Card Number",
+      "expiry_date_label": "Expiry date",
+      "cvv_label": "Cvv",
+      "promo_code_label": "I've a promo code",
+      "promo_code_input_placeholder": "Promo Code"
     }
   },
   "FOOTER": {

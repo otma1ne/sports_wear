@@ -9,7 +9,7 @@
                 <li [ngClass]="{active : activeCategory == 'featured'}" (click)="handleClickCat('featured')">
                     {{'HOME.categories.item3' | translate}}</li>
             </ul>
-            <div class="navigations">
+            <div class="navigations" dir="ltr">
                 <button (click)="prevSlide()" [disabled]="isPrevDisabled">
                     <div class="svg__icon__container" svgIcon="arrow-left" size="16"></div>
                 </button>
@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="container" *ngIf="!isLoading">
-            <swiper #swiper [config]="config">
+            <swiper #swiper [config]="config" dir="ltr">
                 <ng-template swiperSlide *ngFor="let product of products">
                     <app-product-card [product]="product"></app-product-card>
                 </ng-template>

@@ -3,12 +3,12 @@
         <div class="container__header max__width">
             <div class="pub">
                 <div class="icon__container" svgIcon="Refund_back" size="14"></div>
-                <p>We’ve extended our returns period to 60 days.</p>
+                <p>{{ 'NAVBAR.header.returns_message' | translate }}</p>
             </div>
             <div class="info">
                 <div class="email">
                     <div class="icon__container" svgIcon="Message_light" size="14" color="white"></div>
-                    contact@azura.com
+                    {{ 'NAVBAR.header.contact_email' | translate }}
                 </div>
                 <div class="divider"></div>
                 <select (change)="switchLanguage($event)">

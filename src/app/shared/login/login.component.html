@@ -1,21 +1,21 @@
 <div class="overlay" [ngClass]="{active : showLogin}" (click)="closeLogin()"></div>
 <div class="login__container" [ngClass]="{active : showLogin}">
-    <div class="title">Sign In</div>
+    <div class="title">{{ 'LOGIN.title' | translate }}</div>
     <form [formGroup]="loginForm">
-        <input type="text" placeholder="Your email" formControlName="email">
-        <input type="password" placeholder="Your password" formControlName="password">
+        <input type="text" [placeholder]="'LOGIN.email_placeholder' | translate" formControlName="email">
+        <input type="password" [placeholder]="'LOGIN.password_placeholder' | translate" formControlName="password">
         <div class="info">
             <div class="remember">
                 <input type="checkbox">
-                Remember me
+                {{ 'LOGIN.remember_me' | translate }}
             </div>
             <div class="lost__pass">
-                Lost your password ?
+                {{ 'LOGIN.lost_password' | translate }}
             </div>
         </div>
-        <app-secondary-btn textBtn="Sign In" [isFull]="true" [isLoading]="isLoading"
+        <app-secondary-btn [textBtn]="'LOGIN.sign_in_btn' | translate" [isFull]="true" [isLoading]="isLoading"
             (onClick)="login()"></app-secondary-btn>
-        <app-primary-btn textBtn="Create an accout" theme="dark" [isFull]="true" [isLarge]="true"
-            (onClick)="register()"></app-primary-btn>
+        <app-primary-btn [textBtn]="'LOGIN.create_account_btn' | translate" theme="dark" [isFull]="true"
+            [isLarge]="true" (onClick)="register()"></app-primary-btn>
     </form>
 </div>

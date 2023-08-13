@@ -8,23 +8,24 @@
         <div class="cart__info">
             <div class="sticky__container">
                 <div class="header">
-                    <div class="title">Cart totals</div>
+                    <div class="title">{{ 'CART.cart_total' | translate }}</div>
                 </div>
                 <div class="body">
                     <div class="row">
-                        <div class="title">Subtotal</div>
-                        <div class="value">${{cartTotal.toFixed(2)}}</div>
+                        <div class="title">{{ 'CART.tab1.subtotal' | translate }}</div>
+                        <div class="value">${{ cartTotal.toFixed(2) }}</div>
                     </div>
                     <div class="row">
-                        <div class="title">Shipping</div>
-                        <div class="value">Free shipping</div>
+                        <div class="title">{{ 'CART.tab1.shipping' | translate }}</div>
+                        <div class="value">{{ 'CART.tab1.shipping_value' | translate }}</div>
                     </div>
                     <div class="row">
-                        <div class="title">Total</div>
-                        <div class="value">${{cartTotal.toFixed(2)}}</div>
+                        <div class="title">{{ 'CART.tab1.total' | translate }}</div>
+                        <div class="value">${{ cartTotal.toFixed(2) }}</div>
                     </div>
                     <div class="btn__container">
-                        <app-secondary-btn [isFull]="true" textBtn="Proceed to checkout" (onClick)="onCheckout()" />
+                        <app-secondary-btn [isFull]="true" [textBtn]="'CART.tab1.proceed_to_checkout_btn' | translate"
+                            (onClick)="onCheckout()" />
                     </div>
                 </div>
             </div>

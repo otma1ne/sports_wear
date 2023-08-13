@@ -1,18 +1,18 @@
 <section class="cart">
     <div class="breadcrumb">
-        <div class="title">Cart</div>
+        <div class="title">{{ 'CART.breadcrumb_title' | translate }}</div>
         <ul>
-            <li>Home</li>
-            <li>Cart</li>
+            <li>{{ 'CART.breadcrumb_home' | translate }}</li>
+            <li>{{ 'CART.breadcrumb_cart' | translate }}</li>
         </ul>
     </div>
     <div class="max__width" *ngIf="productsCart && productsCart!.length > 0">
         <div class="tabs">
-            <div class="tab" [ngClass]="{'active' : activeTab == '' }">Shopping cart</div>
-            <div class="tab" [ngClass]="{'active' : activeTab == 'checkout' }">Chekout
+            <div class="tab" [ngClass]="{'active' : activeTab == '' }">{{ 'CART.tab_shopping_cart' | translate }}</div>
+            <div class="tab" [ngClass]="{'active' : activeTab == 'checkout' }">{{ 'CART.tab_checkout' | translate }}
             </div>
-            <div class="tab" [ngClass]="{'active' : activeTab == 'tracking' }">Order
-                Tracking</div>
+            <div class="tab" [ngClass]="{'active' : activeTab == 'tracking' }">{{ 'CART.tab_order_tracking' | translate
+                }}</div>
         </div>
         <div class="container" [ngSwitch]="activeTab">
             <app-tab1 *ngSwitchCase="''" [productsCart]="productsCart" (switchTabs)="switchTabs($event)"
@@ -25,9 +25,9 @@
     <div class="max__width" *ngIf="productsCart && productsCart!.length <= 0">
         <div class="empty__container">
             <div [svgIcon]="'empty_cart'" size="140"></div>
-            <div class="text">Your cart is currently empty.</div>
+            <div class="text">{{ 'CART.empty_cart_message' | translate }}</div>
             <div class="btn__container">
-                <app-secondary-btn textBtn="Return to shop" (onClick)="returnToshop()" />
+                <app-secondary-btn [textBtn]="'CART.return_to_shop_btn' | translate" (onClick)="returnToshop()" />
             </div>
         </div>
     </div>
