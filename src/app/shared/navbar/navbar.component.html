@@ -25,7 +25,7 @@
                 <img src="../../../assets/images/Logo-dark-1.webp" alt="logo">
             </div>
             <ul class="menu" [ngClass]="{active : showMenu}">
-                <div class="close__icon" [svgIcon]="'Close_round_light'" (click)="handleShowMenu(false)"></div>
+                <div class="close__icon" [svgIcon]="'Close_round_light'" (click)="hnadleMenuClick(false)"></div>
                 <li (click)="handleMenuItemClick('home')">{{ 'NAVBAR.home' | translate }}</li>
                 <li (click)="handleMenuItemClick('fitness')">{{ 'NAVBAR.item1' | translate }}</li>
                 <li (click)="handleMenuItemClick('mens')">{{ 'NAVBAR.item2' | translate }}</li>
@@ -58,7 +58,7 @@
                                 <div class="email">{{email}}</div>
                             </div>
                         </div>
-                        <ul class="menu">
+                        <ul class="menu_profile">
                             <li>
                                 <div class="icon__container" [svgIcon]="'user_outline'" size="16"></div>
                                 Profile
@@ -68,7 +68,7 @@
                                 Settings
                             </li>
                             <li class="logout" (click)="logout()">
-                                <div class="icon__container" [svgIcon]="'logout 1'" size="16"></div>
+                                <div class="icon__container" [svgIcon]="'logout'" size="16" color="red" stroke="red"></div>
                                 Logout
                             </li>
                         </ul>
