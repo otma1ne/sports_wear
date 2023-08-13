@@ -10,3 +10,8 @@ export const handleQuickProductState = createAction(
   '[QuckView Component] handleQuickProductState',
   props<{ state: Product }>()
 );
+
+export const handleAddedInfoState = createAction(
+  '[QuckView Component] handleAddedInfoState',
+  props<{ state: boolean }>()
+);

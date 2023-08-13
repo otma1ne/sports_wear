@@ -10,6 +10,7 @@ import { handleSearchState } from 'src/app/store/actions/header.action';
 import { AuthService } from 'src/app/services/auth.service';
 import { CartService } from 'src/app/services/cart.service';
 import {
+  handleAddedInfoState,
   handleQuickProductState,
   handleQuickViewState,
 } from 'src/app/store/actions/quickView.action';
@@ -56,6 +57,7 @@ export class ProductCardComponent {
       this.addProductToCookie();
       products = this.getProductsFromCookie();
       this.cartStore.dispatch(handleCarteState({ state: products }));
+      this.quickViewStore.dispatch(handleAddedInfoState({ state: true }));
     }
   }
 
@@ -94,6 +96,7 @@ export class ProductCardComponent {
           productCart.push(mapedProduct);
         });
         this.cartStore.dispatch(handleCarteState({ state: productCart }));
+        this.quickViewStore.dispatch(handleAddedInfoState({ state: true }));
       },
       error: (err) => {
         console.log(err);

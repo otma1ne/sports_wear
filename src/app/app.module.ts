@@ -55,6 +55,7 @@ import { ProductCard3Component } from './shared/product-card3/product-card3.comp
 import { QuickViewComponent } from './shared/quick-view/quick-view.component';
 import { quickViewReducer } from './store/reducers/quickView.reducer';
 import { LoginAlertComponent } from './shared/login-alert/login-alert.component';
+import { AddedInfoComponent } from './shared/added-info/added-info.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -96,6 +97,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ProductCard3Component,
     QuickViewComponent,
     LoginAlertComponent,
+    AddedInfoComponent,
   ],
   imports: [
     BrowserModule,

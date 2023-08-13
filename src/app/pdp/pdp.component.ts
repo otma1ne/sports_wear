@@ -11,6 +11,7 @@ import { Store } from '@ngrx/store';
 import { handleCarteState } from '../store/actions/cart.action';
 import { CookieService } from 'ngx-cookie-service';
 import { CartService } from '../services/cart.service';
+import { handleAddedInfoState } from '../store/actions/quickView.action';
 
 SwiperCore.use([EffectFade, Zoom]);
 
@@ -48,7 +49,8 @@ export class PdpComponent {
     private store: Store<{ auth: any }>,
     private cartStore: Store<{ cart: any }>,
     private cookieService: CookieService,
-    private cartService: CartService
+    private cartService: CartService,
+    private quickViewStore: Store<{ quickView: any }>
   ) {
     this.auth$ = this.store.select('auth');
     this.auth$.subscribe((authData) => {
@@ -100,6 +102,7 @@ export class PdpComponent {
       this.addProductToCookie();
       products = this.getProductsFromCookie();
       this.cartStore.dispatch(handleCarteState({ state: products }));
+      this.quickViewStore.dispatch(handleAddedInfoState({ state: true }));
     }
   }
 
@@ -118,6 +121,7 @@ export class PdpComponent {
           productCart.push(mapedProduct);
         });
         this.cartStore.dispatch(handleCarteState({ state: productCart }));
+        this.quickViewStore.dispatch(handleAddedInfoState({ state: true }));
       },
       error: (err) => {
         console.log(err);
