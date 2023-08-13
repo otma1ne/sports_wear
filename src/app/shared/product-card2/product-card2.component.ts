@@ -41,7 +41,6 @@ export class ProductCard2Component {
     const productId = this.product!.id;
     this.cartService.deleteFromCart(userId, productId).subscribe({
       next: (result) => {
-        console.log(result);
         const productCart: ProductCart[] = [];
         result.user.cart.map((cart: any) => {
           const mapedProduct: ProductCart = {
@@ -76,5 +75,54 @@ export class ProductCard2Component {
       return JSON.parse(productsString);
     }
     return [];
+  }
+
+  updateQunatity(value: string): void {
+    if (this.product!.quantity >= 1 && this.product!.quantity < 11) {
+      const userId = this.cookieService.get('userId');
+      const quantity =
+        value == 'add'
+          ? this.product!.quantity + 1
+          : this.product!.quantity - 1;
+      if (this.isAuth) {
+        this.cartService
+          .updateQuantity(userId, this.product!.id, quantity)
+          .subscribe({
+            next: (result) => {
+              const productCart: ProductCart[] = [];
+              result.user.cart.map((cart: any) => {
+                const mapedProduct: ProductCart = {
+                  ...cart.product,
+                  quantity: cart.quantity,
+                };
+                productCart.push(mapedProduct);
+              });
+              this.cartStore.dispatch(handleCarteState({ state: productCart }));
+            },
+            error: (err) => {
+              console.log(err);
+            },
+          });
+      } else {
+        const products = this.getProductsFromCookie();
+        const existingProductIndex = products.findIndex(
+          (p) => p.id === this.product!.id
+        );
+        if (existingProductIndex !== -1) {
+          const updatedProduct = { ...products[existingProductIndex] };
+          updatedProduct.quantity =
+            value === 'add'
+              ? updatedProduct.quantity + 1
+              : updatedProduct.quantity - 1;
+          if (updatedProduct.quantity === 0) {
+            products.splice(existingProductIndex, 1);
+          } else {
+            products[existingProductIndex] = updatedProduct;
+          }
+          this.cookieService.set('cartProducts', JSON.stringify(products));
+          this.cartStore.dispatch(handleCarteState({ state: products }));
+        }
+      }
+    }
   }
 }

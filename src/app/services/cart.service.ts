@@ -22,4 +22,9 @@ export class CartService {
     const url = `${BASE_URL}/user/${userId}/cart/${productId}`;
     return this.http.put<any>(url, { productId });
   }
+
+  updateQuantity(userId: string, productId: string, quantity: number) {
+    const url = `${BASE_URL}/user/${userId}/cart/${productId}/quantity`;
+    return this.http.put<any>(url, { quantity });
+  }
 }
