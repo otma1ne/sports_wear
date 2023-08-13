@@ -156,6 +156,16 @@
       "promo_code_input_placeholder": "Promo Code"
     }
   },
+  "LOGINALERT": {
+    "title": "You must be logged in",
+    "text": "In order to be able to place an order, you must be logged in",
+    "login_btn": "Login"
+  },
+  "TRACKING": {
+    "title": "Thank you for shopping with us",
+    "text": "You will receive an email soon regarding your payment",
+    "back_to_shop_btn": "Back to Shop"
+  },
   "FOOTER": {
     "contact": {
       "title": "Contact"

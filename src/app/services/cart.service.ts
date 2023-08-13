@@ -27,4 +27,9 @@ export class CartService {
     const url = `${BASE_URL}/user/${userId}/cart/${productId}/quantity`;
     return this.http.put<any>(url, { quantity });
   }
+
+  checkoutCart(userId: string) {
+    const url = `${BASE_URL}/user/${userId}/cart/checkout`;
+    return this.http.post<any>(url, {});
+  }
 }

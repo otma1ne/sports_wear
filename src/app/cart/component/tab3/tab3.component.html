@@ -1,1 +1,9 @@
-<p>tab3 works!</p>
+<div class="tab3">
+    <div class="icon__container" svgIcon="happy" size="80" stroke="black"></div>
+    <div class="title">{{ 'TRACKING.title' | translate }}</div>
+    <div class="text">{{ 'TRACKING.text' | translate }}</div>
+    <div class="btn__container">
+        <app-primary-btn [textBtn]="'TRACKING.back_to_shop_btn' | translate" theme="dark"
+            (onClick)="backToShop()"></app-primary-btn>
+    </div>
+</div>
