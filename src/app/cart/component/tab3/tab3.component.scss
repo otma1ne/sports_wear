@@ -1,0 +1,24 @@
+@use "../../../../styles/variables";
+@use "../../../../styles/mixins";
+
+.tab3 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+
+    .title {
+        font-size: 22px;
+    }
+
+    .text {
+        font-family: variables.$font-stack3;
+        color: variables.$gray-color1;
+        text-align: center;
+    }
+
+    .btn__container {
+        margin-top: 10px;
+    }
+}

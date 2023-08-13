@@ -6,7 +6,7 @@
             <li>{{ 'CART.breadcrumb_cart' | translate }}</li>
         </ul>
     </div>
-    <div class="max__width" *ngIf="productsCart && productsCart!.length > 0">
+    <div class="max__width" *ngIf="productsCart && productsCart!.length > 0 && activeTab != 'tracking' || activeTab == 'tracking'">
         <div class="tabs">
             <div class="tab" [ngClass]="{'active' : activeTab == '' }">{{ 'CART.tab_shopping_cart' | translate }}</div>
             <div class="tab" [ngClass]="{'active' : activeTab == 'checkout' }">{{ 'CART.tab_checkout' | translate }}
@@ -22,7 +22,7 @@
             <app-tab3 *ngSwitchCase="'tracking'" />
         </div>
     </div>
-    <div class="max__width" *ngIf="productsCart && productsCart!.length <= 0">
+    <div class="max__width" *ngIf="productsCart && productsCart!.length <= 0 && activeTab != 'tracking'">
         <div class="empty__container">
             <div [svgIcon]="'empty_cart'" size="140"></div>
             <div class="text">{{ 'CART.empty_cart_message' | translate }}</div>

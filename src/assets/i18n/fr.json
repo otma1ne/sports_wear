@@ -156,6 +156,16 @@
       "promo_code_input_placeholder": "Code promo"
     }
   },
+  "LOGINALERT": {
+    "title": "Vous devez être connecté",
+    "text": "Pour pouvoir passer une commande, vous devez être connecté",
+    "login_btn": "Connexion"
+  },
+  "TRACKING": {
+    "title": "Merci d'avoir fait vos achats chez nous",
+    "text": "Vous recevrez bientôt un e-mail concernant votre paiement",
+    "back_to_shop_btn": "Retour à la boutique"
+  },
   "FOOTER": {
     "contact": {
       "title": "Contact"

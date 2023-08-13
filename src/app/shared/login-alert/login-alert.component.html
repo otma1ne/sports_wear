@@ -1,0 +1,12 @@
+<div class="overlay" [ngClass]="{active : true}" (click)="handleClose()"></div>
+<div class="alert__container">
+    <div class="icon__container" svgIcon="alert" stroke="black" size="70"></div>
+    <div class="title">
+        {{ "LOGINALERT.title" | translate }}
+    </div>
+    <div class="text">{{ "LOGINALERT.text" | translate }}</div>
+    <div class="btn__container">
+        <app-secondary-btn [textBtn]=" 'LOGINALERT.login_btn' | translate"
+            (onClick)="handleLogin()"></app-secondary-btn>
+    </div>
+</div>
