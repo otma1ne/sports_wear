@@ -6,7 +6,7 @@ import { Product } from 'src/app/models/product.model';
 import { ProductCart } from 'src/app/models/product_cart.model';
 import { CartService } from 'src/app/services/cart.service';
 import { handleCarteState } from 'src/app/store/actions/cart.action';
-import { handleQuickViewState } from 'src/app/store/actions/quickView.action';
+import { handleAddedInfoState, handleQuickViewState } from 'src/app/store/actions/quickView.action';
 
 @Component({
   selector: 'app-quick-view',
@@ -60,6 +60,7 @@ export class QuickViewComponent {
       this.addProductToCookie();
       products = this.getProductsFromCookie();
       this.cartStore.dispatch(handleCarteState({ state: products }));
+      this.quickViewStore.dispatch(handleAddedInfoState({ state: true }));
     }
     this.closeModal();
   }
@@ -91,6 +92,7 @@ export class QuickViewComponent {
             productCart.push(mapedProduct);
           });
           this.cartStore.dispatch(handleCarteState({ state: productCart }));
+          this.quickViewStore.dispatch(handleAddedInfoState({ state: true }));
         },
         error: (err) => {
           console.log(err);
