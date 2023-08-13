@@ -18,10 +18,14 @@
                 flex-direction: column;
                 gap: 20px;
 
-                .row{
+                .row {
                     display: grid;
                     grid-template-columns: repeat(2, 1fr);
                     gap: 20px;
+                }
+
+                input {
+                    font-family: variables.$font-stack3;
                 }
             }
         }
