@@ -1,9 +1,9 @@
 <section class="shop" [@pageTransitions]>
     <div class="breadcrumb">
-        <div class="title">Shop</div>
+        <div class="title">{{ 'PLP.breadcrumb.title2' | translate }}</div>
         <ul>
-            <li>Home</li>
-            <li>Shop</li>
+            <li>{{ 'PLP.breadcrumb.title1' | translate }}</li>
+            <li>{{ 'PLP.breadcrumb.title2' | translate }}</li>
         </ul>
     </div>
     <div class="max__width">
@@ -12,49 +12,49 @@
                 <div class="filtre__container" [ngClass]="{active : showFilter}">
                     <div class="item">
                         <div class="title">
-                            Categories
+                            {{ 'PLP.filter.categories' | translate }}
                         </div>
                         <ul>
                             <li [ngClass]="{'active' : activeCategory === 'all'}" (click)="setCategory('all')">
-                                All
+                                {{ 'PLP.filter.all' | translate }}
                                 <div class="number">{{getCategoryLength('all')}}</div>
                             </li>
                             <li [ngClass]="{'active' : activeCategory === 'fitness'}" (click)="setCategory('fitness')">
-                                Fitness
+                                {{ 'PLP.filter.fitness' | translate }}
                                 <div class="number">{{getCategoryLength('fitness')}}</div>
                             </li>
                             <li [ngClass]="{'active' : activeCategory === 'footwear'}"
                                 (click)="setCategory('footwear')">
-                                Footwear
+                                {{ 'PLP.filter.footwear' | translate }}
                                 <div class="number">{{getCategoryLength('footwear')}}</div>
                             </li>
                             <li [ngClass]="{'active' : activeCategory === 'mens'}" (click)="setCategory('mens')">
-                                Mens
+                                {{ 'PLP.filter.mens' | translate }}
                                 <div class="number">{{getCategoryLength('mens')}}</div>
                             </li>
                             <li [ngClass]="{'active' : activeCategory === 'womens'}" (click)="setCategory('womens')">
-                                Womens
+                                {{ 'PLP.filter.womens' | translate }}
                                 <div class="number">{{getCategoryLength('womens')}}</div>
                             </li>
                             <li [ngClass]="{'active' : activeCategory === 'kids'}" (click)="setCategory('kids')">
-                                Kids
+                                {{ 'PLP.filter.kids' | translate }}
                                 <div class="number">{{getCategoryLength('kids')}}</div>
                             </li>
                         </ul>
                     </div>
                     <div class="item">
                         <div class="title">
-                            Price
+                            {{ 'PLP.filter.price' | translate }}
                         </div>
                         <input type="range" [min]="productMinPrice" [max]="productMaxPrice" [value]="maxPrice"
                             [step]="50" (change)="setMaxPrice($event)">
                         <div class="info">
-                            <span>Range</span> : ${{productMinPrice}} - ${{maxPrice}}
+                            <span>{{ 'PLP.filter.range' | translate }}</span> : ${{productMinPrice}} - ${{maxPrice}}
                         </div>
                     </div>
                     <div class="item">
                         <div class="title">
-                            Color
+                            {{ 'PLP.filter.color' | translate }}
                         </div>
                         <div class="colors">
                             <div class="color" style="background: #cc7b4a;"></div>
@@ -64,7 +64,7 @@
                         </div>
                     </div>
                     <div class="item">
-                        <div class="title">Size</div>
+                        <div class="title">{{ 'PLP.filter.size' | translate }}</div>
                         <div class="sizes">
                             <div class="size">S</div>
                             <div class="size">M</div>
@@ -76,9 +76,10 @@
             <div class="products__container">
                 <div class="header">
                     <div class="info">
-                        <div class="icon__container filter" svgIcon="filter_outline" size="14" stroke="black"
+                        <div class="icon__container filter" svgIcon="filter_outline" size="14"
                             (click)="handleShowFilter(true)"></div>
-                        Showing all {{showedProducts.length}} results
+                        {{ 'PLP.results.showing' | translate }} {{ showedProducts.length }} {{ 'PLP.results.results' |
+                        translate }}
                     </div>
                     <div class="sorting__grid">
                         <div class="grid">

@@ -5,7 +5,11 @@
     "item2": "Hommes",
     "item3": "Femmes",
     "item4": "Enfants",
-    "item5": "Chaussures"
+    "item5": "Chaussures",
+    "header": {
+      "returns_message": "Nous avons prolongé notre période de retour à 60 jours.",
+      "contact_email": "contact@azura.com"
+    }
   },
   "HOME": {
     "showcase": {
@@ -15,13 +19,13 @@
       "title2": "PROJET",
       "text2": "Collection Rock",
       "title3": "SOUTIEN",
-      "text3": "Pour chaque sport"
+      "text3": "Pour tous les sports"
     },
     "collection": {
-      "title": "Nouvelles Collections",
-      "subtitle": "Découvrez les Tendances : Révélation d'un Monde de Nouvelles Collections Passionnantes",
+      "title": "Nouvelles collections",
+      "subtitle": "Découvrez les tendances : Découvrez un monde de nouvelles collections passionnantes",
       "card1": {
-        "title": "LA FAMILLE ADAPT",
+        "title": "FAMILLE ADAPT",
         "btn_text": "Voir la collection"
       },
       "card2": {
@@ -30,7 +34,7 @@
       }
     },
     "categories": {
-      "item1": "Les mieux notés",
+      "item1": "Meilleures évaluations",
       "item2": "Meilleures ventes",
       "item3": "En vedette"
     },
@@ -50,10 +54,106 @@
       }
     },
     "newsletter": {
-      "title": "ABONNEZ-VOUS À LA NEWSLETTER",
+      "title": "ABONNEZ-VOUS À NOTRE NEWSLETTER",
       "text": "Inscrivez-vous à notre newsletter et restez à jour avec les dernières collections, les dernières tendances et les meilleures offres !",
       "btn_placeholder": "Votre adresse e-mail",
       "send_btn": "Envoyer"
+    }
+  },
+  "PDP": {
+    "wischListBtn": "Ajouter à la liste de souhaits",
+    "sku": "SKU :",
+    "category": "Catégorie :",
+    "tags": "Tags :",
+    "share": "Partager :",
+    "tabs": {
+      "title1": "Description",
+      "title2": "Avis"
+    },
+    "relatedProducts": {
+      "title": "Produits similaires"
+    }
+  },
+  "PLP": {
+    "breadcrumb": {
+      "title1": "Accueil",
+      "title2": "Boutique"
+    },
+    "filter": {
+      "categories": "Catégories",
+      "all": "Tous",
+      "fitness": "Fitness",
+      "footwear": "Chaussures",
+      "mens": "Hommes",
+      "womens": "Femmes",
+      "kids": "Enfants",
+      "price": "Prix",
+      "range": "Plage",
+      "color": "Couleur",
+      "size": "Taille"
+    },
+    "results": {
+      "showing": "Affichage de tout",
+      "results": "résultats"
+    }
+  },
+  "PRODUCTCARD": {
+    "add_to_cart": "Ajouter au panier",
+    "quick_view": "Aperçu rapide"
+  },
+  "SIDECART": {
+    "title": "Panier d'achat",
+    "empty": "Votre panier est vide",
+    "view_cart": "Voir le panier",
+    "checkout": "Passer à la caisse"
+  },
+  "SEARCH": {
+    "title": "Que recherchez-vous ?",
+    "placeholder": "Recherche..."
+  },
+  "LOGIN": {
+    "title": "Connexion",
+    "email_placeholder": "Votre adresse e-mail",
+    "password_placeholder": "Votre mot de passe",
+    "remember_me": "Se souvenir de moi",
+    "lost_password": "Mot de passe perdu ?",
+    "sign_in_btn": "Se connecter",
+    "create_account_btn": "Créer un compte"
+  },
+  "REGISTER": {
+    "title": "S'inscrire",
+    "username_placeholder": "Votre nom",
+    "email_placeholder": "Votre adresse e-mail",
+    "password_placeholder": "Votre mot de passe",
+    "register_btn": "S'inscrire",
+    "login_btn": "Déjà inscrit ? Se connecter"
+  },
+  "CART": {
+    "breadcrumb_title": "Panier",
+    "breadcrumb_home": "Accueil",
+    "breadcrumb_cart": "Panier",
+    "tab_shopping_cart": "Panier d'achat",
+    "tab_checkout": "Passer à la caisse",
+    "tab_order_tracking": "Suivi de commande",
+    "empty_cart_message": "Votre panier est actuellement vide.",
+    "return_to_shop_btn": "Retour à la boutique",
+    "cart_total": "Total du panier",
+    "tab1": {
+      "subtotal": "Sous-total",
+      "shipping": "Expédition",
+      "shipping_value": "Livraison gratuite",
+      "total": "Total",
+      "proceed_to_checkout_btn": "Passer à la caisse",
+      "place_order_btn": "Passer la commande"
+    },
+    "tab2": {
+      "payment_details_title": "Détails de paiement",
+      "email_label": "Adresse e-mail",
+      "card_number_label": "Numéro de carte",
+      "expiry_date_label": "Date d'expiration",
+      "cvv_label": "CVV",
+      "promo_code_label": "J'ai un code promo",
+      "promo_code_input_placeholder": "Code promo"
     }
   },
   "FOOTER": {
@@ -62,19 +162,19 @@
     },
     "working_hours": {
       "title": "Horaires d'ouverture",
-      "item1": "Lun - Dim"
+      "item1": "Lun – Dim"
     },
     "services": {
       "title": "Services",
       "item1": "Guides de montage",
-      "item2": "Forfaits de mobilier et aménagements",
-      "item3": "Programme commercial",
-      "item4": "Vente",
-      "item5": "Nouveaux designs",
+      "item2": "Forfaits et agencements de meubles",
+      "item3": "Programme Trade",
+      "item4": "Promotion",
+      "item5": "Nouvelles conceptions",
       "item6": "Cartes-cadeaux"
     },
     "connect": {
-      "title": "Suivez-nous",
+      "title": "Connectez-vous",
       "item1": "Twitter",
       "item2": "Facebook",
       "item3": "Instagram",
@@ -84,10 +184,10 @@
     },
     "get_help": {
       "title": "Obtenir de l'aide",
-      "item1": "Contact & FAQ",
-      "item2": "Suivre votre commande",
-      "item3": "Expédition & Livraison",
-      "item4": "Visitez notre studio à Brisbane",
+      "item1": "Contact et FAQ",
+      "item2": "Suivez votre commande",
+      "item3": "Expédition et livraison",
+      "item4": "Visitez le studio de Brisbane",
       "item5": "Financement sans intérêt",
       "item6": "Cipmoney"
     }

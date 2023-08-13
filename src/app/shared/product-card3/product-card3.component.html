@@ -18,7 +18,8 @@
             </div>
         </div>
         <div class="btn__container">
-            <app-secondary-btn textBtn="Add To Cart" (onClick)="handleAddToCart($event)"></app-secondary-btn>
+            <app-secondary-btn [textBtn]="'PRODUCTCARD.add_to_cart' | translate"
+                (onClick)="handleAddToCart($event)"></app-secondary-btn>
         </div>
         <div class="divider"></div>
         <div class="desc">

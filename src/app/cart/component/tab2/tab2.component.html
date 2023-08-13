@@ -1,55 +1,57 @@
 <div class="tab2">
     <div class="tab__container">
         <div class="form__container">
-            <div class="title">Payment details</div>
+            <div class="title">{{ 'CART.tab2.payment_details_title' | translate }}</div>
             <form>
                 <div class="form__control">
-                    <label for="email">Email address</label>
+                    <label for="email">{{ 'CART.tab2.email_label' | translate }}</label>
                     <input type="text" id="email">
                 </div>
                 <div class="form__control">
-                    <label for="cardNumber">Card Number</label>
+                    <label for="cardNumber">{{ 'CART.tab2.card_number_label' | translate }}</label>
                     <input type="text" id="cardNumber">
                 </div>
                 <div class="row">
                     <div class="form__control">
-                        <label for="expiryDate">Expiry date</label>
+                        <label for="expiryDate">{{ 'CART.tab2.expiry_date_label' | translate }}</label>
                         <input type="text" id="expiryDate">
                     </div>
                     <div class="form__control">
-                        <label for="cvv">Cvv</label>
+                        <label for="cvv">{{ 'CART.tab2.cvv_label' | translate }}</label>
                         <input type="text" id="cvv">
                     </div>
                 </div>
                 <div class="form__control checkbox">
                     <input type="checkbox" id="promoCode" (change)="onPromoCode($event)">
-                    <label for="promoCode">I've a promo code</label>
+                    <label for="promoCode">{{ 'CART.tab2.promo_code_label' | translate }}</label>
                 </div>
                 <div class="form__control" *ngIf="hasPromoCode">
-                    <label for="promoCode">Promo Code</label>
+                    <label for="promoCode">{{ 'CART.tab2.promo_code_input_placeholder' | translate }}</label>
                     <input type="text" id="promoCode">
                 </div>
             </form>
         </div>
         <div class="cart__info">
-            <div class="header">
-                <div class="title">Cart totals</div>
-            </div>
-            <div class="body">
-                <div class="row">
-                    <div class="title">Subtotal</div>
-                    <div class="value">${{cartTotal.toFixed(2)}}</div>
+            <div class="sticky__container">
+                <div class="header">
+                    <div class="title">{{ 'CART.cart_total' | translate }}</div>
                 </div>
-                <div class="row">
-                    <div class="title">Shipping</div>
-                    <div class="value">Free shipping</div>
-                </div>
-                <div class="row">
-                    <div class="title">Total</div>
-                    <div class="value">${{cartTotal.toFixed(2)}}</div>
-                </div>
-                <div class="btn__container">
-                    <app-secondary-btn [isFull]="true" textBtn="Place Order" (onClick)="onPlaceOrder()" />
+                <div class="body">
+                    <div class="row">
+                        <div class="title">{{ 'CART.tab1.subtotal' | translate }}</div>
+                        <div class="value">${{ cartTotal.toFixed(2) }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="title">{{ 'CART.tab1.shipping' | translate }}</div>
+                        <div class="value">{{ 'CART.tab1.shipping_value' | translate }}</div>
+                    </div>
+                    <div class="row">
+                        <div class="title">{{ 'CART.tab1.total' | translate }}</div>
+                        <div class="value">${{ cartTotal.toFixed(2) }}</div>
+                    </div>
+                    <div class="btn__container">
+                        <app-secondary-btn [isFull]="true" [textBtn]="'CART.tab1.place_order_btn' | translate" />
+                    </div>
                 </div>
             </div>
         </div>

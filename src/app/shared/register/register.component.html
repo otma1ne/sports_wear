@@ -1,14 +1,14 @@
 <div class="overlay" [ngClass]="{active : showRegister}" (click)="closeRegister()"></div>
 <div class="register__container" [ngClass]="{active : showRegister}">
-    <div class="title">Regsiter</div>
+    <div class="title">{{ 'REGISTER.title' | translate }}</div>
     <form [formGroup]="registerForm">
-        <input type="text" placeholder="Your name" formControlName="username">
-        <input type="text" placeholder="Your email" formControlName="email">
-        <input type="password" placeholder="Your password" formControlName="password">
+        <input type="text" [placeholder]="'REGISTER.username_placeholder' | translate" formControlName="username">
+        <input type="text" [placeholder]="'REGISTER.email_placeholder' | translate" formControlName="email">
+        <input type="password" [placeholder]="'REGISTER.password_placeholder' | translate" formControlName="password">
 
-        <app-secondary-btn textBtn="Register" [isFull]="true" [isLoading]="isLoading"
+        <app-secondary-btn [textBtn]="'REGISTER.register_btn' | translate" [isFull]="true" [isLoading]="isLoading"
             (onClick)="register()"></app-secondary-btn>
-        <app-primary-btn textBtn="Already sign up, login" theme="dark" [isFull]="true" [isLarge]="true"
+        <app-primary-btn [textBtn]="'REGISTER.login_btn' | translate" theme="dark" [isFull]="true" [isLarge]="true"
             (onClick)="login()"></app-primary-btn>
     </form>
 </div>
