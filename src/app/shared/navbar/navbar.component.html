@@ -25,7 +25,7 @@
                 <img src="../../../assets/images/Logo-dark-1.webp" alt="logo">
             </div>
             <ul class="menu" [ngClass]="{active : showMenu}">
-                <div class="close__icon" [svgIcon]="'Close_round_light'" (click)="handleShowMenu(false)"></div>
+                <div class="close__icon" [svgIcon]="'Close_round_light'" (click)="hnadleMenuClick(false)"></div>
                 <li (click)="handleMenuItemClick('home')">{{ 'NAVBAR.home' | translate }}</li>
                 <li (click)="handleMenuItemClick('fitness')">{{ 'NAVBAR.item1' | translate }}</li>
                 <li (click)="handleMenuItemClick('mens')">{{ 'NAVBAR.item2' | translate }}</li>
