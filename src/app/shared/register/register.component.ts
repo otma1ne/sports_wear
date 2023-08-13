@@ -58,8 +58,8 @@ export class RegisterComponent {
       };
       this.authService.register(user).subscribe({
         next: (res) => {
-          console.log(res);
           this.isLoading = false;
+          this.closeRegister();
         },
         error: (err) => {
           console.log(err);
