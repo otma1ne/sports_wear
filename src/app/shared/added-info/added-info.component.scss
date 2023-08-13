@@ -1,0 +1,37 @@
+@use "../../../styles/variables";
+@use "../../../styles/mixins";
+
+.added__info {
+    position: fixed;
+    z-index: 999999;
+    padding: 10px 16px;
+    background: black;
+    color: white;
+    top: 60px;
+    right: -100%;
+    font-family: variables.$font-stack3;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 12px;
+    transition: right .3s ease-in-out;
+
+    &.active {
+        right: 20px;
+    }
+
+    .icon__container {
+        margin-top: 4px;
+        fill: white;
+    }
+
+    .progress__bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0%;
+        height: 2.5px;
+        background: variables.$primary-color1;
+        transition: width 3s;
+    }
+}
