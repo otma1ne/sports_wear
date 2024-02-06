@@ -30,11 +30,8 @@
 
 /* Loader style */
 
-body, html {
-    overflow: hidden;
-}
-
 body {
+    overflow: hidden;
     &.loaded {
         overflow: auto;
     }
