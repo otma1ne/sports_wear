@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, Renderer2 } from '@angular/core';
 import { LoaderService } from './services/loader.service';
 import { pageTransitions } from './page-transitions';
 import { TranslateService } from '@ngx-translate/core';
@@ -16,6 +16,7 @@ import {
 } from './store/actions/auth.action';
 import { CartService } from './services/cart.service';
 import { AuthService } from './services/auth.service';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -32,6 +33,8 @@ export class AppComponent {
   userId: string = '';
 
   constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private renderer: Renderer2,
     public loaderService: LoaderService,
     private translate: TranslateService,
     private authStore: Store<{ auth: any }>,
@@ -86,6 +89,15 @@ export class AppComponent {
       this.isRtl = event.lang === 'ar';
       document.body.dir = this.isRtl ? 'rtl' : 'ltr';
     });
+  }
+
+  ngAfterViewInit(): void {
+    if (isPlatformBrowser(this.platformId)) {
+      window.addEventListener('load', () => {
+        let loader = this.renderer.selectRootElement('#loader');
+        if (loader.style.display !== 'none') loader.style.display = 'none';
+      });
+    }
   }
 
   getProductsFromCookie(): ProductCart[] {
