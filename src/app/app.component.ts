@@ -16,7 +16,7 @@ import {
 } from './store/actions/auth.action';
 import { CartService } from './services/cart.service';
 import { AuthService } from './services/auth.service';
-import { isPlatformBrowser } from '@angular/common';
+import { DOCUMENT, isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -34,6 +34,7 @@ export class AppComponent {
 
   constructor(
     @Inject(PLATFORM_ID) private platformId: Object,
+    @Inject(DOCUMENT) private document: Document,
     private renderer: Renderer2,
     public loaderService: LoaderService,
     private translate: TranslateService,
@@ -96,6 +97,7 @@ export class AppComponent {
       window.addEventListener('load', () => {
         let loader = this.renderer.selectRootElement('#loader');
         if (loader.style.display !== 'none') loader.style.display = 'none';
+        this.document.body.classList.add('loaded');
       });
     }
   }
