@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "sportswear": {
+    "azura": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/sportswear/browser",
+            "outputPath": "dist/azura/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -58,10 +58,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "sportswear:build:production"
+              "buildTarget": "azura:build:production"
             },
             "development": {
-              "buildTarget": "sportswear:build:development"
+              "buildTarget": "azura:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -69,7 +69,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "sportswear:build"
+            "buildTarget": "azura:build"
           }
         },
         "test": {
@@ -94,7 +94,7 @@
         "server": {
           "builder": "@angular-devkit/build-angular:server",
           "options": {
-            "outputPath": "dist/sportswear/server",
+            "outputPath": "dist/azura/server",
             "main": "server.ts",
             "tsConfig": "tsconfig.server.json",
             "inlineStyleLanguage": "scss"
@@ -117,12 +117,12 @@
           "builder": "@angular-devkit/build-angular:ssr-dev-server",
           "configurations": {
             "development": {
-              "browserTarget": "sportswear:build:development",
-              "serverTarget": "sportswear:server:development"
+              "browserTarget": "azura:build:development",
+              "serverTarget": "azura:server:development"
             },
             "production": {
-              "browserTarget": "sportswear:build:production",
-              "serverTarget": "sportswear:server:production"
+              "browserTarget": "azura:build:production",
+              "serverTarget": "azura:server:production"
             }
           },
           "defaultConfiguration": "development"
@@ -136,12 +136,12 @@
           },
           "configurations": {
             "production": {
-              "browserTarget": "sportswear:build:production",
-              "serverTarget": "sportswear:server:production"
+              "browserTarget": "azura:build:production",
+              "serverTarget": "azura:server:production"
             },
             "development": {
-              "browserTarget": "sportswear:build:development",
-              "serverTarget": "sportswear:server:development"
+              "browserTarget": "azura:build:development",
+              "serverTarget": "azura:server:development"
             }
           },
           "defaultConfiguration": "production"

@@ -1,6 +1,6 @@
 {
   "name": "azura",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,7 +9,7 @@
     "test": "ng test",
     "dev:ssr": "ng run azura:serve-ssr",
     "serve:ssr": "node dist/azura/server/main.js",
-    "build:ssr": "ng build --prod && ng run azura:server",
+    "build:ssr": "ng build && ng run azura:server",
     "prerender": "ng run azura:prerender"
   },
   "private": true,
