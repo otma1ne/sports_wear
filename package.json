@@ -7,10 +7,10 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "dev:ssr": "ng run sportswear:serve-ssr",
-    "serve:ssr": "node dist/sportswear/server/main.js",
-    "build:ssr": "ng build && ng run sportswear:server",
-    "prerender": "ng run sportswear:prerender"
+    "dev:ssr": "ng run azura:serve-ssr",
+    "serve:ssr": "node dist/azura/server/main.js",
+    "build:ssr": "ng build --prod && ng run azura:server",
+    "prerender": "ng run azura:prerender"
   },
   "private": true,
   "dependencies": {
