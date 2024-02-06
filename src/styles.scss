@@ -35,7 +35,7 @@ body, html {
 }
 
 body {
-    &loaded {
+    &.loaded {
         overflow: auto;
     }
 }
