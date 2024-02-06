@@ -28,6 +28,52 @@
     border-radius: 8px;
 }
 
+/* Loader style */
+
+body {
+    overflow: hidden;
+    &.loaded {
+        overflow: auto;
+    }
+}
+
+#loader {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+        content: '';
+        position: absolute;
+        width: 140px;
+        height: 100px;
+        background-image: url(./assets/images/logo2.webp);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
+        animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            opacity: 1;
+        }
+        50% {
+            opacity: .5;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+}
+
 .max__width {
     padding: 0 140px;
     width: 100%;
