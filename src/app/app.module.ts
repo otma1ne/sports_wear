@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule, HammerModule } from '@angular/platform-browser';
+import { BrowserModule, HammerModule, provideClientHydration } from '@angular/platform-browser';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -126,7 +126,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     EffectsModule.forRoot([]),
     NgxSkeletonLoaderModule,
   ],
-  providers: [CookieService],
+  providers: [CookieService, provideClientHydration()],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
