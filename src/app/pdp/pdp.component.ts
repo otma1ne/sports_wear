@@ -12,6 +12,7 @@ import { handleCarteState } from '../store/actions/cart.action';
 import { CookieService } from 'ngx-cookie-service';
 import { CartService } from '../services/cart.service';
 import { handleAddedInfoState } from '../store/actions/quickView.action';
+import { Meta, Title } from '@angular/platform-browser';
 
 SwiperCore.use([EffectFade, Zoom]);
 
@@ -50,7 +51,9 @@ export class PdpComponent {
     private cartStore: Store<{ cart: any }>,
     private cookieService: CookieService,
     private cartService: CartService,
-    private quickViewStore: Store<{ quickView: any }>
+    private quickViewStore: Store<{ quickView: any }>,
+    protected meta: Meta,
+    protected title: Title
   ) {
     this.auth$ = this.store.select('auth');
     this.auth$.subscribe((authData) => {
@@ -76,6 +79,11 @@ export class PdpComponent {
           this.relatedProducts = data.relatedProducts;
           this.isLoading = false;
           this.error = '';
+          this.title.setTitle(`Azura | ${this.product?.name ?? ''}`);
+          this.meta.updateTag({
+            name: 'description',
+            content: this.product?.description ?? '',
+          });
         });
     });
   }

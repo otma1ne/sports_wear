@@ -12,15 +12,22 @@ import { LoaderService } from './services/loader.service';
 import { filter } from 'rxjs/operators';
 import { PdpComponent } from './pdp/pdp.component';
 import { CartComponent } from './cart/cart.component';
+import { MetaResolverService } from './services/meta-resolver.service';
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+    resolve: {
+      metaData: MetaResolverService,
+    },
   },
   {
     path: 'shop',
     component: ShopComponent,
+    resolve: {
+      metaData: MetaResolverService,
+    },
   },
   {
     path: 'product/:id',
