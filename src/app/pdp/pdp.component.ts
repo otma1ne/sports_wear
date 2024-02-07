@@ -60,6 +60,7 @@ export class PdpComponent {
 
   ngOnInit() {
     this.route.params.subscribe((params) => {
+      this.isLoading = true;
       const productId = params['id'];
       this.productService
         .getProduct(productId)
@@ -71,7 +72,6 @@ export class PdpComponent {
           })
         )
         .subscribe((data) => {
-          console.log(data);
           this.product = data.product;
           this.relatedProducts = data.relatedProducts;
           this.isLoading = false;
