@@ -1,6 +1,6 @@
 <div class="card" (click)="handleCardClick()">
     <div class="img__container" (mouseenter)="onHoverStart()" (mouseleave)="onHoverEnd()">
-        <img [src]="'../../../assets/images/products/' + product!.images[currentImg]" alt="product">
+        <img [src]="product!.images[currentImg]" alt="product">
         <div class="info__container">
             <div class="sale" *ngIf="product?.onsale">-{{product!.salePercent}}%</div>
             <div class="hot" *ngIf="product?.isHot">Hot</div>
