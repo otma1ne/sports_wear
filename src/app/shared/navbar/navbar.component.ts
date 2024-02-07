@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Store } from '@ngrx/store';
@@ -15,6 +15,7 @@ import {
   handleAuthState,
   handleUserState,
 } from 'src/app/store/actions/auth.action';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-navbar',
@@ -47,7 +48,8 @@ export class NavbarComponent {
     private cartStore: Store<{ cart: any }>,
     private authStore: Store<{ auth: any }>,
     private authService: AuthService,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    @Inject(DOCUMENT) private document: Document
   ) {
     translate.setDefaultLang('en');
     this.header$ = store.select('header');
@@ -66,6 +68,14 @@ export class NavbarComponent {
     });
     this.username = this.cookieService.get('username');
     this.email = this.cookieService.get('email');
+  }
+
+  ngOnInit() {
+    const currentLanguage = this.translate.getBrowserLang();
+    const laguageSelector = this.document.querySelector(
+      `#lang-selector option[value=${currentLanguage}]`
+    );
+    laguageSelector?.setAttribute('selected', 'true');
   }
 
   switchLanguage(event: Event) {
