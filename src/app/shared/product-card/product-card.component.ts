@@ -119,4 +119,13 @@ export class ProductCardComponent {
       handleQuickProductState({ state: this.product! })
     );
   }
+
+  optimiseImageUrl(url: string): string {
+    if (url.includes('upload')) {
+      const optimizedUrl = url.replace('upload', 'upload/w_500/q_auto/f_auto/');
+      return optimizedUrl;
+    } else {
+      return url;
+    }
+  }
 }
