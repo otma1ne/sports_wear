@@ -94,11 +94,11 @@ export class AppComponent {
 
   ngAfterViewInit(): void {
     if (isPlatformBrowser(this.platformId)) {
-      window.addEventListener('load', () => {
-        let loader = this.renderer.selectRootElement('#loader');
-        if (loader.style.display !== 'none') loader.style.display = 'none';
-        this.document.body.classList.add('loaded');
-      });
+      let loader = this.renderer.selectRootElement('#loader');
+      if (loader.style.display !== 'none') {
+        loader.style.display = 'none';
+        this.renderer.addClass(document.body, 'loaded');
+      }
     }
   }
 
