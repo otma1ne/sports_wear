@@ -1,6 +1,6 @@
 <div class="product">
     <div class="img__container">
-        <img [src]="product!.images[0]" [alt]="product?.name">
+        <img [src]="optimiseImageUrl(product!.images[0], 120)" [alt]="product?.name">
     </div>
     <div class="product__info">
         <div class="name">{{ product?.name }}</div>

@@ -1,20 +1,23 @@
 <div class="product__cart">
-    <div class="img__container">
-        <img [src]="product!.images[0]" alt="">
+  <div class="img__container">
+    <img [src]="optimiseImageUrl(product!.images[0], 120)" alt="" />
+  </div>
+  <div class="info">
+    <div class="name">{{ product!.name }}</div>
+    <div class="qty">Qte : {{ product?.quantity }}</div>
+    <div class="price" [ngClass]="{ sold: product?.onsale }">
+      <div class="init__price">${{ product?.price?.toFixed(2) }}</div>
+      <div class="sold__price" *ngIf="product?.onsale">
+        ${{ product?.sale_price }}
+      </div>
     </div>
-    <div class="info">
-        <div class="name">{{ product!.name }}</div>
-        <div class="qty">Qte : {{product?.quantity}}</div>
-        <div class="price" [ngClass]="{sold : product?.onsale}">
-            <div class="init__price">
-                ${{product?.price?.toFixed(2)}}
-            </div>
-            <div class="sold__price" *ngIf="product?.onsale">
-                ${{product?.sale_price}}
-            </div>
-        </div>
-    </div>
-    <div class="close">
-        <div class="icon_container" svgIcon="trash" size="14" (click)="handleDeleteProduct()"></div>
-    </div>
+  </div>
+  <div class="close">
+    <div
+      class="icon_container"
+      svgIcon="trash"
+      size="14"
+      (click)="handleDeleteProduct()"
+    ></div>
+  </div>
 </div>

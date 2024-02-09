@@ -155,4 +155,13 @@ export class PdpComponent {
     }
     return [];
   }
+
+  optimiseImageUrl(url: string, width: number): string {
+    if (url.includes('upload')) {
+      const optimizedUrl = url.replace('upload', `upload/w_${width}/q_auto/f_auto/`);
+      return optimizedUrl;
+    } else {
+      return url;
+    }
+  }
 }
