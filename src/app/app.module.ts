@@ -134,7 +134,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [
     CookieService,
     provideClientHydration(),
-    /* { provide: LocationStrategy, useClass: HashLocationStrategy }, */
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
   ],
   bootstrap: [AppComponent],
 })
