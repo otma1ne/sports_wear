@@ -1,3 +1,7 @@
+[[build]]
+  publish = "dist/your-angular-ssr-app"
+  command = "npm run build:ssr && npm run serve:ssr"
+
 [[redirects]]
   from = "/*"
   to = "/main.js"
