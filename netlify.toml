@@ -1,6 +1,5 @@
 [build]
-  publish = "dist/your-angular-ssr-app"
-  command = "npm run build:ssr && npm run serve:ssr"
+  publish = "dist/azura/browser"
 
 [[redirects]]
   from = "/*"
