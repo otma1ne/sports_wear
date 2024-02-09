@@ -6,7 +6,10 @@ import { Product } from 'src/app/models/product.model';
 import { ProductCart } from 'src/app/models/product_cart.model';
 import { CartService } from 'src/app/services/cart.service';
 import { handleCarteState } from 'src/app/store/actions/cart.action';
-import { handleAddedInfoState, handleQuickViewState } from 'src/app/store/actions/quickView.action';
+import {
+  handleAddedInfoState,
+  handleQuickViewState,
+} from 'src/app/store/actions/quickView.action';
 
 @Component({
   selector: 'app-quick-view',
@@ -106,5 +109,14 @@ export class QuickViewComponent {
       return JSON.parse(productsString);
     }
     return [];
+  }
+
+  optimiseImageUrl(url: string): string {
+    if (url.includes('upload')) {
+      const optimizedUrl = url.replace('upload', 'upload/w_500/q_auto/f_auto/');
+      return optimizedUrl;
+    } else {
+      return url;
+    }
   }
 }
