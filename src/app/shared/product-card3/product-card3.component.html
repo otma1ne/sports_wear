@@ -1,29 +1,34 @@
 <div class="card" (click)="handleCardClick()">
-    <div class="img__container">
-        <img [src]="product!.images[0]" [alt]="product?.name">
+  <div class="img__container">
+    <img [src]="optimiseImageUrl(product!.images[0], 300)" [alt]="product?.name" />
+  </div>
+  <div class="product__info">
+    <div class="rating">
+      <star-rating
+        [starType]="'svg'"
+        [rating]="product?.rating || 3"
+        size="small"
+        staticColor="ok"
+      ></star-rating>
     </div>
-    <div class="product__info">
-        <div class="rating">
-            <star-rating [starType]="'svg'" [rating]="product?.rating || 3" size="small" staticColor="ok"></star-rating>
-        </div>
-        <div class="name">
-            {{product?.name}}
-        </div>
-        <div class="price" [ngClass]="{sold : product?.onsale}">
-            <div class="init__price">
-                ${{product?.price?.toFixed(2)}}
-            </div>
-            <div class="sold__price" *ngIf="product?.onsale">
-                ${{product?.sale_price}}
-            </div>
-        </div>
-        <div class="btn__container">
-            <app-secondary-btn [textBtn]="'PRODUCTCARD.add_to_cart' | translate"
-                (onClick)="handleAddToCart($event)"></app-secondary-btn>
-        </div>
-        <div class="divider"></div>
-        <div class="desc">
-            {{product?.description}}
-        </div>
+    <div class="name">
+      {{ product?.name }}
     </div>
+    <div class="price" [ngClass]="{ sold: product?.onsale }">
+      <div class="init__price">${{ product?.price?.toFixed(2) }}</div>
+      <div class="sold__price" *ngIf="product?.onsale">
+        ${{ product?.sale_price }}
+      </div>
+    </div>
+    <div class="btn__container">
+      <app-secondary-btn
+        [textBtn]="'PRODUCTCARD.add_to_cart' | translate"
+        (onClick)="handleAddToCart($event)"
+      ></app-secondary-btn>
+    </div>
+    <div class="divider"></div>
+    <div class="desc">
+      {{ product?.description }}
+    </div>
+  </div>
 </div>
