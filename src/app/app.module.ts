@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import {
   BrowserModule,
-  HammerModule,
   provideClientHydration,
 } from '@angular/platform-browser';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -60,7 +59,7 @@ import { QuickViewComponent } from './shared/quick-view/quick-view.component';
 import { quickViewReducer } from './store/reducers/quickView.reducer';
 import { LoginAlertComponent } from './shared/login-alert/login-alert.component';
 import { AddedInfoComponent } from './shared/added-info/added-info.component';
-import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -134,7 +133,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [
     CookieService,
     provideClientHydration(),
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    { provide: LocationStrategy, useClass: PathLocationStrategy },
   ],
   bootstrap: [AppComponent],
 })
