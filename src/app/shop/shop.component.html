@@ -110,6 +110,9 @@
                 <div class="products" *ngIf="isLoading">
                     <app-product-card-skeleton *ngFor="let items of [0, 1, 2]" />
                 </div>
+                <div class="more__btn" *ngIf="!isLoading && hasNextPage">
+                    <button (click)="loadMoreProducts()">Load more</button>
+                </div>
             </div>
         </div>
     </div>

@@ -26,6 +26,9 @@ export class ShopComponent {
   isLoading: boolean = true;
   shopType: string = 'shopType1';
   showFilter: boolean = false;
+  page: number = 1;
+  limit: number = 10;
+  hasNextPage: boolean = false;
   subscription = new Subscription();
 
   constructor(
@@ -44,9 +47,11 @@ export class ShopComponent {
 
   fetchProducts() {
     this.isLoading = true;
-    this.subscription = this.productService.getProducts().subscribe({
-      next: (products: Product[]) => {
-        this.products = products;
+    this.subscription = this.productService.getProducts(1, 1).subscribe({
+      next: (data: any) => {
+        console.log(data);
+        this.products = data.products;
+        this.hasNextPage = data.hasNextPage;
         this.isLoading = false;
         this.setProducts();
         this.getMinMaxPrice();
@@ -57,6 +62,8 @@ export class ShopComponent {
       },
     });
   }
+
+  loadMoreProducts() {}
 
   getCategoryLength(category: string): Number {
     if (category === 'all') return this.products.length;

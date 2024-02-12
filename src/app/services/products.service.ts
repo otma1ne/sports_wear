@@ -9,9 +9,14 @@ import { Product } from '../models/product.model';
 export class ProductsService {
   constructor(private http: HttpClient) {}
 
-  getProducts() {
+  getProducts(page?: number, limit?: number) {
     const url = `${BASE_URL}/products`;
-    return this.http.get<Product[]>(url);
+    const requestBody = {
+      limit: limit,
+      page: page,
+    };
+
+    return this.http.post<Product[]>(url, requestBody);
   }
 
   getProduct(id: string) {
