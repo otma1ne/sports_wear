@@ -5,7 +5,7 @@ import { Product } from '../models/product.model';
 import { pageTransitions } from '../page-transitions';
 import { ProductsService } from '../services/products.service';
 import { ActivatedRoute } from '@angular/router';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, Subscription, catchError, throwError } from 'rxjs';
 import { ProductCart } from '../models/product_cart.model';
 import { Store } from '@ngrx/store';
 import { handleCarteState } from '../store/actions/cart.action';
@@ -43,6 +43,7 @@ export class PdpComponent {
 
   auth$: Observable<any>;
   isAuth: boolean = false;
+  subscription = new Subscription();
 
   constructor(
     private productService: ProductsService,
@@ -65,7 +66,7 @@ export class PdpComponent {
     this.route.params.subscribe((params) => {
       this.isLoading = true;
       const productId = params['id'];
-      this.productService
+      this.subscription = this.productService
         .getProduct(productId)
         .pipe(
           catchError((err) => {
@@ -162,6 +163,12 @@ export class PdpComponent {
       return optimizedUrl;
     } else {
       return url;
+    }
+  }
+
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
     }
   }
 }

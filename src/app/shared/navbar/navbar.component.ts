@@ -2,7 +2,7 @@ import { Component, HostListener, Inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import {
   handleCartState,
   handleLoginState,
@@ -40,6 +40,7 @@ export class NavbarComponent {
   selectedLang = 'en';
   username: string = '';
   email: string = '';
+  subscription = new Subscription();
 
   constructor(
     private translate: TranslateService,

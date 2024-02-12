@@ -4,7 +4,7 @@ import { Product } from 'src/app/models/product.model';
 import { SwiperOptions } from 'swiper';
 import { SwiperComponent } from 'swiper/angular';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-categories',
@@ -41,6 +41,8 @@ export class CategoriesComponent {
     },
   };
 
+  subscription = new Subscription();
+
   constructor(
     private productService: ProductsService,
     private router: Router
@@ -75,7 +77,7 @@ export class CategoriesComponent {
         console.error('Invalid product type');
         return;
     }
-    productObservable.subscribe({
+    this.subscription = productObservable.subscribe({
       next: (products: Product[]) => {
         this.products = products;
         this.isLoading = false;
@@ -111,5 +113,11 @@ export class CategoriesComponent {
   handleClickCat(value: string) {
     this.activeCategory = value;
     this.fetchProducts();
+  }
+
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }

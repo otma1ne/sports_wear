@@ -3,6 +3,7 @@ import { pageTransitions } from '../page-transitions';
 import { Product } from '../models/product.model';
 import { ProductsService } from '../services/products.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-shop',
@@ -25,6 +26,7 @@ export class ShopComponent {
   isLoading: boolean = true;
   shopType: string = 'shopType1';
   showFilter: boolean = false;
+  subscription = new Subscription();
 
   constructor(
     private productService: ProductsService,
@@ -42,7 +44,7 @@ export class ShopComponent {
 
   fetchProducts() {
     this.isLoading = true;
-    this.productService.getProducts().subscribe({
+    this.subscription = this.productService.getProducts().subscribe({
       next: (products: Product[]) => {
         this.products = products;
         this.isLoading = false;
@@ -131,5 +133,11 @@ export class ShopComponent {
 
   handleShowFilter(value: boolean) {
     this.showFilter = value;
+  }
+
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 }
