@@ -45,8 +45,8 @@ export class ShopComponent {
   fetchProducts() {
     this.isLoading = true;
     this.subscription = this.productService.getProducts().subscribe({
-      next: (products: Product[]) => {
-        this.products = products;
+      next: (products: any) => {
+        this.products = products.products;
         this.isLoading = false;
         this.setProducts();
         this.getMinMaxPrice();
